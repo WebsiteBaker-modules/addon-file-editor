@@ -3,10 +3,10 @@
  * 
  * LICENSE: GNU General Public License 3.0
  * 
- * @platform    CMS Silverstripe 2.4.5
- * @package     silverstripe-shortcode
+ * @platform    CMS Websitebaker 2.8.x
+ * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     1.0.0
+ * @version     2.0.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
