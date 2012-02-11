@@ -1,0 +1,32 @@
+/**
+ * README - Short how to for using the Website Baker CMS addon-file-editor module.
+ * 
+ * LICENSE: GNU General Public License 3.0
+ * 
+ * @platform    CMS Silverstripe 2.4.5
+ * @package     silverstripe-shortcode
+ * @author      cwsoft (http://cwsoft.de)
+ * @version     1.0.0
+ * @copyright   cwsoft
+ * @license     http://www.gnu.org/licenses/gpl.html
+*/
+
+Detailed information about the module can be found in the HELP files located in the /help folder of the module.
+
+NOTE: 
+When you have downloaded the module from Github as archived file (zip), you may need to unzip and re-zip the file
+before it can be installed via the Website Baker backend (section Add-ons / modules). To pass the Website Baker
+installation routine, Add-on files (zip packages) must NOT include the module folder itself, just the module files.
+
+WRONG ZIP file structure:
+/addon_file_editor
+ /subfolder
+ file
+ 
+Required ZIP file structure:
+ /subfolder
+ file
+
+
+
+
