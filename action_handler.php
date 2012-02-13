@@ -14,7 +14,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.1.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -40,14 +40,6 @@ $help_file = 'help_' . (file_exists(dirname(__FILE__) . '/help/help_' . strtolow
 // check user permissions for admintools (redirect users with wrong permissions)
 $admin = new admin('Admintools', 'admintools', false, false);
 if ($admin->get_permission('admintools') == false) die(header('Location: ../../index.php'));
-
-// check if the referer URL if available
-$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 
-	(isset($HTTP_SERVER_VARS['HTTP_REFERER']) ? $HTTP_SERVER_VARS['HTTP_REFERER'] : '');
-
-// if referer is set, check if script was invoked from "tool.php" or "action_handler.php"
-if ($referer != '' && (!(strpos($referer, $url_admintools) !== false || strpos($referer, $url_action_handler) !== false))) 
-	die(header('Location: ' . $url_admintools));
 
 /**
  * Make sanity check of user specified values
@@ -397,5 +389,3 @@ switch ($action) {
 
 // print admin template footer
 $admin->print_footer();
-
-?>

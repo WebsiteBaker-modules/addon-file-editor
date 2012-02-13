@@ -14,7 +14,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.1.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -37,14 +37,6 @@ require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $
 // check user permissions for admintools (redirect users with wrong permissions)
 $admin = new admin('Admintools', 'admintools', false, false);
 if ($admin->get_permission('admintools') == false) die(header('Location: ../../index.php'));
-
-// check if the referer URL if available
-$referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 
-	(isset($HTTP_SERVER_VARS['HTTP_REFERER']) ? $HTTP_SERVER_VARS['HTTP_REFERER'] : '');
-
-// if referer is set, check if script was invoked from "tool.php"
-if ($referer != '' && (!(strpos($referer, $url_admintools) !== false))) 
-	die(header('Location: ' . $url_admintools));
 
 // create new instance this time showing the admin panel (no headers possible anymore)
 ob_start();
@@ -85,10 +77,7 @@ if ($info['type'] == 'language') {
 	require_once(WB_PATH . '/include/pclzip/pclzip.lib.php');
 	$archive = new PclZip($temp_zip_path . $info['directory'] . '.zip');
 			
-	// remove leading path information to achieve a installable *.zip file
-	$strip_path = strstr($addon_path, $path_sep);
-
-	$list = $archive->create($addon_path, PCLZIP_OPT_REMOVE_PATH, $strip_path);
+	$list = $archive->create($addon_path, PCLZIP_OPT_REMOVE_PATH, $addon_path);
 	if ($list == 0) {
 		ob_end_flush();
 		$admin->print_error($LANG[9]['ERR_ZIP_CREATION'], $url_admintools);
@@ -114,5 +103,3 @@ if (PEAR::isError($status)) {
 	$admin = new admin('Admintools', 'admintools', true, false);
 	$admin->print_error(str_replace('{URL}', $url_download_file, $LANG[9]['ERR_ZIP_DOWNLOAD']), $url_admintools);
 }
-	
-?>

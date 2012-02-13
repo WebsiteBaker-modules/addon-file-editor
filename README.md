@@ -10,7 +10,7 @@ Optionally, you can activate the FTP layer, which allows you to access Add-ons n
 
 ## Prerequisites
 
-The Addon File Editor was tested with ***WebsiteBaker v2.8.2***.
+WebsiteBaker series 2.8.x (from version 2.8.2 onwards)
 
 ## Installation
 
