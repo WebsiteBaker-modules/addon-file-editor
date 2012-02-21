@@ -1,3 +1,4 @@
+<?php
 /**
  * Admin tool: Addon File Editor
  *
@@ -5,7 +6,7 @@
  * Add-ons such as modules, templates and languages via the Website Baker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
- * This file includes the CSS files required for the backend view of this module.
+ * This file prevents directory listing.
  * 
  * LICENSE: GNU General Public License 3.0
  * 
@@ -17,4 +18,5 @@
  * @license     http://www.gnu.org/licenses/gpl.html
 */
 
-@import "css/addon-file-editor.css";
+// prevent this file from being accessed directly
+if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
