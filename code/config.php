@@ -65,11 +65,3 @@ $url_help = 'https://github.com/cwsoft/wb-addon-file-editor#readme';
 
 $temp_zip_path = WB_PATH . $path_sep . 'temp' . $path_sep . $module_folder . $path_sep;
 $url_mod_path = WB_URL . '/modules/' . $module_folder;
-
-// version check
-if (!isset($no_check) && !file_exists(ADMIN_PATH . '/admintools/tool.php')) {
-	// load module language file
-	$lang = (dirname(__FILE__)) . '/languages/' . LANGUAGE . '.php';
-	require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $lang );
-	$admin->print_error('<br /><strong style="color: red;">' . $LANG[0]['TXT_VERSION_ERROR'] . '</strong>');
-}
