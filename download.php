@@ -14,7 +14,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.1.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -92,7 +92,7 @@ if ($info['type'] == 'language') {
  * Send the add-on backup to the browser using PEAR Download class
  */
 ob_end_clean();
-require('./lib/Download.php');
+require('./thirdparty/Download.php');
 $dl = new HTTP_Download();
 $dl->setContentType($content_type);
 $dl->setFile($path_to_download_file);

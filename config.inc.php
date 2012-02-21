@@ -56,7 +56,7 @@ $module_folder = str_replace(WB_PATH . $path_sep . 'modules' . $path_sep, '', di
  * PATH AND URL VARIABLES USED BY THE MODULE
 */
 $table = TABLE_PREFIX . 'addons';
-$url_icon_folder = WB_URL . '/modules/' . $module_folder . '/icons';
+$url_icon_folder = WB_URL . '/modules/' . $module_folder . '/images';
 $url_admintools = ADMIN_URL . '/admintools/tool.php?tool=' . $module_folder;
 $url_action_handler = WB_URL . '/modules/' . $module_folder . '/action_handler.php';
 $url_ftp_assistant = WB_URL . '/modules/' . $module_folder . '/ftp_assistant.php';

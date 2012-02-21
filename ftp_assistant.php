@@ -45,7 +45,7 @@ $admin = myAdminHandler('addon_file_editor', 'Admintools', 'admintools', true, f
  */
 // include template class and set template directory
 require_once(WB_PATH . '/include/phplib/template.inc');
-$tpl = new Template(dirname(__FILE__) . '/htt');
+$tpl = new Template(dirname(__FILE__) . '/templates');
 $tpl->set_file('page', 'ftp_connection_check.htt');
 $tpl->set_block('page', 'settings_block', 'settings_replace');
 

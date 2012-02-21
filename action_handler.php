@@ -60,7 +60,7 @@ if ($action < 4 && ($aid == '' || $fid == '')) $admin->print_error($LANG[3]['ERR
  */
 // include template class and set template directory
 require_once(WB_PATH . '/include/phplib/template.inc');
-$tpl = new Template(dirname(__FILE__) . '/htt');
+$tpl = new Template(dirname(__FILE__) . '/templates');
 $tpl->set_unknowns('keep');
 
 // create array with template files and language variables based on action handler

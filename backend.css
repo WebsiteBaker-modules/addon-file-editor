@@ -12,7 +12,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -35,7 +35,7 @@
 display: block;
 margin: 1em 0;
 padding-left: 20px;
-background: url(icons/back.png) left center no-repeat;
+background: url(images/back.png) left center no-repeat;
 }
 
 #mod_addon_file_editor p {
@@ -126,7 +126,7 @@ margin: 1em 0em;
 padding: 1.0em;
 padding-left: 4em;
 border: 1.5px solid #FF0000;
-background: #FFF0F0 url(icons/warning.png) 0.5em center no-repeat;
+background: #FFF0F0 url(images/warning.png) 0.5em center no-repeat;
 line-height: 1.2em;
 }
 
@@ -136,7 +136,7 @@ margin: 1em 0em;
 padding: 1.0em;
 padding-left: 4em;
 border: 1.5px solid #2D9D3B;
-background: #F0F6EA url(icons/success.gif) 0.5em center no-repeat;
+background: #F0F6EA url(images/success.gif) 0.5em center no-repeat;
 line-height: 1.2em;
 }
 
@@ -146,7 +146,7 @@ margin: 1em 0em;
 padding: 1.0em;
 padding-left: 4em;
 border: 1.5px solid #6B90DA;
-background: #F0F7F9 url(icons/info.png) 0.5em center no-repeat;
+background: #F0F7F9 url(images/info.png) 0.5em center no-repeat;
 line-height: 1.2em;
 }
 
@@ -180,13 +180,13 @@ text-decoration: underline;
 
 #mod_addon_file_editor th.expanded {
 padding-left: 2em;
-background: #DFE1E5 url(icons/expand.png) 0.2em center no-repeat;
+background: #DFE1E5 url(images/expand.png) 0.2em center no-repeat;
 cursor:pointer;
 }
 
 #mod_addon_file_editor th.collapsed {
 padding-left: 2em;
-background: #DFE1E5 url(icons/collapse.png) 0.2em center no-repeat;
+background: #DFE1E5 url(images/collapse.png) 0.2em center no-repeat;
 cursor:pointer;
 }
 

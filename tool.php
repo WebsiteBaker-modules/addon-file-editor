@@ -34,7 +34,7 @@ require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $
 */
 // include template class and set template directory
 require_once(WB_PATH . '/include/phplib/template.inc');
-$tpl = new Template(dirname(__FILE__) . '/htt');
+$tpl = new Template(dirname(__FILE__) . '/templates');
 
 // get valid addon- and file id from $_GET parameter
 cleanGetParameters($aid, $fid);
