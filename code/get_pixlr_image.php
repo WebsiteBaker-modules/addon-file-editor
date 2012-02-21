@@ -13,7 +13,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -23,25 +23,25 @@
  */
 // check if required GET parameter are defined
 if (!(isset($_GET['img_path']) && isset($_GET['image']) && isset($_GET['type']) && isset($_GET['state']) && isset($_GET['title']))) 
-	die(header('Location: ../../index.php'));
+	die(header('Location: ../../../index.php'));
 
 // include WB configuration file (restarts sessions) and WB admin class
-require_once('../../config.php');
-require_once('../../framework/class.admin.php');
+require_once('../../../config.php');
+require_once('../../../framework/class.admin.php');
 
 // check if image URL points to the pixlr.com server and the image exists on the own server
 if (strpos($_GET['image'], 'pixlr.com') == false || !file_exists(WB_PATH . $_GET['img_path'])) 
-	die(header('Location: ../../index.php'));
+	die(header('Location: ../../../index.php'));
 
 /**
  * Ensure that only users with permissions to Admin-Tools section can access this file
  */
 // check user permissions for admintools (redirect users with wrong permissions)
 $admin = new admin('Admintools', 'admintools', false, false);
-if ($admin->get_permission('admintools') == false) die(header('Location: ../../index.php'));
+if ($admin->get_permission('admintools') == false) exit("Cannot access this file directly");
 
 // include module configuration and function file
-require_once('config.inc.php');
+require_once('config.php');
 
 // work out file extension for the image to be saved
 $type = in_array($_GET['type'], $image_extensions) ? $_GET['type'] : 'jpg';
@@ -66,5 +66,3 @@ if (fwrite($handle, $file) !== false) {
 }
 
 echo '<p><a href="" onClick="JavaScript:self.close()">close window</a></p>';
-
-?>

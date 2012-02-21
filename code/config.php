@@ -50,7 +50,8 @@ $pixlr_support = false;
 #########################################################################################################
 // extract path seperator and detect this module name
 $path_sep = strtoupper(substr(PHP_OS, 0, 3) == 'WIN') ? '\\' : '/';
-$module_folder = str_replace(WB_PATH . $path_sep . 'modules' . $path_sep, '', dirname(__FILE__));
+$module_path = dirname(dirname(__FILE__) . '../');
+$module_folder = basename($module_path);
 
 /**
  * PATH AND URL VARIABLES USED BY THE MODULE
@@ -58,8 +59,8 @@ $module_folder = str_replace(WB_PATH . $path_sep . 'modules' . $path_sep, '', di
 $table = TABLE_PREFIX . 'addons';
 $url_icon_folder = WB_URL . '/modules/' . $module_folder . '/images';
 $url_admintools = ADMIN_URL . '/admintools/tool.php?tool=' . $module_folder;
-$url_action_handler = WB_URL . '/modules/' . $module_folder . '/action_handler.php';
-$url_ftp_assistant = WB_URL . '/modules/' . $module_folder . '/ftp_assistant.php';
+$url_action_handler = WB_URL . '/modules/' . $module_folder . '/code/action_handler.php';
+$url_ftp_assistant = WB_URL . '/modules/' . $module_folder . '/code/ftp_assistant.php';
 $url_help = 'https://github.com/cwsoft/wb-addon-file-editor#readme';
 
 $temp_zip_path = WB_PATH . $path_sep . 'temp' . $path_sep . $module_folder . $path_sep;

@@ -19,22 +19,22 @@
 */
 
 // prevent this file from being accessed directly
-if (!defined('WB_PATH')) die(header('Location: ../../index.php'));
+if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
 
 // include module configuration and function file
-require_once('config.inc.php');
-require_once('functions.inc.php');
+require_once('code/config.php');
+require_once('code/functions.php');
 
 // load module language file
-$lang = (dirname(__FILE__)) . '/languages/' . LANGUAGE . '.php';
-require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $lang );
+$lang = $module_path . '/languages/' . LANGUAGE . '.php';
+require_once(!file_exists($lang) ? $module_path . '/languages/EN.php' : $lang );
 
 /**
  * Show outputs depending on selected display mode
 */
 // include template class and set template directory
 require_once(WB_PATH . '/include/phplib/template.inc');
-$tpl = new Template(dirname(__FILE__) . '/templates');
+$tpl = new Template($module_path . '/templates');
 
 // get valid addon- and file id from $_GET parameter
 cleanGetParameters($aid, $fid);
@@ -91,7 +91,7 @@ if ($aid == '') {
 			'URL_EDIT_ADDON'		=> $url_admintools . '&amp;aid=' . $addon_id,
 			'TXT_EDIT_ADDON_FILE'	=> $LANG[1]['TXT_EDIT_' . "{$addon_type}" . '_FILES'] . 
 										((is_writeable($addon['file'])) ? '' : $LANG[1]['TXT_FTP_SUPPORT']),
-			'URL_ZIP_ADDON'			=> $url_mod_path . '/download.php?aid=' . $addon_id,
+			'URL_ZIP_ADDON'			=> $url_mod_path . '/code/download.php?aid=' . $addon_id,
 			'TXT_ZIP_ADDON_FILES'	=> $LANG[1]['TXT_ZIP_' . "{$addon_type}" . '_FILES'],
 			'URL_ICON_FOLDER'		=> $url_icon_folder
 			)

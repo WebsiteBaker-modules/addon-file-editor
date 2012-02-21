@@ -13,7 +13,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -25,10 +25,8 @@ if (!defined('WB_PATH')) die(header('Location: ../../index.php'));
 $table = TABLE_PREFIX . 'mod_addon_file_editor';
 $database->query("DROP TABLE IF EXISTS `$table`");
 
-// remove temporary download folder in /temp if exists (do not perform module version check in config.inc.php)
+// remove temporary download folder in /temp if exists (do not perform module version check in code/config.php)
 $no_check = true;
-require_once('config.inc.php');
-require_once('functions.inc.php');
+require_once('code/config.php');
+require_once('code/functions.php');
 removeFileOrFolder($temp_zip_path);
-
-?>

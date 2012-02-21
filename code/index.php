@@ -6,7 +6,7 @@
  * Add-ons such as modules, templates and languages via the Website Baker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
- * This file contains the installation checks executed prior to the installation of the module
+ * This file prevents directory listing.
  * 
  * LICENSE: GNU General Public License 3.0
  * 
@@ -20,15 +20,3 @@
 
 // prevent this file from being accessed directly
 if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
-
-/**
- * Check if minimum requirements for this module are fullfilled
- * Only checked in Website Baker 2.8 or higher
- */
-$PRECHECK = array(
-	// ensure Website Baker 2.8.x series (starting from 2.8.2 onwards)
-	'WB_VERSION'	=> array('VERSION' => '2.8.2', 'OPERATOR' => '>='),
-	
-	// make sure PHP version is 5.2.2 or higher
-	'PHP_VERSION'	=> array('VERSION' => '5.2.2', 'OPERATOR' => '>=')
-);

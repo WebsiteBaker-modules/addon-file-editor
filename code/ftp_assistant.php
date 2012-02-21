@@ -19,23 +19,23 @@
 */
 
 // include WB configuration file (restarts sessions) and WB admin class
-require_once('../../config.php');
-require_once('../../framework/class.admin.php');
+require_once('../../../config.php');
+require_once('../../../framework/class.admin.php');
 
 // include module configuration and function file
-require_once('config.inc.php');
-require_once('functions.inc.php');
+require_once('config.php');
+require_once('functions.php');
 
 // load module language file
-$lang = (dirname(__FILE__)) . '/languages/' . LANGUAGE . '.php';
-require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $lang );
+$lang = $module_path . '/languages/' . LANGUAGE . '.php';
+require_once(!file_exists($lang) ? $module_path . '/languages/EN.php' : $lang );
 
 /**
  * Ensure that only users with permissions to Admin-Tools section can access this file
  */
 // check user permissions for admintools (redirect users with wrong permissions)
 $admin = new admin('Admintools', 'admintools', false, false);
-if ($admin->get_permission('admintools') == false) die(header('Location: ../../index.php'));
+if ($admin->get_permission('admintools') == false) exit("Cannot access this file directly");
 
 // create new instance this time showing the admin panel (no headers possible anymore)
 $admin = myAdminHandler('addon_file_editor', 'Admintools', 'admintools', true, false);
@@ -45,7 +45,7 @@ $admin = myAdminHandler('addon_file_editor', 'Admintools', 'admintools', true, f
  */
 // include template class and set template directory
 require_once(WB_PATH . '/include/phplib/template.inc');
-$tpl = new Template(dirname(__FILE__) . '/templates');
+$tpl = new Template($module_path . '/templates');
 $tpl->set_file('page', 'ftp_connection_check.htt');
 $tpl->set_block('page', 'settings_block', 'settings_replace');
 

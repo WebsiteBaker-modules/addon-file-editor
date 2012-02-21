@@ -20,23 +20,23 @@
 */
 
 // include WB configuration file (restarts sessions) and WB admin class
-require_once('../../config.php');
-require_once('../../framework/class.admin.php');
+require_once('../../../config.php');
+require_once('../../../framework/class.admin.php');
 
 // include module configuration and function file
-require_once('config.inc.php');
-require_once('functions.inc.php');
+require_once('config.php');
+require_once('functions.php');
 
 // load module language file
-$lang = (dirname(__FILE__)) . '/languages/' . LANGUAGE . '.php';
-require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $lang );
+$lang = $module_path . '/languages/' . LANGUAGE . '.php';
+require_once(!file_exists($lang) ? $module_path . '/languages/EN.php' : $lang );
 
 /**
  * Ensure that only users with permissions to Admin-Tools section can access this file
  */
 // check user permissions for admintools (redirect users with wrong permissions)
 $admin = new admin('Admintools', 'admintools', false, false);
-if ($admin->get_permission('admintools') == false) die(header('Location: ../../index.php'));
+if ($admin->get_permission('admintools') == false) exit("Cannot access this file directly");
 
 // create new instance this time showing the admin panel (no headers possible anymore)
 ob_start();
@@ -92,7 +92,7 @@ if ($info['type'] == 'language') {
  * Send the add-on backup to the browser using PEAR Download class
  */
 ob_end_clean();
-require('./thirdparty/Download.php');
+require($module_path . '/thirdparty/Download.php');
 $dl = new HTTP_Download();
 $dl->setContentType($content_type);
 $dl->setFile($path_to_download_file);
