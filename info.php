@@ -8,13 +8,14 @@
  *
  * This file defines the variables required for Website Baker.
  * 
+ * LICENSE: GNU General Public License 3.0
+ * 
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
-  * ------------------------------------------------------------------------------------------------
 */
 
 // OBLIGATORY WEBSITE BAKER VARIABLES

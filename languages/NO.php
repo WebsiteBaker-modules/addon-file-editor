@@ -15,7 +15,7 @@
  * @author      cwsoft (http://cwsoft.de)
  * @version     2.2.0
  * @copyright   cwsoft
- * @license     http://www.gnu.org/licenses/gpl.html
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 // Norwegian Bokm&aring;l module description
@@ -23,11 +23,6 @@ $module_description = 'AFE lar deg redigere tekst og bilde filer i installerte m
 
 // declare module language array
 $LANG = array();
-
-// Text outputs for the version check
-$LANG[0] = array(
-	'TXT_VERSION_ERROR'			=> 'Feil: Modulen "Addon File Editor" krever Website Baker 2.7 eller h&oslash;yere.',
-);
 
 // Text outputs overview page (htt/addons_overview.htt)
 $LANG[1] = array(

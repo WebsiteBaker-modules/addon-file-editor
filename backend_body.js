@@ -14,7 +14,7 @@
  * @author      cwsoft (http://cwsoft.de)
  * @version     2.2.0
  * @copyright   cwsoft
- * @license     http://www.gnu.org/licenses/gpl.html
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 // check if jQuery is loaded in the WebsiteBaker backend

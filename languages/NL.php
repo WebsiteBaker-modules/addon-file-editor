@@ -15,7 +15,7 @@
  * @author      cwsoft (http://cwsoft.de)
  * @version     2.2.0
  * @copyright   cwsoft
- * @license     http://www.gnu.org/licenses/gpl.html
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 // Dutch module description
@@ -23,11 +23,6 @@ $module_description = 'Met deze tool kan je bestanden zoals modules, templates e
 
 // declare module language array
 $LANG = array();
-
-// Text outputs for the version check
-$LANG[0] = array(
-	'TXT_VERSION_ERROR'			=> 'Fout: De module "Addon File Editor" vereist Website Baker 2.7 of hoger.',
-);
 
 // Text outputs overview page (htt/addons_overview.htt)
 $LANG[1] = array(
