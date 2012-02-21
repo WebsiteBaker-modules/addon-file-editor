@@ -11,7 +11,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.1.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
   * ------------------------------------------------------------------------------------------------
@@ -21,11 +21,11 @@
 $module_directory			= 'addon_file_editor';
 $module_name				= 'Addon File Editor (AFE)';
 $module_function			= 'tool';
-$module_version				= '2.1.0';
+$module_version				= '2.2.0';
 $module_status				= 'stable';
 $module_platform			= '2.8.x';
 $module_author				= 'cwsoft (http://cwsoft.de)';
 $module_license				= '<a href="http://www.gnu.org/licenses/gpl.html">GNU General Public Licencse 3.0</a>';
 $module_license_terms		= '-';
-$module_requirements		= 'PHP 4.3.11 or higher, WB 2.8.2 or higher';
-$module_description         = 'AFE allows you to edit text- and image files of installed Add-ons via the backend. View <a href="' . WB_URL . '/modules/addon_file_editor/help/help_en.html" target="_blank">README</a> file for details.';
+$module_requirements		= 'min. PHP 5.2.17, min. WB 2.8.2';
+$module_description         = 'AFE allows you to edit text- and image files of installed Add-ons via the backend.';

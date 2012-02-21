@@ -13,13 +13,13 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
 
 // Dutch module description
-$module_description = 'Met deze tool kan je bestanden zoals modules, templates en taal bestanden "wijzigen", "wissen", "creëren", "uploaden" of "kopiëren" via de Website Baker website-beheer. Details kan je <a href="{WB_URL}/modules/addon_file_editor/help/help_en.html" target="_blank">hier</a> lezen.';
+$module_description = 'Met deze tool kan je bestanden zoals modules, templates en taal bestanden "wijzigen", "wissen", "creëren", "uploaden" of "kopiëren" via de Website Baker website-beheer.';
 
 // declare module language array
 $LANG = array();
@@ -191,5 +191,3 @@ $LANG[10] = array(
 	'TXT_FTP_LOGIN_FAILED'		=> 'Connectie naar de FTP server is mislukt. Bekijk je FTP instellingen. ' .
 								   '<br /><strong>Aandacht: </strong>De start map moet wijzen naar je WB installatie.',
 );
-
-?>

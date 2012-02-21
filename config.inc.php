@@ -13,7 +13,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -60,6 +60,7 @@ $url_icon_folder = WB_URL . '/modules/' . $module_folder . '/icons';
 $url_admintools = ADMIN_URL . '/admintools/tool.php?tool=' . $module_folder;
 $url_action_handler = WB_URL . '/modules/' . $module_folder . '/action_handler.php';
 $url_ftp_assistant = WB_URL . '/modules/' . $module_folder . '/ftp_assistant.php';
+$url_help = 'https://github.com/cwsoft/wb-addon-file-editor#readme';
 
 $temp_zip_path = WB_PATH . $path_sep . 'temp' . $path_sep . $module_folder . $path_sep;
 $url_mod_path = WB_URL . '/modules/' . $module_folder;
@@ -71,5 +72,3 @@ if (!isset($no_check) && !file_exists(ADMIN_PATH . '/admintools/tool.php')) {
 	require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $lang );
 	$admin->print_error('<br /><strong style="color: red;">' . $LANG[0]['TXT_VERSION_ERROR'] . '</strong>');
 }
-
-?>

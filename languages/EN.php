@@ -13,13 +13,13 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
 
 // German module description
-$module_description = 'AFE allows you to edit text- and image files of installed Add-ons via the backend. View <a href="{WB_URL}/modules/addon_file_editor/help/help_en.html" target="_blank">README</a> file for details.';
+$module_description = 'AFE allows you to edit text- and image files of installed Add-ons via the backend.';
 
 // declare module language array
 $LANG = array();

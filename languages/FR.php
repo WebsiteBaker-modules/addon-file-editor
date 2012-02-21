@@ -13,7 +13,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -191,5 +191,3 @@ $LANG[10] = array(
 	'TXT_FTP_LOGIN_FAILED'		=> 'La connexion au serveur FTP &agrave; &eacute;chou&eacute;e. Veuillez v&eacute;rifier vos r&eacute;glages FTP. ' .
 								   '<br /><strong>Note: </strong>Le dossier de d&eacute;part doit pointer vers votre installation WB.',
 );
-
-?>

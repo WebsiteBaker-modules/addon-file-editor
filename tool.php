@@ -13,7 +13,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -28,9 +28,6 @@ require_once('functions.inc.php');
 // load module language file
 $lang = (dirname(__FILE__)) . '/languages/' . LANGUAGE . '.php';
 require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $lang );
-
-// work out link to language specific help file
-$help_file = 'help_' . (file_exists(dirname(__FILE__) . '/help/help_' . strtolower(LANGUAGE) . '.html') ? strtolower(LANGUAGE) : 'en') . '.html';
 
 /**
  * Show outputs depending on selected display mode
@@ -62,7 +59,7 @@ if ($aid == '') {
 	// replace template placeholder with data from language file
 	$LANG[1]['TXT_FTP_NOTICE'] = str_replace('{URL_ASSISTANT}', $url_ftp_assistant, $LANG[1]['TXT_FTP_NOTICE']);
 	$add_vars = array(
-		'URL_HELP_FILE'		=> $url_mod_path . '/help/' . $help_file,
+		'URL_HELP_FILE'		=> $url_help,
 		'URL_ADMIN_TOOL'	=> $url_admintools,
 		'CLASS_SHOW_FTP_INFO' => 'hidden'
 	);
@@ -136,7 +133,7 @@ if ($aid == '') {
 		'ADDON_NAME'				=> $_SESSION['addon_list'][$aid]['name'],
 		'ADDON_PATH'				=> $addon_main_path,
 		'TXT_HELP'					=> $LANG[1]['TXT_HELP'],
-		'URL_HELP_FILE'				=> $url_mod_path . '/help/' . $help_file,
+		'URL_HELP_FILE'				=> $url_help,
 		'TXT_ADDON_TYPE'			=> $LANG[2]['TXT_' . strtoupper($_SESSION['addon_list'][$aid]['type'])],
 		'URL_ICON_FOLDER'			=> $url_icon_folder,
 		'TXT_CANCEL'				=> $TEXT['CANCEL'],
@@ -240,5 +237,3 @@ if ($aid == '') {
 	#################################################################################
 	$admin->print_error($LANG[3]['ERR_WRONG_PARAMETER'], $url_admintools);
 }
-
-?>

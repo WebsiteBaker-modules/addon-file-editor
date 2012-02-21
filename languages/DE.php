@@ -13,13 +13,13 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
 
 // German module description
-$module_description = 'AFE erm&ouml;glicht die Bearbeitung von Text- und Bilddateien installierter Add-ons aus dem Backend. Weitere Infos in der <a href="{WB_URL}/modules/addon_file_editor/help/help_en.html" target="_blank">README</a> Datei.';
+$module_description = 'AFE erm&ouml;glicht die Bearbeitung von Text- und Bilddateien installierter Add-ons aus dem Backend.';
 
 // declare module language array
 $LANG = array();
@@ -197,5 +197,3 @@ $LANG[10] = array(
 	'TXT_FTP_LOGIN_FAILED'		=> 'Verbindungsaufbau zum FTP Server fehlgeschlagen. Bitte FTP Einstellungen pr&uuml;fen. ' .
 								   '<br /><strong>Hinweis: </strong>Das Startverzeichnis muss auf die WB Installation zeigen.',
 );
-
-?>

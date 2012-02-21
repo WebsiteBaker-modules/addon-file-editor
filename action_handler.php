@@ -14,7 +14,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.1.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
@@ -30,9 +30,6 @@ require_once('functions.inc.php');
 // load module language file
 $lang = (dirname(__FILE__)) . '/languages/' . LANGUAGE . '.php';
 require_once(!file_exists($lang) ? (dirname(__FILE__)) . '/languages/EN.php' : $lang );
-
-// work out link to language specific help file
-$help_file = 'help_' . (file_exists(dirname(__FILE__) . '/help/help_' . strtolower(LANGUAGE) . '.html') ? strtolower(LANGUAGE) : 'en') . '.html';
 
 /**
  * Ensure that only users with permissions to Admin-Tools section can access this file
@@ -90,7 +87,7 @@ $tpl_infos = array(
 	'TXT_HEADING_ADMINTOOLS'=> $HEADING['ADMINISTRATION_TOOLS'],
 	'TXT_BACK'				=> $TEXT['BACK'],
 	'TXT_HELP'				=> $LANG[1]['TXT_HELP'],
-	'URL_HELP_FILE'			=> $url_mod_path . '/help/' . $help_file,
+	'URL_HELP_FILE'			=> $url_help,
 	'STATUS_MESSAGE'		=> '',
 	'CLASS_HIDDEN'			=> '',
 	'NAME_FILE_EDITOR'		=> $editor_info['name'],

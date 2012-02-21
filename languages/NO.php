@@ -13,13 +13,13 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.0.0
+ * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl.html
 */
 
 // Norwegian Bokm&aring;l module description
-$module_description = 'AFE lar deg redigere tekst og bilde filer i installerte moduler og tillegg via Admin sidene. Se <a href="{WB_URL}/modules/addon_file_editor/help/help_no.html" target="_blank">les meg</a> filen for n&aelig;rmere detaljer.';
+$module_description = 'AFE lar deg redigere tekst og bilde filer i installerte moduler og tillegg via Admin sidene.';
 
 // declare module language array
 $LANG = array();
@@ -191,5 +191,3 @@ $LANG[10] = array(
 	'TXT_FTP_LOGIN_FAILED'		=> 'Tilkobling til FTP server feilet. Sjekk FTP instillingene dine. ' .
 								   '<br /><strong>OBS: </strong>Start folderen m&aring; v&amp;aelig;re den mappen som WB er installert i.',
 );
-
-?>
