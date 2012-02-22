@@ -16,19 +16,19 @@
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 
 // include WB configuration file (restarts sessions) and WB admin class
-require_once('../../../config.php');
-require_once('../../../framework/class.admin.php');
+require_once ('../../../config.php');
+require_once ('../../../framework/class.admin.php');
 
 // include module configuration and function file
-require_once('config.php');
-require_once('functions.php');
+require_once ('config.php');
+require_once ('functions.php');
 
 // load module language file
 $lang = $module_path . '/languages/' . LANGUAGE . '.php';
-require_once(!file_exists($lang) ? $module_path . '/languages/EN.php' : $lang );
+require_once (! file_exists($lang) ? $module_path . '/languages/EN.php' : $lang);
 
 /**
  * Ensure that only users with permissions to Admin-Tools section can access this file
@@ -44,7 +44,7 @@ $admin = myAdminHandler('addon_file_editor', 'Admintools', 'admintools', true, f
  * Prepare the template class
  */
 // include template class and set template directory
-require_once(WB_PATH . '/include/phplib/template.inc');
+require_once (WB_PATH . '/include/phplib/template.inc');
 $tpl = new Template($module_path . '/templates');
 $tpl->set_file('page', 'ftp_connection_check.htt');
 $tpl->set_block('page', 'settings_block', 'settings_replace');
@@ -55,7 +55,7 @@ $tpl->set_block('comment_replace', '');
 
 // replace template placeholder with data from language file
 $tpl_vars = array_merge($LANG['ADDON_FILE_EDITOR'][1], array('URL_ADMIN_TOOL' => $url_admintools, 'CLASS_SHOW_FTP_INFO' => 'hidden'));
-foreach($LANG['ADDON_FILE_EDITOR'][10] as $key => $value) {
+foreach ($LANG['ADDON_FILE_EDITOR'][10] as $key => $value) {
 	$tpl->set_var($key, $value);
 }
 
@@ -74,35 +74,14 @@ $ftp_settings = readFtpSettings();
 $editor_info = getAddonInfos($module_folder);
 
 // fill some template variables
-$tpl->set_var(array(
-	'TXT_HEADING_ADMINTOOLS'=> $HEADING['ADMINISTRATION_TOOLS'],
-	'NAME_FILE_EDITOR'		=> $editor_info['name'],
-	'TXT_BACK'				=> $TEXT['BACK'],
-	'TXT_SAVE'				=> $TEXT['SAVE'],
-	'TXT_HELP'				=> $LANG['ADDON_FILE_EDITOR'][1]['TXT_HELP'],
-	'URL_HELP_FILE'			=> $url_help,
-	'URL_FILEMANAGER'		=> $url_admintools,
-	'URL_WB_ADMIN_TOOLS'	=> ADMIN_URL . '/admintools/index.php',
-	'CLASS_HIDDEN'			=> ($ftp_settings['ftp_enabled'] == 1) ? '' : 'hidden',
-	'URL_FORM_SUBMIT'		=> $url_ftp_assistant,
-	'DISABLED_CHECKED'		=> ($ftp_settings['ftp_enabled'] == 0) ? 'checked="checked"' : '',
-	'ENABLED_CHECKED'		=> ($ftp_settings['ftp_enabled'] == 1) ? 'checked="checked"' : '',
-	'FTP_SERVER'			=> htmlspecialchars($ftp_settings['ftp_server']),
-	'FTP_USER'				=> htmlspecialchars($ftp_settings['ftp_user']),
-	'FTP_PASSWORD'			=> htmlspecialchars($ftp_settings['ftp_password']),
-	'FTP_PORT'				=> htmlspecialchars($ftp_settings['ftp_port']),
-	'FTP_START_DIR'			=> htmlspecialchars($ftp_settings['ftp_start_dir']),
-	)
-);
+$tpl->set_var(array('TXT_HEADING_ADMINTOOLS' => $HEADING['ADMINISTRATION_TOOLS'], 'NAME_FILE_EDITOR' => $editor_info['name'], 'TXT_BACK' => $TEXT['BACK'], 'TXT_SAVE' => $TEXT['SAVE'], 'TXT_HELP' => $LANG['ADDON_FILE_EDITOR'][1]['TXT_HELP'], 'URL_HELP_FILE' => $url_help, 'URL_FILEMANAGER' => $url_admintools, 'URL_WB_ADMIN_TOOLS' => ADMIN_URL . '/admintools/index.php', 'CLASS_HIDDEN' => ($ftp_settings['ftp_enabled'] == 1) ? '' : 'hidden', 'URL_FORM_SUBMIT' => $url_ftp_assistant, 'DISABLED_CHECKED' => ($ftp_settings['ftp_enabled'] == 0) ? 'checked="checked"' : '', 'ENABLED_CHECKED' => ($ftp_settings['ftp_enabled'] == 1) ? 'checked="checked"' : '', 'FTP_SERVER' => htmlspecialchars($ftp_settings['ftp_server']), 'FTP_USER' => htmlspecialchars($ftp_settings['ftp_user']), 'FTP_PASSWORD' => htmlspecialchars($ftp_settings['ftp_password']), 'FTP_PORT' => htmlspecialchars($ftp_settings['ftp_port']), 'FTP_START_DIR' => htmlspecialchars($ftp_settings['ftp_start_dir']), ));
 
 // check FTP connection status
 if (isset($_POST['ftp_connection_check'])) {
 	$status = ftpLogin();
-	$tpl->set_var('STATUS_MESSAGE',	writeStatusMessage(
-		is_resource($status) ? $LANG['ADDON_FILE_EDITOR'][10]['TXT_FTP_LOGIN_OK'] : $LANG['ADDON_FILE_EDITOR'][10]['TXT_FTP_LOGIN_FAILED'],
-		$url_admintools, is_resource($status), false));
+	$tpl->set_var('STATUS_MESSAGE', writeStatusMessage(is_resource($status) ? $LANG['ADDON_FILE_EDITOR'][10]['TXT_FTP_LOGIN_OK'] : $LANG['ADDON_FILE_EDITOR'][10]['TXT_FTP_LOGIN_FAILED'], $url_admintools, is_resource($status), false));
 }
-		
+
 // ouput the final template
 $tpl->pparse('output', 'page');
 

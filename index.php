@@ -16,7 +16,9 @@
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 
 // prevent this file from being accessed directly
-if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
+if (defined('WB_PATH') == false) {
+	exit("Cannot access this file directly");
+}

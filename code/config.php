@@ -16,14 +16,16 @@
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 
 // prevent this file from being accessed directly
-if (!defined('WB_PATH')) die(header('Location: ../../index.php'));
+if (defined('WB_PATH') == false) {
+	exit("Cannot access this file directly");
+}
 
 /**
  * ADJUST THE FOLLOWING SETTINGS ACCORDING YOUR NEEDS
-*/
+ */
 // add extension of text files you want to be editable (will be displayed with a text icon)
 $text_extensions = array('txt', 'htm', 'html', 'htt', 'tmpl', 'tpl', 'xml', 'css', 'js', 'php', 'php3', 'php4', 'php5', 'jquery', 'preset');
 
@@ -34,7 +36,7 @@ $image_extensions = array('bmp', 'gif', 'jpg', 'jpeg', 'png');
 $archive_extensions = array('zip', 'rar', 'tar', 'gz');
 
 // module/template folders (e.g. 'addon-file-editor') or languages (e.g. 'en') you want not to show (all lower case)
-$hidden_addons = array();	
+$hidden_addons = array();
 
 // true:=show all files (false:= only show files registered in text, image or archive array)
 $show_all_files = false;
@@ -50,12 +52,12 @@ $pixlr_support = false;
 #########################################################################################################
 // extract path seperator and detect this module name
 $path_sep = strtoupper(substr(PHP_OS, 0, 3) == 'WIN') ? '\\' : '/';
-$module_path = dirname(dirname(__FILE__) . '../');
+$module_path = dirname(dirname(__file__) . '../');
 $module_folder = basename($module_path);
 
 /**
  * PATH AND URL VARIABLES USED BY THE MODULE
-*/
+ */
 $table = TABLE_PREFIX . 'addons';
 $url_icon_folder = WB_URL . '/modules/' . $module_folder . '/images';
 $url_admintools = ADMIN_URL . '/admintools/tool.php?tool=' . $module_folder;

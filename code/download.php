@@ -17,19 +17,19 @@
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 
 // include WB configuration file (restarts sessions) and WB admin class
-require_once('../../../config.php');
-require_once('../../../framework/class.admin.php');
+require_once ('../../../config.php');
+require_once ('../../../framework/class.admin.php');
 
 // include module configuration and function file
-require_once('config.php');
-require_once('functions.php');
+require_once ('config.php');
+require_once ('functions.php');
 
 // load module language file
 $lang = $module_path . '/languages/' . LANGUAGE . '.php';
-require_once(!file_exists($lang) ? $module_path . '/languages/EN.php' : $lang );
+require_once (! file_exists($lang) ? $module_path . '/languages/EN.php' : $lang);
 
 /**
  * Ensure that only users with permissions to Admin-Tools section can access this file
@@ -43,8 +43,7 @@ ob_start();
 $admin = new admin('Admintools', 'admintools', true, false);
 
 // ensure that user specified addon id is valid (if not redirect user)
-if (!(isset($_GET['aid']) && is_numeric($_GET['aid']) && getAddonInfos($_GET['aid']))) 
-	$admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);
+if (! (isset($_GET['aid']) && is_numeric($_GET['aid']) && getAddonInfos($_GET['aid']))) $admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);
 
 /**
  * Remove old zip files and create new one
@@ -53,7 +52,7 @@ removeFileOrFolder($temp_zip_path);
 @mkdir($temp_zip_path);
 
 // check permissions of temporary folder
-if (!is_writeable($temp_zip_path)) {
+if (! is_writeable($temp_zip_path)) {
 	ob_end_flush();
 	$admin->print_error($LANG['ADDON_FILE_EDITOR'][9]['ERR_TEMP_PERMISSION'], $url_admintools);
 }
@@ -74,9 +73,9 @@ if ($info['type'] == 'language') {
 	$addon_path = WB_PATH . $path_sep . $info['type'] . 's' . $path_sep . $info['directory'] . $path_sep;
 
 	// create a zip archive using the PclZip class shipped with Website Baker
-	require_once(WB_PATH . '/include/pclzip/pclzip.lib.php');
+	require_once (WB_PATH . '/include/pclzip/pclzip.lib.php');
 	$archive = new PclZip($temp_zip_path . $info['directory'] . '.zip');
-			
+
 	$list = $archive->create($addon_path, PCLZIP_OPT_REMOVE_PATH, $addon_path);
 	if ($list == 0) {
 		ob_end_flush();
@@ -92,7 +91,7 @@ if ($info['type'] == 'language') {
  * Send the add-on backup to the browser using PEAR Download class
  */
 ob_end_clean();
-require($module_path . '/thirdparty/Download.php');
+require ($module_path . '/thirdparty/Download.php');
 $dl = new HTTP_Download();
 $dl->setContentType($content_type);
 $dl->setFile($path_to_download_file);

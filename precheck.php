@@ -16,19 +16,20 @@
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 
 // prevent this file from being accessed directly
-if(defined('WB_PATH') == false) { exit("Cannot access this file directly"); }
+if (defined('WB_PATH') == false) {
+	exit("Cannot access this file directly");
+}
 
 /**
  * Check if minimum requirements for this module are fullfilled
  * Only checked in Website Baker 2.8 or higher
  */
-$PRECHECK = array(
+$PRECHECK = array( 
 	// ensure Website Baker 2.8.x series (starting from 2.8.2 onwards)
-	'WB_VERSION'	=> array('VERSION' => '2.8.2', 'OPERATOR' => '>='),
-	
+	'WB_VERSION' => array('VERSION' => '2.8.2', 'OPERATOR' => '>='), 
 	// make sure PHP version is 5.2.2 or higher
-	'PHP_VERSION'	=> array('VERSION' => '5.2.2', 'OPERATOR' => '>=')
+	'PHP_VERSION' => array('VERSION' => '5.2.2', 'OPERATOR' => '>=')
 );

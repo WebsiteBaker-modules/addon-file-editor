@@ -23,7 +23,7 @@
  */
 // check if required GET parameter are defined
 if (!(isset($_GET['img_path']) && isset($_GET['image']) && isset($_GET['type']) && isset($_GET['state']) && isset($_GET['title']))) 
-	die(header('Location: ../../../index.php'));
+	exit("Cannot access this file directly");
 
 // include WB configuration file (restarts sessions) and WB admin class
 require_once('../../../config.php');
@@ -31,7 +31,7 @@ require_once('../../../framework/class.admin.php');
 
 // check if image URL points to the pixlr.com server and the image exists on the own server
 if (strpos($_GET['image'], 'pixlr.com') == false || !file_exists(WB_PATH . $_GET['img_path'])) 
-	die(header('Location: ../../../index.php'));
+	exit("Cannot access this file directly");
 
 /**
  * Ensure that only users with permissions to Admin-Tools section can access this file
