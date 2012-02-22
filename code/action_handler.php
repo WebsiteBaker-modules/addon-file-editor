@@ -53,7 +53,7 @@ $fid = (isset($_GET['fid']) && isset($_SESSION['addon_file_infos'])
 	&& $_SESSION['addon_file_infos'] >= $_GET['fid']) ? (int) $_GET['fid'] : '';
 
 // check if addon and file id is specified for action id: 1-3
-if ($action < 4 && ($aid == '' || $fid == '')) $admin->print_error($LANG[3]['ERR_WRONG_PARAMETER'], $url_admintools);
+if ($action < 4 && ($aid == '' || $fid == '')) $admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);
 
 /**
  * Evaluate the action handler
@@ -65,11 +65,11 @@ $tpl->set_unknowns('keep');
 
 // create array with template files and language variables based on action handler
 $tpl_files = array(
-	'1' => array('action_handler_edit_textfile.htt', $LANG[4]),
-	'2' => array('action_handler_rename_file_folder.htt', $LANG[5]),
-	'3' => array('action_handler_delete_file_folder.htt', $LANG[6]),
-	'4' => array('action_handler_create_file_folder.htt', $LANG[7]),
-	'5' => array('action_handler_upload_file.htt', $LANG[8])
+	'1' => array('action_handler_edit_textfile.htt', $LANG['ADDON_FILE_EDITOR'][4]),
+	'2' => array('action_handler_rename_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][5]),
+	'3' => array('action_handler_delete_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][6]),
+	'4' => array('action_handler_create_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][7]),
+	'5' => array('action_handler_upload_file.htt', $LANG['ADDON_FILE_EDITOR'][8])
 );
 
 // set template file depending on action handler
@@ -86,19 +86,19 @@ $addon_info = getAddonInfos($aid);
 $tpl_infos = array(
 	'TXT_HEADING_ADMINTOOLS'=> $HEADING['ADMINISTRATION_TOOLS'],
 	'TXT_BACK'				=> $TEXT['BACK'],
-	'TXT_HELP'				=> $LANG[1]['TXT_HELP'],
+	'TXT_HELP'				=> $LANG['ADDON_FILE_EDITOR'][1]['TXT_HELP'],
 	'URL_HELP_FILE'			=> $url_help,
 	'STATUS_MESSAGE'		=> '',
 	'CLASS_HIDDEN'			=> '',
 	'NAME_FILE_EDITOR'		=> $editor_info['name'],
-	'ADDON_TYPE'			=> $LANG[3]['TXT_' . strtoupper($addon_info['type'])],
+	'ADDON_TYPE'			=> $LANG['ADDON_FILE_EDITOR'][3]['TXT_' . strtoupper($addon_info['type'])],
 	'ADDON_NAME'			=> $addon_info['name'],
 	'URL_WB_ADMIN_TOOLS'	=> ADMIN_URL . '/admintools/index.php',
 	'URL_FILEMANAGER'		=> $url_admintools . '&amp;aid=' . $aid,
 );
 
 // replace template placeholder with data from language files
-foreach(array_merge($LANG[3], $tpl_files[$action][1], $tpl_infos) as $key => $value) {
+foreach(array_merge($LANG['ADDON_FILE_EDITOR'][3], $tpl_files[$action][1], $tpl_infos) as $key => $value) {
 	$tpl->set_var($key, $value);
 }
 
@@ -150,7 +150,7 @@ switch ($action) {
 				$status = ftpWriteStringToFile($ftp, $file_content, $ftp_remote_file);
 			}
 
-			$status_message = ($status) ? $LANG[4]['TXT_SAVE_SUCCESS'] : $LANG[4]['TXT_SAVE_ERROR'];
+			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][4]['TXT_SAVE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][4]['TXT_SAVE_ERROR'];
 			$back_link = $url_admintools . '&aid=' . $aid . '&fid=' . $fid;
 
 			$tpl->set_var(array(
@@ -202,7 +202,7 @@ switch ($action) {
 				$status = ftpRenameFile($ftp, $ftp_old, $ftp_new);
 			}
 
-			$status_message = ($status) ? $LANG[5]['TXT_RENAME_SUCCESS'] : $LANG[5]['TXT_RENAME_ERROR'];
+			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][5]['TXT_RENAME_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][5]['TXT_RENAME_ERROR'];
 			$back_link = $url_admintools . '&aid=' . $aid . '&reload';
 
 			$tpl->set_var(array(
@@ -226,7 +226,7 @@ switch ($action) {
 			'ADDON_FILE'				=> str_replace($strip_path, '', $actual_file),
 			'FILE_FOLDER_NAME'			=> basename($actual_file),
 			'TXT_ACTUAL_FILE'			=> ($_SESSION['addon_file_infos'][$fid]['type'] == 'folder') 
-											? $LANG[6]['TXT_ACTUAL_FOLDER'] : $LANG[3]['TXT_ACTUAL_FILE'],
+											? $LANG['ADDON_FILE_EDITOR'][6]['TXT_ACTUAL_FOLDER'] : $LANG['ADDON_FILE_EDITOR'][3]['TXT_ACTUAL_FILE'],
 			'URL_FORM_SUBMIT'			=> $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=3&amp;reload',
 			'URL_FORM_CANCEL'			=> $url_admintools . '&amp;aid=' . $aid . '&amp;fid=' . $fid,
 			'CLASS_HIDDEN'				=> '',
@@ -244,7 +244,7 @@ switch ($action) {
 				$status = is_dir($actual_file) ? ftpDeleteFolder($ftp, $ftp_file) : ftpDeleteFile($ftp, $ftp_file);
 			}
 
-			$status_message = ($status) ? $LANG[6]['TXT_DELETE_SUCCESS'] : $LANG[6]['TXT_DELETE_ERROR'];
+			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][6]['TXT_DELETE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][6]['TXT_DELETE_ERROR'];
 			$back_link = $url_admintools . '&aid=' . $aid . '&fid=' . $fid . '&reload';
 			
 			$tpl->set_var(array(
@@ -301,7 +301,7 @@ switch ($action) {
 				$status = ($file_type == 'file') ? ftpWriteStringToFile($ftp, ' ', $ftp_file) : ftpCreateFolder($ftp, $ftp_file);
 			}
 			
-			$status_message = ($status) ? $LANG[7]['TXT_CREATE_SUCCESS'] : $LANG[7]['TXT_CREATE_ERROR'];
+			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_ERROR'];
 			$tpl->set_var(array(
 				'STATUS_MESSAGE'		=> writeStatusMessage($status_message, $back_link, $status),
 				'CLASS_HIDDEN'			=> ($status) ? 'hidden' : ''
@@ -367,7 +367,7 @@ switch ($action) {
 		
 			// output a status message
 			$back_link = $url_admintools . '&aid=' . $aid . '&reload';
-			$status_message = ($status) ? $LANG[8]['TXT_UPLOAD_SUCCESS'] : $LANG[8]['TXT_UPLOAD_ERROR'];
+			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][8]['TXT_UPLOAD_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][8]['TXT_UPLOAD_ERROR'];
 			
 			$tpl->set_var(array(
 				'STATUS_MESSAGE'		=> writeStatusMessage($status_message, $back_link, $status),
@@ -380,7 +380,7 @@ switch ($action) {
 		break;
 
 	default:
-		$admin->print_error($LANG[3]['ERR_WRONG_PARAMETER'], $url_admintools);
+		$admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);
 		break;
 }
 

@@ -57,14 +57,14 @@ if ($aid == '') {
 	$tpl->set_block('comment_replace', '');
 
 	// replace template placeholder with data from language file
-	$LANG[1]['TXT_FTP_NOTICE'] = str_replace('{URL_ASSISTANT}', $url_ftp_assistant, $LANG[1]['TXT_FTP_NOTICE']);
+	$LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_NOTICE'] = str_replace('{URL_ASSISTANT}', $url_ftp_assistant, $LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_NOTICE']);
 	$add_vars = array(
 		'URL_HELP_FILE'		=> $url_help,
 		'URL_ADMIN_TOOL'	=> $url_admintools,
 		'CLASS_SHOW_FTP_INFO' => 'hidden'
 	);
 
-	$tpl_vars = array_merge($LANG[1], $add_vars);
+	$tpl_vars = array_merge($LANG['ADDON_FILE_EDITOR'][1], $add_vars);
 	foreach($tpl_vars as $key => $value) {
 		$tpl->set_var($key, $value);
 	}
@@ -89,10 +89,10 @@ if ($aid == '') {
 			'CLASS_ODD_EVEN'		=> ($$addon_var  % 2) ? 'odd ' : '',
 			'CLASS_PERMISSION'		=> is_writeable($addon['file']) ? '' : 'permission',
 			'URL_EDIT_ADDON'		=> $url_admintools . '&amp;aid=' . $addon_id,
-			'TXT_EDIT_ADDON_FILE'	=> $LANG[1]['TXT_EDIT_' . "{$addon_type}" . '_FILES'] . 
-										((is_writeable($addon['file'])) ? '' : $LANG[1]['TXT_FTP_SUPPORT']),
+			'TXT_EDIT_ADDON_FILE'	=> $LANG['ADDON_FILE_EDITOR'][1]['TXT_EDIT_' . "{$addon_type}" . '_FILES'] . 
+										((is_writeable($addon['file'])) ? '' : $LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_SUPPORT']),
 			'URL_ZIP_ADDON'			=> $url_mod_path . '/code/download.php?aid=' . $addon_id,
-			'TXT_ZIP_ADDON_FILES'	=> $LANG[1]['TXT_ZIP_' . "{$addon_type}" . '_FILES'],
+			'TXT_ZIP_ADDON_FILES'	=> $LANG['ADDON_FILE_EDITOR'][1]['TXT_ZIP_' . "{$addon_type}" . '_FILES'],
 			'URL_ICON_FOLDER'		=> $url_icon_folder
 			)
 		);
@@ -120,8 +120,8 @@ if ($aid == '') {
 	$tpl->set_block('comment_replace', '');
 
 	// replace template placeholders with values from language file
-	$LANG[1]['TXT_FTP_NOTICE'] = str_replace('{URL_ASSISTANT}', $url_ftp_assistant, $LANG[1]['TXT_FTP_NOTICE']);
-	foreach($LANG[2] as $key => $value) {
+	$LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_NOTICE'] = str_replace('{URL_ASSISTANT}', $url_ftp_assistant, $LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_NOTICE']);
+	foreach($LANG['ADDON_FILE_EDITOR'][2] as $key => $value) {
 		$tpl->set_var($key, $value);
 	}
 
@@ -132,14 +132,14 @@ if ($aid == '') {
 	$tpl->set_var(array(
 		'ADDON_NAME'				=> $_SESSION['addon_list'][$aid]['name'],
 		'ADDON_PATH'				=> $addon_main_path,
-		'TXT_HELP'					=> $LANG[1]['TXT_HELP'],
+		'TXT_HELP'					=> $LANG['ADDON_FILE_EDITOR'][1]['TXT_HELP'],
 		'URL_HELP_FILE'				=> $url_help,
-		'TXT_ADDON_TYPE'			=> $LANG[2]['TXT_' . strtoupper($_SESSION['addon_list'][$aid]['type'])],
+		'TXT_ADDON_TYPE'			=> $LANG['ADDON_FILE_EDITOR'][2]['TXT_' . strtoupper($_SESSION['addon_list'][$aid]['type'])],
 		'URL_ICON_FOLDER'			=> $url_icon_folder,
 		'TXT_CANCEL'				=> $TEXT['CANCEL'],
 		'CLASS_HIDDEN'				=> ($_SESSION['addon_list'][$aid]['type'] == 'language' 
 										&& !isset($_GET['list_all'])) ? 'hidden' : '',
-		'TXT_FTP_NOTICE'			=> $LANG[1]['TXT_FTP_NOTICE'],
+		'TXT_FTP_NOTICE'			=> $LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_NOTICE'],
 		'CLASS_SHOW_FTP_INFO'		=> 'hidden',
 		'URL_EDIT_ADDON'			=> $url_admintools,
 		'URL_RELOAD'				=> $url_admintools . '&amp;aid=' . $aid . '&amp;reload',
@@ -180,7 +180,7 @@ if ($aid == '') {
 			case 'textfile':
 				$url = $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index . '&amp;action=1';
 				// make file name clickable (edit text file)
-				$file_name = '<a href="' . $url . '" title="' . $LANG[2]['TXT_EDIT'] . '">' . $file_name . '</a>';
+				$file_name = '<a href="' . $url . '" title="' . $LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'] . '">' . $file_name . '</a>';
 				$icon_edit_url = $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index . '&amp;action=1';
 				break;
 				
@@ -190,7 +190,7 @@ if ($aid == '') {
 				$url = WB_URL . str_replace($path_sep, '/', $url);
 
 				// create link to open image in new browser window
-				$file_name = '<a href="' . $url . '" target="_blank" title="' . $LANG[2]['TXT_VIEW'] . '">' . $file_name . '</a>';
+				$file_name = '<a href="' . $url . '" target="_blank" title="' . $LANG['ADDON_FILE_EDITOR'][2]['TXT_VIEW'] . '">' . $file_name . '</a>';
 
 				// check if PIXLR Support is enabled
 				if ($pixlr_support == true && (strpos(WB_URL, '/localhost/') == false)) {
@@ -210,10 +210,10 @@ if ($aid == '') {
 			'CLASS_PERMISSION'	=> is_writeable($file_info['path']) ? '' : 'permission',
 			'URL_ICON_FOLDER'	=> $url_icon_folder,
 			'FILE_ICON'			=> $file_info['icon'],
-			'TXT_FILE_TYPE'		=> $LANG[2]['TXT_FILE_TYPE_' . strtoupper($file_info['icon'])],
+			'TXT_FILE_TYPE'		=> $LANG['ADDON_FILE_EDITOR'][2]['TXT_FILE_TYPE_' . strtoupper($file_info['icon'])],
 			'HIDE_EDIT_ICON'	=> ($icon_edit_url == '-') ? 'hidden' : '',
 			'TXT_EDIT'			=> ($icon_edit_url <> '-' && $file_info['icon'] == 'image') 
-									? ($LANG[2]['TXT_EDIT'] . ' (Online: PIXLR)') : $LANG[2]['TXT_EDIT'],
+									? ($LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'] . ' (Online: PIXLR)') : $LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'],
 			'TARGET_BLANK'		=> ($icon_edit_url <> '-' && $file_info['icon'] == 'image') ? ' target="_blank"' : '',
 			'URL_EDIT_FILE'		=> $icon_edit_url,
 			'URL_RENAME_FILE'	=> $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index . '&amp;action=2',
@@ -235,5 +235,5 @@ if ($aid == '') {
 	#################################################################################
 	# FILEMANAGER NOT PROPERLY INITIALIZED - REDIRECT TO ADDON OVERVIEW PAGE
 	#################################################################################
-	$admin->print_error($LANG[3]['ERR_WRONG_PARAMETER'], $url_admintools);
+	$admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);
 }

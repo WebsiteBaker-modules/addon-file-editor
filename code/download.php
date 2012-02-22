@@ -44,7 +44,7 @@ $admin = new admin('Admintools', 'admintools', true, false);
 
 // ensure that user specified addon id is valid (if not redirect user)
 if (!(isset($_GET['aid']) && is_numeric($_GET['aid']) && getAddonInfos($_GET['aid']))) 
-	$admin->print_error($LANG[3]['ERR_WRONG_PARAMETER'], $url_admintools);
+	$admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);
 
 /**
  * Remove old zip files and create new one
@@ -55,7 +55,7 @@ removeFileOrFolder($temp_zip_path);
 // check permissions of temporary folder
 if (!is_writeable($temp_zip_path)) {
 	ob_end_flush();
-	$admin->print_error($LANG[9]['ERR_TEMP_PERMISSION'], $url_admintools);
+	$admin->print_error($LANG['ADDON_FILE_EDITOR'][9]['ERR_TEMP_PERMISSION'], $url_admintools);
 }
 
 /**
@@ -80,7 +80,7 @@ if ($info['type'] == 'language') {
 	$list = $archive->create($addon_path, PCLZIP_OPT_REMOVE_PATH, $addon_path);
 	if ($list == 0) {
 		ob_end_flush();
-		$admin->print_error($LANG[9]['ERR_ZIP_CREATION'], $url_admintools);
+		$admin->print_error($LANG['ADDON_FILE_EDITOR'][9]['ERR_ZIP_CREATION'], $url_admintools);
 	}
 
 	$path_to_download_file = $temp_zip_path . $info['directory'] . '.zip';
@@ -101,5 +101,5 @@ $status = $dl->send();
 if (PEAR::isError($status)) {
 	$url_download_file = str_replace(array(WB_PATH, $path_sep), array(WB_URL, '/'), $path_to_download_file);
 	$admin = new admin('Admintools', 'admintools', true, false);
-	$admin->print_error(str_replace('{URL}', $url_download_file, $LANG[9]['ERR_ZIP_DOWNLOAD']), $url_admintools);
+	$admin->print_error(str_replace('{URL}', $url_download_file, $LANG['ADDON_FILE_EDITOR'][9]['ERR_ZIP_DOWNLOAD']), $url_admintools);
 }

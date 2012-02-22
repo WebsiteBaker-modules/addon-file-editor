@@ -54,8 +54,8 @@ $tpl->set_block('page', 'comment_block', 'comment_replace');
 $tpl->set_block('comment_replace', '');
 
 // replace template placeholder with data from language file
-$tpl_vars = array_merge($LANG[1], array('URL_ADMIN_TOOL' => $url_admintools, 'CLASS_SHOW_FTP_INFO' => 'hidden'));
-foreach($LANG[10] as $key => $value) {
+$tpl_vars = array_merge($LANG['ADDON_FILE_EDITOR'][1], array('URL_ADMIN_TOOL' => $url_admintools, 'CLASS_SHOW_FTP_INFO' => 'hidden'));
+foreach($LANG['ADDON_FILE_EDITOR'][10] as $key => $value) {
 	$tpl->set_var($key, $value);
 }
 
@@ -79,7 +79,7 @@ $tpl->set_var(array(
 	'NAME_FILE_EDITOR'		=> $editor_info['name'],
 	'TXT_BACK'				=> $TEXT['BACK'],
 	'TXT_SAVE'				=> $TEXT['SAVE'],
-	'TXT_HELP'				=> $LANG[1]['TXT_HELP'],
+	'TXT_HELP'				=> $LANG['ADDON_FILE_EDITOR'][1]['TXT_HELP'],
 	'URL_HELP_FILE'			=> $url_help,
 	'URL_FILEMANAGER'		=> $url_admintools,
 	'URL_WB_ADMIN_TOOLS'	=> ADMIN_URL . '/admintools/index.php',
@@ -99,7 +99,7 @@ $tpl->set_var(array(
 if (isset($_POST['ftp_connection_check'])) {
 	$status = ftpLogin();
 	$tpl->set_var('STATUS_MESSAGE',	writeStatusMessage(
-		is_resource($status) ? $LANG[10]['TXT_FTP_LOGIN_OK'] : $LANG[10]['TXT_FTP_LOGIN_FAILED'],
+		is_resource($status) ? $LANG['ADDON_FILE_EDITOR'][10]['TXT_FTP_LOGIN_OK'] : $LANG['ADDON_FILE_EDITOR'][10]['TXT_FTP_LOGIN_FAILED'],
 		$url_admintools, is_resource($status), false));
 }
 		

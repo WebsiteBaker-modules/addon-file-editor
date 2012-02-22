@@ -13,6 +13,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
+ * @translation cwsoft
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
@@ -21,11 +22,13 @@
 // German module description
 $module_description = 'AFE erm&ouml;glicht die Bearbeitung von Text- und Bilddateien installierter Add-ons aus dem Backend.';
 
-// declare module language array
-$LANG = array();
+// initialize global $LANG variable as array if needed
+if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
+	$LANG = array();
+}
 
 // Text outputs overview page (htt/addons_overview.htt)
-$LANG[1] = array(
+$LANG['ADDON_FILE_EDITOR'][1] = array(
 	'TXT_DESCRIPTION'			=> 'Nachfolgende Liste z&auml;hlt alle Addons auf, auf die PHP lesend zugreifen kann. Um Addon ' .
 								   'Dateien zu bearbeiten, klicke auf den Namen der Erweiterung. Das Download Symbol erstellt ' .
 								   'eine installierbare Sicherungskopie einer Erweiterung und sendet diese an den Browser.',
@@ -58,7 +61,7 @@ $LANG[1] = array(
 );
 
 // Text outputs filemanager page (htt/filemanager.htt)
-$LANG[2] = array(
+$LANG['ADDON_FILE_EDITOR'][2] = array(
 	'TXT_EDIT_DESCRIPTION'		=> 'Der Dateimanager erlaubt das bearbeiten, umbenennen, erstellen, l&ouml;schen und hochladen ' .
 								   'von Dateien. Text- oder Bildateien, k&ouml;nnen durch klick auf den Dateinamen bearbeitet ' .
 								   'oder angzeigt werden.',
@@ -90,7 +93,7 @@ $LANG[2] = array(
 
 
 // General text outputs for the file handler templates
-$LANG[3] = array(
+$LANG['ADDON_FILE_EDITOR'][3] = array(
 	'ERR_WRONG_PARAMETER'		=> 'Die &uuml;bergebenen Parameter sind fehlerhaft oder unvollst&auml;ndig.',
 	'TXT_MODULE'				=> 'Modul',
 	'TXT_TEMPLATE'				=> 'Template',
@@ -101,7 +104,7 @@ $LANG[3] = array(
 );	
 
 // Text outputs file handler (htt/action_handler_edit_textfile.htt)
-$LANG[4] = array(
+$LANG['ADDON_FILE_EDITOR'][4] = array(
 	'TXT_ACTION_EDIT_TEXTFILE'	=> 'Textdatei bearbeiten',
 	'TXT_SUBMIT_SAVE'			=> 'Speichern',
 	'TXT_SUBMIT_SAVE_BACK'		=> 'Speichern &amp; Zur&uuml;ck',
@@ -111,7 +114,7 @@ $LANG[4] = array(
 );
 
 // Text outputs file handler (htt/action_handler_rename_file_folder.htt)
-$LANG[5] = array(
+$LANG['ADDON_FILE_EDITOR'][5] = array(
 	'TXT_ACTION_RENAME_FILE'	=> 'Datei/Ordner umbenennen',
 	'TXT_OLD_FILE_NAME'			=> 'Datei/Ordner (alt)',
 	'TXT_NEW_FILE_NAME'			=> 'Datei/Ordner (neu)',
@@ -122,7 +125,7 @@ $LANG[5] = array(
 );
 
 // Text outputs file handler (htt/action_handler_delete_file_folder.htt)
-$LANG[6] = array(
+$LANG['ADDON_FILE_EDITOR'][6] = array(
 	'TXT_ACTION_DELETE_FILE'	=> 'Datei/Ordner l&ouml;schen',
 	'TXT_SUBMIT_DELETE'			=> 'L&ouml;schen',
 	'TXT_ACTUAL_FOLDER'			=> 'Aktueller Ordner',
@@ -136,7 +139,7 @@ $LANG[6] = array(
 );
 
 // Text outputs file handler (htt/action_handler_create_file_folder.htt)
-$LANG[7] = array(
+$LANG['ADDON_FILE_EDITOR'][7] = array(
 	'TXT_ACTION_CREATE_FILE'	=> 'Datei/Ordner erstellen',
 	'TXT_CREATE'				=> 'Erstelle',
 	'TXT_FILE'					=> 'Datei',
@@ -150,7 +153,7 @@ $LANG[7] = array(
 );
 
 // Text outputs file handler (htt/action_handler_upload_file.htt)
-$LANG[8] = array(
+$LANG['ADDON_FILE_EDITOR'][8] = array(
 	'TXT_ACTION_UPLOAD_FILE'	=> 'Datei hochladen',
 	'TXT_SUBMIT_UPLOAD'			=> 'Hochladen',
 
@@ -162,14 +165,14 @@ $LANG[8] = array(
 );
 
 // Text outputs for the download handler
-$LANG[9] = array(
+$LANG['ADDON_FILE_EDITOR'][9] = array(
 	'ERR_TEMP_PERMISSION'		=> 'PHP hat keine Schreibrechte f&uuml;r das WB Tempor&auml;rverzeichnis (/temp).',
 	'ERR_ZIP_CREATION'			=> 'Das Ziparchiv konnte nicht erstellt werden.',
 	'ERR_ZIP_DOWNLOAD'			=> 'Fehler beim Herunterladen des Ziparchivs.<br />Manuell <a href="{URL}">herunterladen</a>.',
 );
 
 // Text outputs for the FTP checking (htt/ftp_connection_check.htt)
-$LANG[10] = array(
+$LANG['ADDON_FILE_EDITOR'][10] = array(
 	'TXT_FTP_HEADING'			=> 'FTP Konfigurations-Assistent',
 	'TXT_FTP_DESCRIPTION'		=> 'Der Konfigurations-Assistent unterst&uuml;zt Sie beim Einrichten und Testen der ' .
 								   'Addon File Editor FTP Unterst&uuml;tzung.',

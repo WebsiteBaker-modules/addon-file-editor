@@ -13,6 +13,7 @@
  * @platform    CMS Websitebaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
+ * @translation French translation by forum member quinto
  * @version     2.2.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
@@ -21,11 +22,13 @@
 // French module description
 $module_description = 'Cet outil vous permets de "modifier", "supprimer", "uploader" ou "sauvegarder" les fichiers des Ajouts install&eacute;s (Modules, Mod&egrave;les et Langages) en utilisant l&apos;interface d&apos;administration. Gr&acirc;ce &agrave; cet outil vous pourrez effectuer de petites modifications sur les Ajouts install&eacute;s sans avoir besoin de t&eacute;l&eacute;charger les fichiers.';
 
-// declare module language array
-$LANG = array();
+// initialize global $LANG variable as array if needed
+if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
+	$LANG = array();
+}
 
 // Text outputs overview page (htt/addons_overview.htt)
-$LANG[1] = array(
+$LANG['ADDON_FILE_EDITOR'][1] = array(
 	'TXT_DESCRIPTION'			=> 'La liste ci-dessous affiche tous les Ajouts lisibles par PHP. Vous pouvez modifier les fichiers ' . 
 								   'en cliquant sur le nom de l\'Ajout. L\'ic&ocirc;ne de t&eacute;l&eacute;chargement vous permets de ' .
 								   'cr&eacute;er une sauvegarde r&eacute;installable facilement.',
@@ -57,7 +60,7 @@ $LANG[1] = array(
 );
 
 // Text outputs filemanager page (htt/filemanager.htt)
-$LANG[2] = array(
+$LANG['ADDON_FILE_EDITOR'][2] = array(
 	'TXT_EDIT_DESCRIPTION'		=> 'Le gestionnaire de fichiers vous permet de modifier, cr&eacute;er, supprimer et uploader les fichiers. un clic sur le nom du ' .
 								   'fichier (sur le texte ou l\'image) permet d\'ouvrir le fichier pour la visualisation ou la modification.',
 	'TXT_BACK_TO_OVERVIEW'		=> 'Retour à la vue générale des Ajouts',
@@ -87,7 +90,7 @@ $LANG[2] = array(
 );
 
 // General text outputs for the file handler templates
-$LANG[3] = array(
+$LANG['ADDON_FILE_EDITOR'][3] = array(
 	'ERR_WRONG_PARAMETER'		=> 'Les param&egrave;tres spécifi&eacute;s sont erron&eacute;s ou incomplets.',
 	'TXT_MODULE'				=> 'Module',
 	'TXT_TEMPLATE'				=> 'Mod&egrave;le',
@@ -98,7 +101,7 @@ $LANG[3] = array(
 );	
 
 // Text outputs file handler (htt/action_handler_edit_textfile.htt)
-$LANG[4] = array(
+$LANG['ADDON_FILE_EDITOR'][4] = array(
 	'TXT_ACTION_EDIT_TEXTFILE'	=> 'Modifier le fichier texte',
 	'TXT_SUBMIT_SAVE'			=> 'Sauvegarder',
 	'TXT_SUBMIT_SAVE_BACK'		=> 'Sauvegarder &amp; Retour',
@@ -108,7 +111,7 @@ $LANG[4] = array(
 );
 
 // Text outputs file handler (htt/action_handler_rename_file_folder.htt)
-$LANG[5] = array(
+$LANG['ADDON_FILE_EDITOR'][5] = array(
 	'TXT_ACTION_RENAME_FILE'	=> 'Renommer fichier/dossier',
 	'TXT_OLD_FILE_NAME'			=> 'Fichier/Dossier (ancien)',
 	'TXT_NEW_FILE_NAME'			=> 'Fichier/Dossier (nouveau)',
@@ -119,7 +122,7 @@ $LANG[5] = array(
 );
 
 // Text outputs file handler (htt/action_handler_delete_file_folder.htt)
-$LANG[6] = array(
+$LANG['ADDON_FILE_EDITOR'][6] = array(
 	'TXT_ACTION_DELETE_FILE'	=> 'Supprimer fichier/dossier',
 	'TXT_SUBMIT_DELETE'			=> 'Supprimer',
 	'TXT_ACTUAL_FOLDER'			=> 'Dossier en cours',
@@ -131,7 +134,7 @@ $LANG[6] = array(
 );
 
 // Text outputs file handler (htt/action_handler_create_file_folder.htt)
-$LANG[7] = array(
+$LANG['ADDON_FILE_EDITOR'][7] = array(
 	'TXT_ACTION_CREATE_FILE'	=> 'Cr&eacute;er fichier/dossier',
 	'TXT_CREATE'				=> 'Cr&eacute;er',
 	'TXT_FILE'					=> 'Fichier',
@@ -145,7 +148,7 @@ $LANG[7] = array(
 );
 
 // Text outputs file handler (htt/action_handler_upload_file.htt)
-$LANG[8] = array(
+$LANG['ADDON_FILE_EDITOR'][8] = array(
 	'TXT_ACTION_UPLOAD_FILE'	=> 'Uploader fichier',
 	'TXT_SUBMIT_UPLOAD'			=> 'Upload',
 
@@ -157,14 +160,14 @@ $LANG[8] = array(
 );
 
 // Text outputs for the download handler
-$LANG[9] = array(
+$LANG['ADDON_FILE_EDITOR'][9] = array(
 	'ERR_TEMP_PERMISSION'		=> 'PHP n\'a pas les droits d\'&eacute;criture sur le dossier temporaire WB (/temp).',
 	'ERR_ZIP_CREATION'			=> 'Impossible de cr&eacute;er l\'archive.',
 	'ERR_ZIP_DOWNLOAD'			=> 'Erreur lors du t&eacute;l&eacute;chargement du fichier de sauvegarde.<br /><a href="{URL}">T&eacute;l&eacute;chargez</a> manuellement.',
 );
 
 // Text outputs for the FTP checking (htt/ftp_connection_check.htt)
-$LANG[10] = array(
+$LANG['ADDON_FILE_EDITOR'][10] = array(
 	'TXT_FTP_HEADING'			=> 'Assistant de Configuration FTP',
 	'TXT_FTP_DESCRIPTION'		=> 'L\'assistant FTP aide &agrave; la mise en place au support FTP pour Addon File Editor.',
 
