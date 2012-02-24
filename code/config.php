@@ -3,14 +3,14 @@
  * Admin tool: Addon File Editor
  *
  * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed 
- * Add-ons such as modules, templates and languages via the Website Baker backend. This enables
+ * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
- * This file contains the global configuration options of WB File Editor.
+ * This file contains the global configuration options for the Addon File Editor.
  * 
  * LICENSE: GNU General Public License 3.0
  * 
- * @platform    CMS Websitebaker 2.8.x
+ * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @version     2.2.0
@@ -35,7 +35,7 @@ $image_extensions = array('bmp', 'gif', 'jpg', 'jpeg', 'png');
 // add extension for zip archives (will be displayed with a zip icon)
 $archive_extensions = array('zip', 'rar', 'tar', 'gz');
 
-// module/template folders (e.g. 'addon-file-editor') or languages (e.g. 'en') you want not to show (all lower case)
+// module/template folders (e.g. 'addon_file_editor') or languages (e.g. 'en') you want not to show (all lower case)
 $hidden_addons = array();
 
 // true:=show all files (false:= only show files registered in text, image or archive array)
@@ -52,7 +52,7 @@ $pixlr_support = false;
 #########################################################################################################
 // extract path seperator and detect this module name
 $path_sep = strtoupper(substr(PHP_OS, 0, 3) == 'WIN') ? '\\' : '/';
-$module_path = dirname(dirname(__file__) . '../');
+$module_path = dirname(dirname(__FILE__) . '../');
 $module_folder = basename($module_path);
 
 /**

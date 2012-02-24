@@ -3,14 +3,14 @@
  * Admin tool: Addon File Editor
  *
  * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed 
- * Add-ons such as modules, templates and languages via the Website Baker backend. This enables
+ * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
- * This file contains the Norwegian Bokm&aring;l text outputs of the module.
+ * This file contains the Norwegian text outputs of the module.
  * 
  * LICENSE: GNU General Public License 3.0
  * 
- * @platform    CMS Websitebaker 2.8.x
+ * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation Norwegian translation by forum member oeh
@@ -20,7 +20,7 @@
 */
 
 // Norwegian Bokm&aring;l module description
-$module_description = 'AFE lar deg redigere tekst og bilde filer i installerte moduler og tillegg via Admin sidene.';
+$module_description = 'AFE lar deg redigere tekst og bilde filer i installerte moduler og tillegg via Admin sidene. For details see <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
 if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {

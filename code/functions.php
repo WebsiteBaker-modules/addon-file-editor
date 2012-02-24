@@ -3,14 +3,14 @@
  * Admin tool: Addon File Editor
  *
  * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed 
- * Add-ons such as modules, templates and languages via the Website Baker backend. This enables
+ * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
  * This file is contains the module specific routines
  * 
  * LICENSE: GNU General Public License 3.0
  * 
- * @platform    CMS Websitebaker 2.8.x
+ * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @version     2.2.0
@@ -526,8 +526,8 @@ function createPixlrURL($img_url, $img_file, $url_only = true)
 
 	$file_info = pathinfo($img_file);
 
-	$pixlr_url = 'http://www.pixlr.com/editor/' . '?image=' . $img_url . '&amp;title=' . str_replace($file_info['extension'], '', $file_info['basename']) . 'pixlr.' . $file_info . '&amp;method=GET' . '&amp;loc=' . (key_exists(LANGUAGE, $pixlr_loc) ? $pixlr_loc[LANGUAGE] : 'en') . '&amp;exit=' . WB_URL . '&amp;referrer=' . WB_URL . '&amp;target=' . urlencode($url_mod_path . '/get_pixlr_image.php?img_path=' . str_replace(WB_PATH, '', $img_file));
-
+	$pixlr_url = 'http://www.pixlr.com/editor/' . '?image=' . $img_url . '&amp;title=' . str_replace($file_info['extension'], '', $file_info['basename']) . 'pixlr.' . $file_info . '&amp;method=GET' . '&amp;loc=' . (key_exists(LANGUAGE, $pixlr_loc) ? $pixlr_loc[LANGUAGE] : 'en') . '&amp;exit=' . WB_URL . '&amp;referrer=' . WB_URL . '&amp;target=' . urlencode($url_mod_path . '/code/get_pixlr_image.php?img_path=' . str_replace(WB_PATH, '', $img_file));
+	
 	if ($url_only == true) return $pixlr_url;
 
 	return '<a href="' . $pixlr_url . '" target="_blank" title="edit with pixlr.com">' . basename($img_file) . '</a>';

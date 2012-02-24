@@ -3,14 +3,14 @@
  * Admin tool: Addon File Editor
  *
  * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed 
- * Add-ons such as modules, templates and languages via the Website Baker backend. This enables
+ * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
  * This file contains the routines to download the modified image from http://pixlr.com
  * 
  * LICENSE: GNU General Public License 3.0
  * 
- * @platform    CMS Websitebaker 2.8.x
+ * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @version     2.2.0
@@ -19,27 +19,30 @@
 */
 
 /**
- * Make sanity check of PIXLR parameters
+ * Ensure that only users with permissions to Admin-Tools section can access this file
  */
-// check if required GET parameter are defined
-if (!(isset($_GET['img_path']) && isset($_GET['image']) && isset($_GET['type']) && isset($_GET['state']) && isset($_GET['title']))) 
-	exit("Cannot access this file directly");
-
 // include WB configuration file (restarts sessions) and WB admin class
 require_once('../../../config.php');
 require_once('../../../framework/class.admin.php');
 
-// check if image URL points to the pixlr.com server and the image exists on the own server
-if (strpos($_GET['image'], 'pixlr.com') == false || !file_exists(WB_PATH . $_GET['img_path'])) 
-	exit("Cannot access this file directly");
-
-/**
- * Ensure that only users with permissions to Admin-Tools section can access this file
- */
 // check user permissions for admintools (redirect users with wrong permissions)
 $admin = new admin('Admintools', 'admintools', false, false);
 if ($admin->get_permission('admintools') == false) exit("Cannot access this file directly");
 
+/**
+ * Make sanity check of PIXLR parameters
+ */
+// check if required GET parameter are defined
+if (!(isset($_GET['img_path']) && isset($_GET['image']) && isset($_GET['type']) && isset($_GET['title']))) 
+	exit("Cannot access this file directly");
+
+// ensure specified image exists on the server
+if (!file_exists(WB_PATH . $_GET['img_path'])) 
+	exit("Cannot access this file directly");
+
+/**
+ * Excecute Pixlr API
+ */
 // include module configuration and function file
 require_once('config.php');
 

@@ -3,14 +3,14 @@
  * Admin tool: Addon File Editor
  *
  * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed 
- * Add-ons such as modules, templates and languages via the Website Baker backend. This enables
+ * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
  * This file contains the French text outputs of the module.
  * 
  * LICENSE: GNU General Public License 3.0
  * 
- * @platform    CMS Websitebaker 2.8.x
+ * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation French translation by forum member quinto
@@ -20,7 +20,7 @@
 */
 
 // French module description
-$module_description = 'Cet outil vous permets de "modifier", "supprimer", "uploader" ou "sauvegarder" les fichiers des Ajouts install&eacute;s (Modules, Mod&egrave;les et Langages) en utilisant l&apos;interface d&apos;administration. Gr&acirc;ce &agrave; cet outil vous pourrez effectuer de petites modifications sur les Ajouts install&eacute;s sans avoir besoin de t&eacute;l&eacute;charger les fichiers.';
+$module_description = 'Cet outil vous permets de "modifier", "supprimer", "uploader" ou "sauvegarder" les fichiers des Ajouts install&eacute;s (Modules, Mod&egrave;les et Langages) en utilisant l&apos;interface d&apos;administration. Gr&acirc;ce &agrave; cet outil vous pourrez effectuer de petites modifications sur les Ajouts install&eacute;s sans avoir besoin de t&eacute;l&eacute;charger les fichiers. For details see <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
 if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {

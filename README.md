@@ -14,9 +14,9 @@ The Addon File Editor module is licensed under the [GNU General Public License (
 
 The minimum requirements to get Addon File Editor running are as follows:
 
-- WebsiteBaker CMS v2.8.x series (requiring ***v2.8.2 or higher***)
-- PHP 5.2.2 (recommended: last stable version of the PHP 5.3.x series)
-- Browser with Flash Plugin to use the image manipulation service [Pixlr](http://pixlr.com)
+- WebsiteBaker ***v2.8.1*** or higher (recommeded last stable 2.8.x version)
+- PHP ***5.2.2*** or higher (recommended last stable PHP 5.3.x version)
+- Optional: browser with [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) to use the [Pixlr](http://pixlr.com) image online service
 
 ## Installation
 
@@ -61,7 +61,7 @@ The tool integrates an optional FTP layer, which allows you to access Add-ons no
 Files, which can't be edited by PHP itself are displayed in red in the `AFE` file manager. In this case you may want to enable the FTP support in the `code/config.php` and add your FTP account settings via the URL:
 `http://yourdomain.com/modules/addon_file_editor/code/ftp_assistant.php`.
 
-## Needing help ??
+## Still questions ??
 If you run into problems with the Addon File Editor module, please visit the [English](http://www.websitebaker2.org/forum/index.php/topic,12122.0.html) or [German](http://www.websitebaker2.org/forum/index.php/topic,12404.0.html) WebsiteBaker forum support threads and ask for feedback. 
 
 ***Always provide the following information with your support request:***
