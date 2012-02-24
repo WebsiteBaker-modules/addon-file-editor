@@ -48,9 +48,6 @@ if (! (isset($_GET['aid']) && is_numeric($_GET['aid']) && getAddonInfos($_GET['a
 /**
  * Remove old zip files and create new one
  */
-print $temp_zip_path;
-die;
-
 removeFileOrFolder($temp_zip_path);
 @mkdir($temp_zip_path);
 
