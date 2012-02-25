@@ -6,7 +6,7 @@
  * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
  * you to perform small modifications on installed Add-ons without downloading the files first.
  *
- * This file defines the variables required for Website Baker.
+ * This file defines the variables required for WebsiteBaker.
  * 
  * LICENSE: GNU General Public License 3.0
  * 
@@ -22,8 +22,8 @@
 $module_directory = 'addon_file_editor';
 $module_name = 'Addon File Editor (AFE)';
 $module_function = 'tool';
-$module_version = '2.2.0-RC2';
-$module_status = 'RC2';
+$module_version = '2.2.0';
+$module_status = 'STABLE';
 $module_platform = '2.8.x';
 $module_author = 'cwsoft (http://cwsoft.de)';
 $module_license = '<a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public Licencse (GPL) v3.0</a>';
