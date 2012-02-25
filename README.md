@@ -30,6 +30,8 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 ### Overview Panel
 Once `AFE` is installed, visit the ***Admin-Tools*** section of your WebsiteBaker backend and click on the `AFE` admin tool link. This brings you to the `AFE` overview panel.
 
+![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/afe-overview-panel.png) 
+
 The `AFE` overview panel lists all installed Add-ons of your WebsiteBaker installation. The Add-ons are grouped into the sections ***Modules***, ***Templates*** and ***Languages***. You can expand/collaps groups to show only the Add-ons you are interested in, providing you have JavaScript enabled in your browser. The toggle status of the groups is stored in a Cookie and will be remembered during the lifetime of this Cookie.
 
 When a group is expanded, all installed Add-ons of this group are shown in a list view. A *download icon* is shown at the right side of each Add-on entry. A click on this icon creates an installation package of this Add-on on the fly. Use this option to create a ***backup*** of an Add-on ***BEFORE*** you modify it, so you can revert back to the original version in case you mess up something.
@@ -37,7 +39,11 @@ When a group is expanded, all installed Add-ons of this group are shown in a lis
 To browse the files and folders of a specific Add-on in the `AFE` file manager, click on the Add-on name you are interested in and you will be redirected to the `AFE` file manager.
 
 ### File Manager
-The file manager shows the files and folders of the selected Add-on. Per default, only files with ***recognized*** file extensions are displayed (text, images, archives). You can add/remove file extension via `AFE` configuration file ***code/config.php***. Details about `AFEs` configuration settings are shown in section *AFE Configuration Settings*.
+The file manager shows the files and folders of the selected Add-on. 
+
+![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/afe-file-manager.png) 
+
+Per default, only files with ***recognized*** file extensions are displayed (text, images, archives). You can add/remove file extension via `AFE` configuration file ***code/config.php***. Details about `AFEs` configuration settings are shown in section *AFE Configuration Settings*.
 
 To *edit* a text file, or to *view* an image in the browser, just click on the file name. To *rename* or *delete* files, click one the ***action icons*** on the right site of the file manager. You can *create* new files/folders or *upload* a file via the **action links** at the top of the file manager. The *[Reload]* option forces to read in all files and folders again. Use this option if you have installed a new Addon via the WebsiteBaker backend and it doesn´t show up in `AFE`.
 
