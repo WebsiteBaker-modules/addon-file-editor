@@ -5,7 +5,7 @@ The Addon File Editor (consecutively abbreviated `AFE`) enables you to *view*, *
 The optional FTP layer implemented in `AFE`, allows you to modify Add-on files normally owned by the *ftp-user*. This might be usefull if your website is hosted on a shared hosting provider using different pemissions for PHP and FTP groups. Another optional feature is the support for the 3rd party online photo editing service [Pixlr](http://pixlr.com), which allows you to modifiy images of Add-ons in a Photoshop&trade; like environment from the WebsiteBaker backend.
 
 ## Download
-The latest stable `AFE` [installation package](https://github.com/cwsoft/wb-addon-file-editor/raw/master/wb-addon-file-editor-installer.zip) for the WebsiteBaker CMS is always included in the GitHub master branch. Older versions are available as [archives](https://github.com/cwsoft/wb-addon-file-editor/tags), but are ***NOT*** directly installable in the WebsiteBaker CMS. The development history of `AFE` can be tracked via [GitHub](https://github.com/cwsoft/wb-addon-file-editor).
+The released stable `AFE` installation packages for the WebsiteBaker CMS can be found in the [GitHub download area](https://github.com/cwsoft/wb-addon-file-editor/downloads). It is recommended to install/update to the latest available version listed. Older versions are provided for compatibility reasons with older WebsiteBaker versions and may contain bugs or security issues. The development history of `AFE` can be tracked via [GitHub](https://github.com/cwsoft/wb-addon-file-editor).
 
 ## License
 `AFE` is licensed under the [GNU General Public License (GPL) v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 
 ## Installation
 
-1. download latest stable [WebsiteBaker installation package](https://github.com/cwsoft/wb-addon-file-editor/raw/master/wb-addon-file-editor-installer.zip) from GitHub master branch
+1. download [AFE v2.2.0](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-wb-addon-file-editor-v2.2.0.zip) WebsiteBaker installation package
 2. log into your WebsiteBaker backend and go to the `Add-ons/Modules` section
 3. install the downloaded zip archive via the WebsiteBaker installer
 4. go to the `Admin-Tools` section and click the `AFE` tool link
