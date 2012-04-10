@@ -14,7 +14,7 @@
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation French translation by forum member quinto
- * @version     2.2.0
+ * @version     2.2.1
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -23,6 +23,7 @@
 $module_description = 'Cet outil vous permets de "modifier", "supprimer", "uploader" ou "sauvegarder" les fichiers des Ajouts install&eacute;s (Modules, Mod&egrave;les et Langages) en utilisant l&apos;interface d&apos;administration. Gr&acirc;ce &agrave; cet outil vous pourrez effectuer de petites modifications sur les Ajouts install&eacute;s sans avoir besoin de t&eacute;l&eacute;charger les fichiers. For details see <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
+global $LANG;
 if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
 	$LANG = array();
 }

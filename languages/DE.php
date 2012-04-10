@@ -14,7 +14,7 @@
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation cwsoft
- * @version     2.2.0
+ * @version     2.2.1
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -23,6 +23,7 @@
 $module_description = 'AFE erm&ouml;glicht die Bearbeitung von Text- und Bilddateien installierter Add-ons aus dem Backend. Weitere Infos auf <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
+global $LANG;
 if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
 	$LANG = array();
 }
