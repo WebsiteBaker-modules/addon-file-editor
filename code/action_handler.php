@@ -14,7 +14,7 @@
  * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.2.0
+ * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -48,40 +48,70 @@ $admin = myAdminHandler($module_folder, 'Admintools', 'admintools', true, false)
 // make sanity check of user specified action handler, addon id and file id
 $action = (isset($_GET['action']) && is_numeric($_GET['action'])) ? $_GET['action'] : '';
 $aid = (isset($_GET['aid']) && isset($_SESSION['addon_id']) && ($_GET['aid'] == $_SESSION['addon_id'])) ? (int)$_GET['aid'] : '';
-
 $fid = (isset($_GET['fid']) && isset($_SESSION['addon_file_infos']) && $_SESSION['addon_file_infos'] >= $_GET['fid']) ? (int)$_GET['fid'] : '';
 
 // check if addon and file id is specified for action id: 1-3
-if ($action < 4 && ($aid == '' || $fid == '')) $admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);
+if ($action < 4 && ($aid == '' || $fid == '')) {
+	$admin->print_error($LANG['ADDON_FILE_EDITOR'][3]['ERR_WRONG_PARAMETER'], $url_admintools);	
+}
 
 /**
- * Evaluate the action handler
+ * Create Twig template object and configure it
  */
-// include template class and set template directory
-require_once (WB_PATH . '/include/phplib/template.inc');
-$tpl = new Template($module_path . '/templates');
-$tpl->set_unknowns('keep');
+require_once ('../thirdparty/Twig/Twig/Autoloader.php');
+Twig_Autoloader::register();
+$loader = new Twig_Loader_Filesystem(dirname(__FILE__) . '/../templates');
+$twig = new Twig_Environment($loader, array(
+	'autoescape'       => false,
+	'cache'            => false,
+	'strict_variables' => true,
+	'debug'            => false,
+));
 
-// create array with template files and language variables based on action handler
-$tpl_files = array('1' => array('action_handler_edit_textfile.htt', $LANG['ADDON_FILE_EDITOR'][4]), '2' => array('action_handler_rename_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][5]), '3' => array('action_handler_delete_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][6]), '4' => array('action_handler_create_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][7]), '5' => array('action_handler_upload_file.htt', $LANG['ADDON_FILE_EDITOR'][8]));
+// create array to map action handler to the required AFE template and language files
+$tpl_files = array(
+	'1' => array('action_handler_edit_textfile.htt',      $LANG['ADDON_FILE_EDITOR'][4]), 
+	'2' => array('action_handler_rename_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][5]), 
+	'3' => array('action_handler_delete_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][6]), 
+	'4' => array('action_handler_create_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][7]), 
+	'5' => array('action_handler_upload_file.htt',        $LANG['ADDON_FILE_EDITOR'][8]),
+);
 
-// set template file depending on action handler
-if ($action > 0 && $action < 6) $tpl->set_file('page', $tpl_files[$action][0]);
+// load template file depending on action handler
+if ($action > 0 && $action < 6) {
+	$tpl = $twig->loadTemplate($tpl_files[$action][0]);
+}
 
-// remove the comment block
-$tpl->set_block('page', 'comment_block', 'comment_replace');
-$tpl->set_block('comment_replace', '');
+/**
+ * Set template data (general data and data from text files)  
+ */
+// add general template language data 
+$data = array();
+$data['lang'] = array(
+	'TXT_HEADING_ADMINTOOLS' => $HEADING['ADMINISTRATION_TOOLS'], 
+	'TXT_BACK'               => $TEXT['BACK'], 
+	'TXT_HELP'               => $LANG['ADDON_FILE_EDITOR'][1]['TXT_HELP'], 
+);
 
-// fetch placeholder values identical for all file handlers
+// include language data from AFE language files
+foreach (array_merge($LANG['ADDON_FILE_EDITOR'][3], $tpl_files[$action][1]) as $key => $value) {
+	$data['lang'][$key] = $value;
+}
+
+// update template general data 
 $editor_info = getAddonInfos($module_folder);
 $addon_info = getAddonInfos($aid);
 
-$tpl_infos = array('TXT_HEADING_ADMINTOOLS' => $HEADING['ADMINISTRATION_TOOLS'], 'TXT_BACK' => $TEXT['BACK'], 'TXT_HELP' => $LANG['ADDON_FILE_EDITOR'][1]['TXT_HELP'], 'URL_HELP_FILE' => $url_help, 'STATUS_MESSAGE' => '', 'CLASS_HIDDEN' => '', 'NAME_FILE_EDITOR' => $editor_info['name'], 'ADDON_TYPE' => $LANG['ADDON_FILE_EDITOR'][3]['TXT_' . strtoupper($addon_info['type'])], 'ADDON_NAME' => $addon_info['name'], 'URL_WB_ADMIN_TOOLS' => ADMIN_URL . '/admintools/index.php', 'URL_FILEMANAGER' => $url_admintools . '&amp;aid=' . $aid, );
-
-// replace template placeholder with data from language files
-foreach (array_merge($LANG['ADDON_FILE_EDITOR'][3], $tpl_files[$action][1], $tpl_infos) as $key => $value) {
-	$tpl->set_var($key, $value);
-}
+$data['afe'] = array(
+	'URL_HELP_FILE'      => $url_help, 
+	'STATUS_MESSAGE'     => '', 
+	'CLASS_HIDDEN'       => '', 
+	'NAME_FILE_EDITOR'   => $editor_info['name'], 
+	'ADDON_TYPE'         => $LANG['ADDON_FILE_EDITOR'][3]['TXT_' . strtoupper($addon_info['type'])], 
+	'ADDON_NAME'         => $addon_info['name'], 
+	'URL_WB_ADMIN_TOOLS' => ADMIN_URL . '/admintools/index.php', 
+	'URL_FILEMANAGER'    => $url_admintools . '&amp;aid=' . $aid, 
+);
 
 /**
  * Evaluate the action handler
@@ -105,7 +135,13 @@ switch ($action) {
 			$file_content = file_get_contents($actual_file);
 		}
 
-		$tpl->set_var(array('REGISTER_EDIT_AREA' => myRegisterEditArea($syntax = myGetEditAreaSyntax($actual_file)), 'ADDON_FILE' => str_replace($strip_path, '', $actual_file), 'FILE_CONTENT' => htmlspecialchars($file_content), 'URL_FORM_SUBMIT' => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=1', 'URL_FORM_CANCEL' => $url_admintools . '&amp;aid=' . $aid));
+		$data['afe'] = array_merge($data['afe'], array(
+			'REGISTER_EDIT_AREA' => myRegisterEditArea($syntax = myGetEditAreaSyntax($actual_file)), 
+			'ADDON_FILE'         => str_replace($strip_path, '', $actual_file), 
+			'FILE_CONTENT'       => htmlspecialchars($file_content), 
+			'URL_FORM_SUBMIT'    => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=1', 
+			'URL_FORM_CANCEL'    => $url_admintools . '&amp;aid=' . $aid
+		));
 
 		// action save modified text file
 		if ((isset($_POST['save_modified_textfile']) || isset($_POST['save_modified_textfile_back'])) && isset($_POST['code_area_text'])) {
@@ -126,10 +162,20 @@ switch ($action) {
 			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][4]['TXT_SAVE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][4]['TXT_SAVE_ERROR'];
 			$back_link = $url_admintools . '&aid=' . $aid . '&fid=' . $fid;
 
-			$tpl->set_var(array('STATUS_MESSAGE' => writeStatusMessage($message = $status_message, $back_url = $back_link, $sucess = $status, $auto_redirect = ($status && isset($_POST['save_modified_textfile_back'])), $redirect_timer = isset($_POST['save_modified_textfile_back']) ? 0 : 1500), 'CLASS_HIDDEN' => ''));
+			$data['afe'] = array_merge($data['afe'], array(
+				'STATUS_MESSAGE' => writeStatusMessage(
+					$message        = $status_message, 
+					$back_url       = $back_link, 
+					$sucess         = $status, 
+					$auto_redirect  = ($status && isset($_POST['save_modified_textfile_back'])), 
+					$redirect_timer = isset($_POST['save_modified_textfile_back']) ? 0 : 1500
+				), 
+				'CLASS_HIDDEN'      => '',
+			));
 		}
 
-		$tpl->pparse('output', 'page');
+		// ouput the final template
+		$tpl->display($data);
 		break;
 
 	case 2:
@@ -140,7 +186,14 @@ switch ($action) {
 		$file_extension = getFileExtension($actual_file);
 		$strip_path = WB_PATH . $path_sep . $addon_info['type'] . 's' . $path_sep . $addon_info['directory'];
 
-		$tpl->set_var(array('ADDON_FILE' => str_replace($strip_path, '', $actual_file), 'FILE_EXT' => $file_extension, 'OLD_FILE_NAME' => str_replace('.' . $file_extension, '', basename($actual_file)), 'CLASS_HIDE' => ($_SESSION['addon_file_infos'][$fid]['type'] == 'folder') ? 'hidden' : '', 'URL_FORM_SUBMIT' => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=2', 'URL_FORM_CANCEL' => $url_admintools . '&amp;aid=' . $aid));
+		$data['afe'] = array_merge($data['afe'], array(
+			'ADDON_FILE'      => str_replace($strip_path, '', $actual_file), 
+			'FILE_EXT'        => $file_extension, 
+			'OLD_FILE_NAME'   => str_replace('.' . $file_extension, '', basename($actual_file)), 
+			'CLASS_HIDE'      => ($_SESSION['addon_file_infos'][$fid]['type'] == 'folder') ? 'hidden' : '', 
+			'URL_FORM_SUBMIT' => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=2', 
+			'URL_FORM_CANCEL' => $url_admintools . '&amp;aid=' . $aid
+		));
 
 		// action rename file / folder
 		if (isset($_POST['rename_file_folder']) && isset($_POST['new_file'])) {
@@ -163,10 +216,14 @@ switch ($action) {
 			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][5]['TXT_RENAME_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][5]['TXT_RENAME_ERROR'];
 			$back_link = $url_admintools . '&aid=' . $aid . '&reload';
 
-			$tpl->set_var(array('STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 'CLASS_HIDDEN' => ($status) ? 'hidden' : ''));
+			$data['afe'] = array_merge($data['afe'], array(
+				'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
+				'CLASS_HIDDEN'   => ($status) ? 'hidden' : '',
+			));
 		}
 
-		$tpl->pparse('output', 'page');
+		// ouput the final template
+		$tpl->display($data);
 		break;
 
 	case 3:
@@ -176,7 +233,16 @@ switch ($action) {
 		$actual_file = $_SESSION['addon_file_infos'][$fid]['path'];
 		$strip_path = WB_PATH . $path_sep . $addon_info['type'] . 's' . $path_sep . $addon_info['directory'];
 
-		$tpl->set_var(array('ADDON_FILE' => str_replace($strip_path, '', $actual_file), 'FILE_FOLDER_NAME' => basename($actual_file), 'TXT_ACTUAL_FILE' => ($_SESSION['addon_file_infos'][$fid]['type'] == 'folder') ? $LANG['ADDON_FILE_EDITOR'][6]['TXT_ACTUAL_FOLDER'] : $LANG['ADDON_FILE_EDITOR'][3]['TXT_ACTUAL_FILE'], 'URL_FORM_SUBMIT' => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=3&amp;reload', 'URL_FORM_CANCEL' => $url_admintools . '&amp;aid=' . $aid . '&amp;fid=' . $fid, 'CLASS_HIDDEN' => '', ));
+		$data['afe'] = array_merge($data['afe'], array(
+			'ADDON_FILE'       => str_replace($strip_path, '', $actual_file), 
+			'FILE_FOLDER_NAME' => basename($actual_file), 
+			'URL_FORM_SUBMIT'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=3&amp;reload', 
+			'URL_FORM_CANCEL'  => $url_admintools . '&amp;aid=' . $aid . '&amp;fid=' . $fid, 
+			'CLASS_HIDDEN'     => '', 
+			'TXT_ACTUAL_FILE'  => ($_SESSION['addon_file_infos'][$fid]['type'] == 'folder') 
+			                       ? $LANG['ADDON_FILE_EDITOR'][6]['TXT_ACTUAL_FOLDER']
+								   : $LANG['ADDON_FILE_EDITOR'][3]['TXT_ACTUAL_FILE'], 
+		));
 
 		// action delete file / folder
 		if (isset($_POST['delete_file_folder'])) {
@@ -192,10 +258,14 @@ switch ($action) {
 			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][6]['TXT_DELETE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][6]['TXT_DELETE_ERROR'];
 			$back_link = $url_admintools . '&aid=' . $aid . '&fid=' . $fid . '&reload';
 
-			$tpl->set_var(array('STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 'CLASS_HIDDEN' => 'hidden', ));
+			$data['afe'] = array_merge($data['afe'], array(
+				'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
+				'CLASS_HIDDEN'   => 'hidden', 
+			));
 		}
 
-		$tpl->pparse('output', 'page');
+		// ouput the final template
+		$tpl->display($data);
 		break;
 
 	case 4:
@@ -203,7 +273,13 @@ switch ($action) {
 		# create new file or folder
 		#####################################################################################
 		$strip_path = WB_PATH . $path_sep . $addon_info['type'] . 's' . $path_sep;
-		$tpl->set_var(array('SEL_ENTRIES_FILE_EXTENSIONS' => createSelectEntries($text_extensions), 'SEL_ENTRIES_TARGET_FOLDER' => createTargetFolderSelectEntries($_SESSION['addon_folders'], $strip_path), 'URL_WB_ADMIN_TOOLS' => ADMIN_URL . '/admintools/index.php', 'URL_FORM_SUBMIT' => $url_action_handler . '?aid=' . $aid . '&amp;action=4', 'URL_FORM_CANCEL' => $url_admintools . '&amp;aid=' . $aid));
+		$data['afe'] = array_merge($data['afe'], array(
+			'SEL_ENTRIES_FILE_EXTENSIONS' => createSelectEntries($text_extensions), 
+			'SEL_ENTRIES_TARGET_FOLDER'   => createTargetFolderSelectEntries($_SESSION['addon_folders'], $strip_path), 
+			'URL_WB_ADMIN_TOOLS'          => ADMIN_URL . '/admintools/index.php', 
+			'URL_FORM_SUBMIT'             => $url_action_handler . '?aid=' . $aid . '&amp;action=4', 
+			'URL_FORM_CANCEL'             => $url_admintools . '&amp;aid=' . $aid
+		));
 
 		// action create file / folder
 		if (isset($_POST['create_file_folder']) && isset($_POST['file_folder']) && isset($_POST['file_name']) && isset($_POST['target_folder'])) {
@@ -234,10 +310,14 @@ switch ($action) {
 			}
 
 			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_ERROR'];
-			$tpl->set_var(array('STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 'CLASS_HIDDEN' => ($status) ? 'hidden' : ''));
+			$data['afe'] = array_merge($data['afe'], array(
+				'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
+				'CLASS_HIDDEN'   => ($status) ? 'hidden' : '',
+			));
 		}
 
-		$tpl->pparse('output', 'page');
+		// ouput the final template
+		$tpl->display($data);
 		break;
 
 	case 5:
@@ -246,7 +326,13 @@ switch ($action) {
 		#####################################################################################
 		$strip_path = WB_PATH . $path_sep . $addon_info['type'] . 's' . $path_sep;
 		// set template file
-		$tpl->set_var(array('SEL_ENTRIES_TARGET_FOLDER' => createTargetFolderSelectEntries($_SESSION['addon_folders'], $strip_path), 'MAX_FILE_SIZE' => $max_upload_size * 1024 * 1024, 'URL_WB_ADMIN_TOOLS' => ADMIN_URL . '/admintools/index.php', 'URL_FORM_SUBMIT' => $url_action_handler . '?aid=' . $aid . '&amp;action=5', 'URL_FORM_CANCEL' => $url_admintools . '&amp;aid=' . $aid));
+		$data['afe'] = array_merge($data['afe'], array(
+			'SEL_ENTRIES_TARGET_FOLDER' => createTargetFolderSelectEntries($_SESSION['addon_folders'], $strip_path), 
+			'MAX_FILE_SIZE'             => $max_upload_size * 1024 * 1024, 
+			'URL_WB_ADMIN_TOOLS'        => ADMIN_URL . '/admintools/index.php', 
+			'URL_FORM_SUBMIT'           => $url_action_handler . '?aid=' . $aid . '&amp;action=5', 
+			'URL_FORM_CANCEL'           => $url_admintools . '&amp;aid=' . $aid
+		));
 
 		// action upload file
 		if (isset($_POST['upload_file']) && isset($_POST['target_folder']) && isset($_FILES['file_upload'])) {
@@ -289,10 +375,14 @@ switch ($action) {
 			$back_link = $url_admintools . '&aid=' . $aid . '&reload';
 			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][8]['TXT_UPLOAD_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][8]['TXT_UPLOAD_ERROR'];
 
-			$tpl->set_var(array('STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 'CLASS_HIDDEN' => ($status) ? 'hidden' : ''));
+			$data['afe'] = array_merge($data['afe'], array(
+				'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
+				'CLASS_HIDDEN'   => ($status) ? 'hidden' : '',
+			));
 		}
 
-		$tpl->pparse('output', 'page');
+		// ouput the final template
+		$tpl->display($data);
 		break;
 
 	default:

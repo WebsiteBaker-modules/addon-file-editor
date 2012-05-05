@@ -1,4 +1,4 @@
-<!-- BEGIN comment_block -->
+{#
 /**
  * Admin tool: Addon File Editor
  *
@@ -13,11 +13,11 @@
  * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.2.0
+ * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
-<!-- END comment_block -->
+#}
 
 <script language="javascript" type="text/javascript">
 	function toogle(file_type) 
@@ -32,48 +32,48 @@
 
 <div id="mod_addon_file_editor">
 	<h4 class="admintools">
-		<a href="{URL_WB_ADMIN_TOOLS}">{TXT_HEADING_ADMINTOOLS}</a> -> {NAME_FILE_EDITOR}
+		<a href="{{ afe.URL_WB_ADMIN_TOOLS }}">{{ lang.TXT_HEADING_ADMINTOOLS }}</a> -> {{ afe.NAME_FILE_EDITOR }}
 	</h4>
 
 	<div class="help_file">
-		<a href="{URL_HELP_FILE}" target="_blank">[ {TXT_HELP} ]</a>
+		<a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
 	</div>
 
-	<h2><a href="{URL_FILEMANAGER}">{ADDON_TYPE}: {ADDON_NAME}</a></h2>
-	<a class="backlink" href="{URL_FILEMANAGER}">{TXT_BACK}</a>
+	<h2><a href="{{ afe.URL_FILEMANAGER }}">{{ afe.ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
+	<a class="backlink" href="{{ afe.URL_FILEMANAGER }}">{{ lang.TXT_BACK }}</a>
 
-	<form class="formbox" action="{URL_FORM_SUBMIT}" method="post">
-		<h3>{TXT_ACTION}: {TXT_ACTION_CREATE_FILE}</h3>
+	<form class="formbox" action="{{ afe.URL_FORM_SUBMIT }}" method="post">
+		<h3>{{ lang.TXT_ACTION }}: {{ lang.TXT_ACTION_CREATE_FILE }}</h3>
 
-		<div class="{CLASS_HIDDEN}">
-		<label for="file_folder">{TXT_CREATE}:</label>
+		<div class="{{ afe.CLASS_HIDDEN }}">
+		<label for="file_folder">{{ lang.TXT_CREATE }}:</label>
 		<input id="file_folder" type="radio" value="file" name="file_folder" checked="checked" onclick="javascript: toogle('file')" />
-		{TXT_FILE}
-		<input type="radio" value="folder" name="file_folder" onclick="javascript: toogle('folder')" />{TXT_FOLDER}
+		{{ lang.TXT_FILE }}
+		<input type="radio" value="folder" name="file_folder" onclick="javascript: toogle('folder')" />{{ lang.TXT_FOLDER }}
 		<br /><br />
 	
-		<label for="file_folder_name">{TXT_FILE_NAME}:</label>
+		<label for="file_folder_name">{{ lang.TXT_FILE_NAME }}:</label>
 		<input id="file_folder_name" type="text" value="" name="file_name" class="file" />
 		<strong>.</strong>
 		<select id="file_extensions" size="1" name="file_extensions">
-			{SEL_ENTRIES_FILE_EXTENSIONS}
+			{{ afe.SEL_ENTRIES_FILE_EXTENSIONS }}
 		</select>
-		{TXT_ALLOWED_FILE_CHARS}
+		{{ lang.TXT_ALLOWED_FILE_CHARS }}
 		<br /><br />
 	
-		<label for="target_folder">{TXT_TARGET_FOLDER}:</label>
+		<label for="target_folder">{{ lang.TXT_TARGET_FOLDER }}:</label>
 		<select id="target_folder" size="1" name="target_folder" class="file">
-			{SEL_ENTRIES_TARGET_FOLDER}
+			{{ afe.SEL_ENTRIES_TARGET_FOLDER }}
 		</select>
 
 		<br /><br />
-		<input class="submit" type="submit" name="create_file_folder" value="{TXT_SUBMIT_CREATE}" />
-		<a class="submit" href="{URL_FORM_CANCEL}">{TXT_SUBMIT_CANCEL}</a>
+		<input class="submit" type="submit" name="create_file_folder" value="{{ lang.TXT_SUBMIT_CREATE }}" />
+		<a class="submit" href="{{ afe.URL_FORM_CANCEL }}">{{ lang.TXT_SUBMIT_CANCEL }}</a>
 		</div>
 
 		<br style="clear: both;" />
 	</form>
 
-	{STATUS_MESSAGE}
+	{{ afe.STATUS_MESSAGE }}
 
 </div>

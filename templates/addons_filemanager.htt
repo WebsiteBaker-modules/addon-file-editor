@@ -1,4 +1,4 @@
-<!-- BEGIN comment_block -->
+{#
 /**
  * Admin tool: Addon File Editor
  *
@@ -13,61 +13,69 @@
  * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.2.0
+ * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
-<!-- END comment_block -->
+#}
 
 <div id="mod_addon_file_editor">
 
-<div class="help_file">
-	<a href="{URL_HELP_FILE}" target="_blank">[ {TXT_HELP} ]</a>
-</div>
+	<div class="help_file">
+		<a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
+	</div>
 
-<h2><a href="{URL_EDIT_ADDON}">{TXT_ADDON_TYPE}: {ADDON_NAME}</a></h2>
-<p>{TXT_EDIT_DESCRIPTION}</p>
+	<h2><a href="{{ afe.URL_EDIT_ADDON }}">{{ afe.TXT_ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
+	<p>{{ lang.TXT_EDIT_DESCRIPTION }}</p>
 
-<div class="info {CLASS_SHOW_FTP_INFO}">{TXT_FTP_NOTICE}</div>
+	{% if afe.SHOW_FTP_INFO %}
+		<div class="info">
+			{{ lang.TXT_FTP_NOTICE }}
+		</div>
+	{% endif %}
 
-<a class="backlink" href="{URL_EDIT_ADDON}">{TXT_BACK_TO_OVERVIEW}</a>
+	<a class="backlink" href="{{ afe.URL_EDIT_ADDON }}">{{ lang.TXT_BACK_TO_OVERVIEW }}</a>
 
-<div class="box">
-	<a href="{URL_RELOAD}">[ {TXT_RELOAD} ]&nbsp;</a>
-	<a class="{CLASS_HIDDEN}" href="{URL_CREATE_FILE_FOLDER}">[ {TXT_CREATE_FILE_FOLDER} ]&nbsp;</a>
-	<a class="{CLASS_HIDDEN}" href="{URL_UPLOAD_FILE}">[ {TXT_UPLOAD_FILE} ]&nbsp;</a>
-</div>
+	<div class="box">
+		<a href="{{ afe.URL_RELOAD }}">[ {{ lang.TXT_RELOAD }} ]&nbsp;</a>
+		<a class="{{ afe.CLASS_HIDDEN }}" href="{{ afe.URL_CREATE_FILE_FOLDER }}">[ {{ lang.TXT_CREATE_FILE_FOLDER }} ]&nbsp;</a>
+		<a class="{{ afe.CLASS_HIDDEN }}" href="{{ afe.URL_UPLOAD_FILE }}">[ {{ lang.TXT_UPLOAD_FILE }} ]&nbsp;</a>
+	</div>
 
-<table class="filemanager" width="98%" border="0" cellspacing="0" cellpadding="5">
-<thead>
-	<tr>
-		<th width="65%">{ADDON_PATH}</th>
-		<th class="center" colspan="2" width="25%">{TXT_FILE_INFOS}</th>
-		<th class="right" width="8%">{TXT_FILE_ACTIONS}</th>
-	</tr>
-</thead>
+	<table class="filemanager" width="98%" border="0" cellspacing="0" cellpadding="5">
+		<thead>
+			<tr>
+				<th width="65%">{{ afe.ADDON_PATH }}</th>
+				<th class="center" colspan="2" width="25%">{{ lang.TXT_FILE_INFOS }}</th>
+				<th class="right" width="8%">{{ lang.TXT_FILE_ACTIONS }}</th>
+			</tr>
+		</thead>
 
-<tbody>
-	<!-- BEGIN file_block -->
-	<tr class="{CLASS_ODD_EVEN}{CLASS_FOLDER}{CLASS_PERMISSION}">
-		<td>
-			<img src="{URL_ICON_FOLDER}/{FILE_ICON}.gif" title="{TXT_FILE_TYPE}" alt="{TXT_FILE_TYPE}" />&nbsp;
-			{FILE_NAME}</td>
-		<td class="right">{FILE_SIZE}</td>
-		<td class="right">{FILE_MAKE_TIME}</td>
-		<td class="right">
-			<a class="{HIDE_EDIT_ICON}" href="{URL_EDIT_FILE}" {TARGET_BLANK}>
-			<img src="{URL_ICON_FOLDER}/edit.gif" alt="{TXT_EDIT}" title="{TXT_EDIT}"/></a>
-			<a class="{CLASS_HIDDEN}" href="{URL_RENAME_FILE}">
-			<img src="{URL_ICON_FOLDER}/rename.gif" alt="{TXT_RENAME}" title="{TXT_RENAME}"/></a>
-			<a class="{CLASS_HIDDEN}" href="{URL_DELETE_FILE}">
-			<img src="{URL_ICON_FOLDER}/delete.gif" alt="{TXT_DELETE}" title="{TXT_DELETE}"/></a>
-		</td>
-	</tr>
-	<!-- END file_block -->
-</tbody>
-</table>
+		<tbody>
+			{% for file in afe.FILES %}
+			<tr class="{{ file.CLASS_ODD_EVEN }}{{ file.CLASS_FOLDER }}{{ file.CLASS_PERMISSION }}">
+				<td>
+					<img src="{{ file.URL_ICON_FOLDER }}/{{ file.FILE_ICON }}.gif" title="{{ file.TXT_FILE_TYPE }}" alt="{{ file.TXT_FILE_TYPE }}" />&nbsp;
+					{{ file.FILE_NAME }}
+				</td>
+				<td class="right">{{ file.FILE_SIZE }}</td>
+				<td class="right">{{ file.FILE_MAKE_TIME }}</td>
+				<td class="right">
+					<a class="{{ file.HIDE_EDIT_ICON }}" href="{{ file.URL_EDIT_FILE }}" {{ file.TARGET_BLANK }}>
+						<img src="{{ file.URL_ICON_FOLDER }}/edit.gif" alt="{{ file.TXT_EDIT }}" title="{{ file.TXT_EDIT }}"/>
+					</a>
+					<a class="{{ file.CLASS_HIDDEN }}" href="{{ file.URL_RENAME_FILE }}">
+						<img src="{{ file.URL_ICON_FOLDER }}/rename.gif" alt="{{ file.TXT_RENAME }}" title="{{ file.TXT_RENAME }}"/>
+					</a>
+					<a class="{{ file.CLASS_HIDDEN }}" href="{{ file.URL_DELETE_FILE }}">
+						<img src="{{ file.URL_ICON_FOLDER }}/delete.gif" alt="{{ file.TXT_DELETE }}" title="{{ file.TXT_DELETE }}"/>
+					</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-<a class="backlink" href="{URL_EDIT_ADDON}">{TXT_BACK_TO_OVERVIEW}</a>
+	<a class="backlink" href="{{ afe.URL_EDIT_ADDON }}">{{ lang.TXT_BACK_TO_OVERVIEW }}</a>
 
 </div>
