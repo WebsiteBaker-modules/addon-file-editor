@@ -91,7 +91,7 @@ if ($info['type'] == 'language') {
  * Send the add-on backup to the browser using PEAR Download class
  */
 ob_end_clean();
-require ($module_path . '/thirdparty/Download.php');
+require ($module_path . '/thirdparty/PEAR/Download.php');
 $dl = new HTTP_Download();
 $dl->setContentType($content_type);
 $dl->setFile($path_to_download_file);
