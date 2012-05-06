@@ -14,7 +14,7 @@
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation Norwegian translation by forum member oeh
- * @version     2.2.1
+ * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -28,7 +28,7 @@ if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
       $LANG = array();
 }
 
-// Text outputs overview page (htt/addons_overview.htt)
+// Text outputs overview page (templates/addons_overview.htt)
 $LANG['ADDON_FILE_EDITOR'][1] = array(
       'TXT_DESCRIPTION'             => 'Listen nedenfor viser alle Tillegg (Add-ons), som er lesbare med PHP. Du kan redigere et Tillegg ved &aring; ' . 
                                        'klikke p&aring; Tilleggets navn. Ikonet for nedlasting lar deg opprette en installerbar sikkerhetskopi ' .
@@ -60,7 +60,7 @@ $LANG['ADDON_FILE_EDITOR'][1] = array(
       'TXT_ZIP_LANGUAGE_FILES'      => 'Sikkerhetskopier og last ned spr&aring;kfilen',
 );
 
-// Text outputs filemanager page (htt/filemanager.htt)
+// Text outputs filemanager page (templates/filemanager.htt)
 $LANG['ADDON_FILE_EDITOR'][2] = array(
       'TXT_EDIT_DESCRIPTION'        => 'Filbehandleren lar deg reidgere, omd&oslash;pe, opprette, slette og laste opp filer. Ved &aring; klikke ' .
                                        'p&aring; en tekst eller bilde fil, &aring;pnes denne for redigering eller gjennomlesing.',
@@ -101,7 +101,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
       'TXT_SUBMIT_CANCEL'           => 'Avbryt',
 );      
 
-// Text outputs file handler (htt/action_handler_edit_textfile.htt)
+// Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(
       'TXT_ACTION_EDIT_TEXTFILE'    => 'Rediger tekstfil',
       'TXT_SUBMIT_SAVE'             => 'Lagre',
@@ -111,7 +111,7 @@ $LANG['ADDON_FILE_EDITOR'][4] = array(
       'TXT_SAVE_ERROR'              => 'Kunne ikke lagre endringene. Sjekk tilgangsrettighetene p&aring; filen.',
 );
 
-// Text outputs file handler (htt/action_handler_rename_file_folder.htt)
+// Text outputs file handler (templates/action_handler_rename_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][5] = array(
       'TXT_ACTION_RENAME_FILE'      => 'Omd&oslash;p fil/folder',
       'TXT_OLD_FILE_NAME'           => 'Fil/folder (gammel)',
@@ -122,7 +122,7 @@ $LANG['ADDON_FILE_EDITOR'][5] = array(
       'TXT_ALLOWED_FILE_CHARS'      => '[a-zA-Z0-9.-_]',
 );
 
-// Text outputs file handler (htt/action_handler_delete_file_folder.htt)
+// Text outputs file handler (templates/action_handler_delete_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][6] = array(
       'TXT_ACTION_DELETE_FILE'      => 'Slett fil/folder',
       'TXT_SUBMIT_DELETE'           => 'Slett',
@@ -134,7 +134,7 @@ $LANG['ADDON_FILE_EDITOR'][6] = array(
                                        'med FTP, v&aelig;r sikker p&aring; at denne folderen ikke inneholder andre foldere eller filer.</em>'
 );
 
-// Text outputs file handler (htt/action_handler_create_file_folder.htt)
+// Text outputs file handler (templates/action_handler_create_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][7] = array(
       'TXT_ACTION_CREATE_FILE'      => 'Opprett fil/folder',
       'TXT_CREATE'                  => 'Opprett',
@@ -146,9 +146,10 @@ $LANG['ADDON_FILE_EDITOR'][7] = array(
       'TXT_SUBMIT_CREATE'           => 'Opprett',
       'TXT_CREATE_SUCCESS'          => 'Fil/folder ble opprettet.',
       'TXT_CREATE_ERROR'            => 'Kunne ikke opprette fil/folder. Sjekk tilgangsrettighetene og spesifiser et fil/folder navn.',
+      'TXT_INVALID_FILENAME'        => 'The specified file or folder name is invalid.',
 );
 
-// Text outputs file handler (htt/action_handler_upload_file.htt)
+// Text outputs file handler (templates/action_handler_upload_file.htt)
 $LANG['ADDON_FILE_EDITOR'][8] = array(
       'TXT_ACTION_UPLOAD_FILE'      => 'Last opp fil',
       'TXT_SUBMIT_UPLOAD'           => 'Last opp',
@@ -167,7 +168,7 @@ $LANG['ADDON_FILE_EDITOR'][9] = array(
       'ERR_ZIP_DOWNLOAD'            => 'Feil ved nedlasting av sikkerhetskopifilen.<br /><a href="{URL}">Last ned</a> manuelt.',
 );
 
-// Text outputs for the FTP checking (htt/ftp_connection_check.htt)
+// Text outputs for the FTP checking (templates/ftp_connection_check.htt)
 $LANG['ADDON_FILE_EDITOR'][10] = array(
       'TXT_FTP_HEADING'             => 'FTP Konfigurasjonsassistent',
       'TXT_FTP_DESCRIPTION'         => 'FTP assistenten hjelper deg &aring; sette opp og teste FTP funksjonene i Addon File Editor.',

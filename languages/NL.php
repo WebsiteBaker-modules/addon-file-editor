@@ -14,7 +14,7 @@
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation Dutch translation by forum member Luckyluck
- * @version     2.2.1
+ * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -28,7 +28,7 @@ if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
       $LANG = array();
 }
 
-// Text outputs overview page (htt/addons_overview.htt)
+// Text outputs overview page (templates/addons_overview.htt)
 $LANG['ADDON_FILE_EDITOR'][1] = array(
       'TXT_DESCRIPTION'             => 'Deze lijst toont alle door PHP leesbare Add-ons. Door te klikken op de Add-on naam kan je ' . 
                                        'deze wijzigen. Met het download icoon wordt onmiddellijk een installeerbare backup ' .
@@ -60,7 +60,7 @@ $LANG['ADDON_FILE_EDITOR'][1] = array(
       'TXT_ZIP_LANGUAGE_FILES'      => 'Download taal bestanden',
 );
 
-// Text outputs filemanager page (htt/filemanager.htt)
+// Text outputs filemanager page (templates/filemanager.htt)
 $LANG['ADDON_FILE_EDITOR'][2] = array(
       'TXT_EDIT_DESCRIPTION'        => 'Met deze bestandsbeheer kan je bestanden wijzigen, hernoemen, creëren, wissen en uploaden. Bij het klikken op een ' .
                                        'bestandsnaam opent het bestand om te wijzigen of te bekijken.',
@@ -101,7 +101,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
       'TXT_SUBMIT_CANCEL'           => 'Annuleer',
 );      
 
-// Text outputs file handler (htt/action_handler_edit_textfile.htt)
+// Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(
       'TXT_ACTION_EDIT_TEXTFILE'    => 'Wijzig tekst bestand',
       'TXT_SUBMIT_SAVE'             => 'Bewaar',
@@ -111,7 +111,7 @@ $LANG['ADDON_FILE_EDITOR'][4] = array(
       'TXT_SAVE_ERROR'              => 'Onmogelijk om het bestand te bewaren. Bekijk de permissies.',
 );
 
-// Text outputs file handler (htt/action_handler_rename_file_folder.htt)
+// Text outputs file handler (templates/action_handler_rename_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][5] = array(
       'TXT_ACTION_RENAME_FILE'      => 'Hernoem bestand/map',
       'TXT_OLD_FILE_NAME'           => 'Bestand/map (oud)',
@@ -122,7 +122,7 @@ $LANG['ADDON_FILE_EDITOR'][5] = array(
       'TXT_ALLOWED_FILE_CHARS'      => '[a-zA-Z0-9.-_]',
 );
 
-// Text outputs file handler (htt/action_handler_delete_file_folder.htt)
+// Text outputs file handler (templates/action_handler_delete_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][6] = array(
       'TXT_ACTION_DELETE_FILE'      => 'Wis bestand/map',
       'TXT_SUBMIT_DELETE'           => 'Wis',
@@ -134,7 +134,7 @@ $LANG['ADDON_FILE_EDITOR'][6] = array(
                                        'met FTP, zorg ervoor dat de map geen andere map of bestanden bevat.</em>'
 );
 
-// Text outputs file handler (htt/action_handler_create_file_folder.htt)
+// Text outputs file handler (templates/action_handler_create_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][7] = array(
       'TXT_ACTION_CREATE_FILE'      => 'Creëer bestand/map',
       'TXT_CREATE'                  => 'Creëer',
@@ -146,9 +146,10 @@ $LANG['ADDON_FILE_EDITOR'][7] = array(
       'TXT_SUBMIT_CREATE'           => 'Creëer',
       'TXT_CREATE_SUCCESS'          => 'Bestand/map met succes aangemaakt.',
       'TXT_CREATE_ERROR'            => 'Onmogelijk om het bestand of de map te creëren. Bekijk de permissies en bestandsnaam.',
+      'TXT_INVALID_FILENAME'        => 'The specified file or folder name is invalid.',
 );
 
-// Text outputs file handler (htt/action_handler_upload_file.htt)
+// Text outputs file handler (templates/action_handler_upload_file.htt)
 $LANG['ADDON_FILE_EDITOR'][8] = array(
       'TXT_ACTION_UPLOAD_FILE'      => 'Upload bestand',
       'TXT_SUBMIT_UPLOAD'           => 'Upload',
@@ -167,7 +168,7 @@ $LANG['ADDON_FILE_EDITOR'][9] = array(
       'ERR_ZIP_DOWNLOAD'            => 'Fout tijdens het downloaden van het archief bestand.<br /><a href="{URL}">Download</a> bestand manueel.',
 );
 
-// Text outputs for the FTP checking (htt/ftp_connection_check.htt)
+// Text outputs for the FTP checking (templates/ftp_connection_check.htt)
 $LANG['ADDON_FILE_EDITOR'][10] = array(
       'TXT_FTP_HEADING'             => 'FTP Configuratie-Assistent',
       'TXT_FTP_DESCRIPTION'         => 'De FTP assistent helpt je tijdens de instellingen en test FTP support voor de Addon File Editor.',

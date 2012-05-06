@@ -163,14 +163,14 @@ switch ($action) {
 			$back_link = $url_admintools . '&aid=' . $aid . '&fid=' . $fid;
 
 			$data['afe'] = array_merge($data['afe'], array(
-				'STATUS_MESSAGE' => writeStatusMessage(
-					$message        = $status_message, 
-					$back_url       = $back_link, 
-					$sucess         = $status, 
-					$auto_redirect  = ($status && isset($_POST['save_modified_textfile_back'])), 
-					$redirect_timer = isset($_POST['save_modified_textfile_back']) ? 0 : 1500
-				), 
 				'CLASS_HIDDEN'      => '',
+				'STATUS_MESSAGE'    => writeStatusMessage(
+						$message        = $status_message, 
+						$back_url       = $back_link, 
+						$sucess         = $status, 
+						$auto_redirect  = ($status && isset($_POST['save_modified_textfile_back'])), 
+						$redirect_timer = isset($_POST['save_modified_textfile_back']) ? 0 : 1500
+						), 
 			));
 		}
 
@@ -284,36 +284,48 @@ switch ($action) {
 		// action create file / folder
 		if (isset($_POST['create_file_folder']) && isset($_POST['file_folder']) && isset($_POST['file_name']) && isset($_POST['target_folder'])) {
 
+			// work out backlink
+			$back_link = $url_admintools . '&aid=' . $aid . '&reload';
+			
 			// extract specified file type (file/folder) and file/folder name to create
 			$file_type = ($_POST['file_folder'] == 'folder') ? 'folder' : 'file';
-			$file_name = strip_tags($admin->strip_slashes($_POST['file_name']));
+			$file_name = trim(strip_tags($admin->strip_slashes($_POST['file_name'])));
+			
+			if (! $file_name) {
+				// file/folder name provided is empty
+				$data['afe'] = array_merge($data['afe'], array(
+					'STATUS_MESSAGE' => writeStatusMessage($LANG['ADDON_FILE_EDITOR'][7]['TXT_INVALID_FILENAME'], $back_link, false), 
+					'CLASS_HIDDEN'   => '',
+				));
+			
+			} else {
+				// try to create specified file/folder
+					
+				if ($file_type == 'file') {
+					// extract file extension
+					$extension_id = isset($_POST['file_extensions']) ? (int)$_POST['file_extensions'] : 0;
+					$extension = (count($text_extensions) >= $extension_id) ? $text_extensions[$extension_id] : 0;
+					$file_name = (substr($file_name, -1, 1) == '.') ? ($file_name . $extension) : ($file_name . '.' . $extension);
+				}
 
-			if ($file_type == 'file') {
-				// extract file extension
-				$extension_id = isset($_POST['file_extensions']) ? (int)$_POST['file_extensions'] : 0;
-				$extension = (count($text_extensions) >= $extension_id) ? $text_extensions[$extension_id] : 0;
-				$file_name = (substr($file_name, -1, 1) == '.') ? ($file_name . $extension) : ($file_name . '.' . $extension);
+				$folder_id = (int)$_POST['target_folder'];
+				$target_folder = (count($_SESSION['addon_folders']) >= $folder_id) ? $_SESSION['addon_folders'][$folder_id] : '';
+				$status = createFileOrFolder($file_type, $target_folder, $file_name);
+
+				// try to create file/folder via FTP if PHP method failed (permissions)
+				if (! $status) {
+					$ftp_file = $target_folder . $path_sep . $file_name;
+					$ftp_file = str_replace(array(WB_PATH . $path_sep, $path_sep), array('', '/'), $ftp_file);
+					$ftp = ftpLogin();
+					$status = ($file_type == 'file') ? ftpWriteStringToFile($ftp, ' ', $ftp_file) : ftpCreateFolder($ftp, $ftp_file);
+				}
+
+				$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_ERROR'];
+				$data['afe'] = array_merge($data['afe'], array(
+					'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
+					'CLASS_HIDDEN'   => ($status) ? 'hidden' : '',
+				));
 			}
-
-			$folder_id = (int)$_POST['target_folder'];
-			$target_folder = (count($_SESSION['addon_folders']) >= $folder_id) ? $_SESSION['addon_folders'][$folder_id] : '';
-
-			$back_link = $url_admintools . '&aid=' . $aid . '&reload';
-			$status = createFileOrFolder($file_type, $target_folder, $file_name);
-
-			// try to create file/folder via FTP if PHP method failed (permissions)
-			if (! $status) {
-				$ftp_file = $target_folder . $path_sep . $file_name;
-				$ftp_file = str_replace(array(WB_PATH . $path_sep, $path_sep), array('', '/'), $ftp_file);
-				$ftp = ftpLogin();
-				$status = ($file_type == 'file') ? ftpWriteStringToFile($ftp, ' ', $ftp_file) : ftpCreateFolder($ftp, $ftp_file);
-			}
-
-			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][7]['TXT_CREATE_ERROR'];
-			$data['afe'] = array_merge($data['afe'], array(
-				'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
-				'CLASS_HIDDEN'   => ($status) ? 'hidden' : '',
-			));
 		}
 
 		// ouput the final template

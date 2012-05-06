@@ -14,7 +14,7 @@
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation cwsoft
- * @version     2.2.1
+ * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -28,7 +28,7 @@ if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
     $LANG = array();
 }
 
-// Text outputs overview page (htt/addons_overview.htt)
+// Text outputs overview page (templates/addons_overview.htt)
 $LANG['ADDON_FILE_EDITOR'][1] = array(
     'TXT_DESCRIPTION'               => 'The list below shows all Add-ons, which are readable by PHP. You can edit Add-on files by ' . 
                                        'clicking on the Add-on name. The download icon allows you to create a installable backup ' .
@@ -60,7 +60,7 @@ $LANG['ADDON_FILE_EDITOR'][1] = array(
     'TXT_ZIP_LANGUAGE_FILES'        => 'Download language file',
 );
 
-// Text outputs filemanager page (htt/filemanager.htt)
+// Text outputs filemanager page (templates/filemanager.htt)
 $LANG['ADDON_FILE_EDITOR'][2] = array(
     'TXT_EDIT_DESCRIPTION'          => 'The filemanager allows you to edit, rename, create, delete and upload files. A click on text- ' .
                                        'or image file names opens the files for editing or viewing.',
@@ -101,7 +101,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
     'TXT_SUBMIT_CANCEL'             => 'Cancel',
 );    
 
-// Text outputs file handler (htt/action_handler_edit_textfile.htt)
+// Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(
     'TXT_ACTION_EDIT_TEXTFILE'      => 'Edit text file',
     'TXT_SUBMIT_SAVE'               => 'Save',
@@ -111,7 +111,7 @@ $LANG['ADDON_FILE_EDITOR'][4] = array(
     'TXT_SAVE_ERROR'                => 'Unable to save the file. Please check permissions.',
 );
 
-// Text outputs file handler (htt/action_handler_rename_file_folder.htt)
+// Text outputs file handler (templates/action_handler_rename_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][5] = array(
     'TXT_ACTION_RENAME_FILE'        => 'Rename file/folder',
     'TXT_OLD_FILE_NAME'             => 'File/folder (old)',
@@ -122,7 +122,7 @@ $LANG['ADDON_FILE_EDITOR'][5] = array(
     'TXT_ALLOWED_FILE_CHARS'        => '[a-zA-Z0-9.-_]',
 );
 
-// Text outputs file handler (htt/action_handler_delete_file_folder.htt)
+// Text outputs file handler (templates/action_handler_delete_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][6] = array(
     'TXT_ACTION_DELETE_FILE'        => 'Delete file/folder',
     'TXT_SUBMIT_DELETE'             => 'Delete',
@@ -134,7 +134,7 @@ $LANG['ADDON_FILE_EDITOR'][6] = array(
                                        'by FTP, make sure the folder does not contain other folders or files.</em>'
 );
 
-// Text outputs file handler (htt/action_handler_create_file_folder.htt)
+// Text outputs file handler (templates/action_handler_create_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][7] = array(
     'TXT_ACTION_CREATE_FILE'        => 'Create file/folder',
     'TXT_CREATE'                    => 'Create',
@@ -146,9 +146,10 @@ $LANG['ADDON_FILE_EDITOR'][7] = array(
     'TXT_SUBMIT_CREATE'             => 'Create',
     'TXT_CREATE_SUCCESS'            => 'File/folder sucessfully created.',
     'TXT_CREATE_ERROR'              => 'Unable to create file/folder. Please check permissions and specified file name.',
+    'TXT_INVALID_FILENAME'          => 'The specified file or folder name is invalid.',
 );
 
-// Text outputs file handler (htt/action_handler_upload_file.htt)
+// Text outputs file handler (templates/action_handler_upload_file.htt)
 $LANG['ADDON_FILE_EDITOR'][8] = array(
     'TXT_ACTION_UPLOAD_FILE'        => 'Upload file',
     'TXT_SUBMIT_UPLOAD'             => 'Upload',
@@ -167,7 +168,7 @@ $LANG['ADDON_FILE_EDITOR'][9] = array(
     'ERR_ZIP_DOWNLOAD'              => 'Error while downloading backup file.<br /><a href="{URL}">Download</a> manually.',
 );
 
-// Text outputs for the FTP checking (htt/ftp_connection_check.htt)
+// Text outputs for the FTP checking (templates/ftp_connection_check.htt)
 $LANG['ADDON_FILE_EDITOR'][10] = array(
     'TXT_FTP_HEADING'               => 'FTP Configuration-Assistant',
     'TXT_FTP_DESCRIPTION'           => 'The FTP assistant helps you to set-up and test the FTP support for the Addon File Editor.',

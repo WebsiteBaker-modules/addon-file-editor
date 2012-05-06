@@ -14,7 +14,7 @@
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation cwsoft
- * @version     2.2.1
+ * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -28,7 +28,7 @@ if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
         $LANG = array();
 }
 
-// Text outputs overview page (htt/addons_overview.htt)
+// Text outputs overview page (templates/addons_overview.htt)
 $LANG['ADDON_FILE_EDITOR'][1] = array(
         'TXT_DESCRIPTION'           => 'Nachfolgende Liste z&auml;hlt alle Addons auf, auf die PHP lesend zugreifen kann. Um Addon ' .
                                        'Dateien zu bearbeiten, klicke auf den Namen der Erweiterung. Das Download Symbol erstellt ' .
@@ -61,7 +61,7 @@ $LANG['ADDON_FILE_EDITOR'][1] = array(
         'TXT_ZIP_LANGUAGE_FILES'    => 'Sprachdatei herunterladen',
 );
 
-// Text outputs filemanager page (htt/filemanager.htt)
+// Text outputs filemanager page (templates/filemanager.htt)
 $LANG['ADDON_FILE_EDITOR'][2] = array(
         'TXT_EDIT_DESCRIPTION'      => 'Der Dateimanager erlaubt das bearbeiten, umbenennen, erstellen, l&ouml;schen und hochladen ' .
                                        'von Dateien. Text- oder Bildateien, k&ouml;nnen durch klick auf den Dateinamen bearbeitet ' .
@@ -104,7 +104,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
         'TXT_SUBMIT_CANCEL'         => 'Abbrechen',
 );    
 
-// Text outputs file handler (htt/action_handler_edit_textfile.htt)
+// Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(
         'TXT_ACTION_EDIT_TEXTFILE'  => 'Textdatei bearbeiten',
         'TXT_SUBMIT_SAVE'           => 'Speichern',
@@ -114,7 +114,7 @@ $LANG['ADDON_FILE_EDITOR'][4] = array(
         'TXT_SAVE_ERROR'            => 'Datei konnte nicht gespeichert werden. Bitte Schreibrechte pr&uuml;fen.',
 );
 
-// Text outputs file handler (htt/action_handler_rename_file_folder.htt)
+// Text outputs file handler (templates/action_handler_rename_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][5] = array(
         'TXT_ACTION_RENAME_FILE'    => 'Datei/Ordner umbenennen',
         'TXT_OLD_FILE_NAME'         => 'Datei/Ordner (alt)',
@@ -125,7 +125,7 @@ $LANG['ADDON_FILE_EDITOR'][5] = array(
         'TXT_ALLOWED_FILE_CHARS'    => '[a-zA-Z0-9.-_]',
 );
 
-// Text outputs file handler (htt/action_handler_delete_file_folder.htt)
+// Text outputs file handler (templates/action_handler_delete_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][6] = array(
         'TXT_ACTION_DELETE_FILE'    => 'Datei/Ordner l&ouml;schen',
         'TXT_SUBMIT_DELETE'         => 'L&ouml;schen',
@@ -139,7 +139,7 @@ $LANG['ADDON_FILE_EDITOR'][6] = array(
                                        'Dateien oder Ordner enthalten.</em>',
 );
 
-// Text outputs file handler (htt/action_handler_create_file_folder.htt)
+// Text outputs file handler (templates/action_handler_create_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][7] = array(
         'TXT_ACTION_CREATE_FILE'    => 'Datei/Ordner erstellen',
         'TXT_CREATE'                => 'Erstelle',
@@ -151,9 +151,10 @@ $LANG['ADDON_FILE_EDITOR'][7] = array(
         'TXT_SUBMIT_CREATE'         => 'Erstellen',
         'TXT_CREATE_SUCCESS'        => 'Datei/Ordner wurde erstellt.',
         'TXT_CREATE_ERROR'          => 'Datei/Ordner konnte nicht erstellt werden. Bitte Schreibrechte und Dateinamen pr&uuml;fen.',
+        'TXT_INVALID_FILENAME'      => 'Der angegebene Datei- oder Ordnername ist ung&uuml;ltig.',
 );
 
-// Text outputs file handler (htt/action_handler_upload_file.htt)
+// Text outputs file handler (templates/action_handler_upload_file.htt)
 $LANG['ADDON_FILE_EDITOR'][8] = array(
         'TXT_ACTION_UPLOAD_FILE'    => 'Datei hochladen',
         'TXT_SUBMIT_UPLOAD'         => 'Hochladen',
@@ -172,7 +173,7 @@ $LANG['ADDON_FILE_EDITOR'][9] = array(
         'ERR_ZIP_DOWNLOAD'          => 'Fehler beim Herunterladen des Ziparchivs.<br />Manuell <a href="{URL}">herunterladen</a>.',
 );
 
-// Text outputs for the FTP checking (htt/ftp_connection_check.htt)
+// Text outputs for the FTP checking (templates/ftp_connection_check.htt)
 $LANG['ADDON_FILE_EDITOR'][10] = array(
         'TXT_FTP_HEADING'           => 'FTP Konfigurations-Assistent',
         'TXT_FTP_DESCRIPTION'       => 'Der Konfigurations-Assistent unterst&uuml;zt Sie beim Einrichten und Testen der ' .
