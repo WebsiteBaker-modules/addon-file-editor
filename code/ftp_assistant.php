@@ -102,6 +102,7 @@ $data['afe'] = array(
 	'FTP_PASSWORD'        => htmlspecialchars($ftp_settings['ftp_password']), 
 	'FTP_PORT'            => htmlspecialchars($ftp_settings['ftp_port']), 
 	'FTP_START_DIR'       => htmlspecialchars($ftp_settings['ftp_start_dir']), 
+	'STATUS_MESSAGE'      => '',
 );
 
 // check FTP connection status
