@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 
 ## Installation
 
-1. download [AFE v2.3.0 RC2](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-wb-addon-file-editor-v2.3.0-RC2.zip) WebsiteBaker installation package
+1. download [AFE v2.3.0](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-wb-addon-file-editor-v2.3.0.zip) WebsiteBaker installation package
 2. log into your WebsiteBaker backend and go to the `Add-ons/Modules` section
 3. install the downloaded zip archive via the WebsiteBaker installer
 4. go to the `Admin-Tools` section and click the `AFE` tool link
@@ -95,6 +95,6 @@ If you have questions or issues with `AFE`, please visit the [English](http://ww
 ## Credits
 Credits goes to the following WebsiteBaker forum users for translating the `AFE` language files into the following languages.
 
-- **Dutch (NL.php):** forum member [Luckyluck](http://www.websitebaker2.org/forum/index.php?action=profile;u=6090)
+- **Dutch (NL.php):** forum members [Luckyluck](http://www.websitebaker2.org/forum/index.php?action=profile;u=6090), [pcwacht](http://www.websitebaker2.org/forum/index.php?action=profile;u=424)
 - **Norwegian (NO.php):** forum member [oeh](http://www.websitebaker2.org/forum/index.php?action=profile;u=752)
 - **French (FR.php):** forum member [quinto](http://www.websitebaker2.org/forum/index.php?action=profile;u=526)

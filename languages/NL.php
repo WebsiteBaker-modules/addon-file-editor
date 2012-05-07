@@ -13,7 +13,7 @@
  * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @translation Dutch translation by forum member Luckyluck
+ * @translation Dutch translation Luckyluck, pcwacht
  * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
@@ -136,17 +136,17 @@ $LANG['ADDON_FILE_EDITOR'][6] = array(
 
 // Text outputs file handler (templates/action_handler_create_file_folder.htt)
 $LANG['ADDON_FILE_EDITOR'][7] = array(
-      'TXT_ACTION_CREATE_FILE'      => 'Creëer bestand/map',
-      'TXT_CREATE'                  => 'Creëer',
+      'TXT_ACTION_CREATE_FILE'      => 'Cre&euml;er bestand/map',
+      'TXT_CREATE'                  => 'Cre&euml;er',
       'TXT_FILE'                    => 'Bestand',
       'TXT_FOLDER'                  => 'Map',
       'TXT_FILE_NAME'               => 'Bestandsnaam',
       'TXT_ALLOWED_FILE_CHARS'      => '[a-zA-Z0-9.-_]',
+      'TXT_SUBMIT_CREATE'           => 'Cre&euml;er',
       'TXT_TARGET_FOLDER'           => 'Doel map',
-      'TXT_SUBMIT_CREATE'           => 'Creëer',
       'TXT_CREATE_SUCCESS'          => 'Bestand/map met succes aangemaakt.',
-      'TXT_CREATE_ERROR'            => 'Onmogelijk om het bestand of de map te creëren. Bekijk de permissies en bestandsnaam.',
-      'TXT_INVALID_FILENAME'        => 'The specified file or folder name is invalid.',
+      'TXT_CREATE_ERROR'            => 'Onmogelijk om het bestand of de map te cre&euml;ren. Bekijk de permissies en bestandsnaam.',
+      'TXT_INVALID_FILENAME'        => 'Opgegeven bestandsnaam of directory is ongeldig.',
 );
 
 // Text outputs file handler (templates/action_handler_upload_file.htt)

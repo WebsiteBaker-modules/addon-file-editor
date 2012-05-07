@@ -255,12 +255,19 @@ function getAddonFileInfos($addon_path, $addon_id, $force_reload = false)
 
 		// extract all files in the actual directory
 		$files = array();
-		foreach (glob($folder . $path_sep . '*.*') as $file) {
+		
+		// skip empty folders
+		$files_in_folder = glob($folder . $path_sep . '*.*', GLOB_ERR);
+		if (! is_array($files_in_folder)) continue;
+		
+		// loop over all files contained in actual folder
+		foreach ($files_in_folder as $file) {
 			$file_extension = getFileExtension($file);
 			// skip files which are not supported if option is enabled
 			if (! $show_all_files && ! in_array($file_extension, $registered_extensions)) continue;
 			$file_infos[] = array('type' => 'file', 'path' => $file, 'extension' => $file_extension, 'icon' => getFileIconByExtension($file, $file_extension), 'size' => getHumanReadableFileSize($file), 'maketime' => getHumanReadableFileMakeTime($file), );
 		}
+	
 	}
 
 	// store current addon file infos in session variable
