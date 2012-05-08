@@ -13,7 +13,7 @@
  * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.3.0
+ * @version     2.4.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -34,8 +34,11 @@ require_once (! file_exists($lang) ? $module_path . '/languages/EN.php' : $lang)
 /**
  * Create Twig template object and configure it
  */
-require_once ('thirdparty/Twig/Twig/Autoloader.php');
-Twig_Autoloader::register();
+// register Twig shipped with AFE if not already done by the WB core (included since WB 2.8.3 #1688)  
+if (! class_exists('Twig_Autoloader')) {
+	require_once ('thirdparty/Twig/Twig/Autoloader.php');
+	Twig_Autoloader::register();
+}
 $loader = new Twig_Loader_Filesystem(dirname(__FILE__) . '/templates');
 $twig = new Twig_Environment($loader, array(
 	'autoescape'       => false,

@@ -13,7 +13,7 @@
  * @platform    CMS WebsiteBaker 2.8.x
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @version     2.3.0
+ * @version     2.4.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
  */
@@ -22,7 +22,7 @@
 $module_directory     = 'addon_file_editor';
 $module_name          = 'Addon File Editor (AFE)';
 $module_function      = 'tool';
-$module_version       = '2.3.0';
+$module_version       = '2.4.0';
 $module_status        = 'STABLE';
 $module_platform      = '2.8.x';
 $module_author        = 'cwsoft (http://cwsoft.de)';
