@@ -14,7 +14,6 @@
  * @package     addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
  * @translation Norwegian translation by forum member oeh
- * @version     2.3.0
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
