@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 
 ## Installation
 
-1. download [AFE v2.4.0](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-wb-addon-file-editor-v2.4.0.zip) WebsiteBaker installation package
+1. download [AFE v2.5.0](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-addon-file-editor-v2.5.0.zip) WebsiteBaker installation package
 2. log into your WebsiteBaker backend and go to the `Add-ons/Modules` section
 3. install the downloaded zip archive via the WebsiteBaker installer
 4. go to the `Admin-Tools` section and click the `AFE` tool link
@@ -65,12 +65,12 @@ You can add/remove file exentison to the recognized file types for *text*, *imag
 
 Files with extensions not listed above are *hidden* in the `AFE` file manager by default. To change this behaviour, set ***$show_all_files = true;***. 
 
-You can remove Add-ons from the `AFE` file manager if you want. To remove `AFE` and the English language file from the `AFE` file manager, set ***$hidden_addons = array('addon_file_editor', 'en');*** (all lower case).
+You can remove Add-ons from the `AFE` file manager if you want. To remove `AFE` and the English language file from the `AFE` file manager, set ***$hidden_addons = array('cwsoft-addon-file-editor', 'en');*** (all lower case).
 
 Per default, the allowed file size for uploads is limited to 2 MB (***$max_upload_size = 2***), Pixlr support is disabled (***$pixlr_support = false***).
 
 ### FTP Configuration Settings
-`AFE` implements an optional FTP layer, wich is disabled by default. You can activate this feature if required. The `AFE` file manager detects and highlights files which can't be modified by PHP in a red color. If you see Add-ons or Add-on files highlighted in red, enable the FTP layer to modify these files via FTP. The FTP layer can be configured by visiting the URL: *http://yourdomain.com/modules/addon_file_editor/code/ftp_assistant.php*.
+`AFE` implements an optional FTP layer, wich is disabled by default. You can activate this feature if required. The `AFE` file manager detects and highlights files which can't be modified by PHP in a red color. If you see Add-ons or Add-on files highlighted in red, enable the FTP layer to modify these files via FTP. The FTP layer can be configured by visiting the URL: *http://yourdomain.com/modules/cwsoft-addon-file-editor/code/ftp_assistant.php*.
 
 Update *yourdomain.com* to fit to your domain. The URL to the FTP assistant can only be called by users/groups with permission to the WebsiteBaker Admin tools section. The FTP assistant allows you to test the FTP connection to your server, once the required FTP login information where provided. The FTP login information are stored in the `AFE` database and will be removed when you uninstall `AFE`.
 
