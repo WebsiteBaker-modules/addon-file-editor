@@ -217,10 +217,12 @@ if ($aid == '') {
 			'FILE_ICON'        => $file_info['icon'], 
 			'TXT_FILE_TYPE'    => $LANG['ADDON_FILE_EDITOR'][2]['TXT_FILE_TYPE_' . strtoupper($file_info['icon'])], 
 			'HIDE_EDIT_ICON'   => ($icon_edit_url == '-') ? 'hidden' : '', 
+			'HIDE_UNZIP_ICON'  => ($unzip_archive_support && substr(strtolower($file_name), -4) == '.zip') ? '' : 'hidden',  
 			'TARGET_BLANK'     => ($icon_edit_url <> '-' && $file_info['icon'] == 'image') ? ' target="_blank"' : '', 
 			'URL_EDIT_FILE'    => $icon_edit_url, 
 			'URL_RENAME_FILE'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index .'&amp;action=2', 
 			'URL_DELETE_FILE'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index . '&amp;action=3',
+			'URL_UNZIP_FILE'   => ($unzip_archive_support) ? $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index .'&amp;action=6' : '', 
 			'TXT_EDIT'         => ($icon_edit_url <> '-' && $file_info['icon'] == 'image') 
                                   ? ($LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'] . ' (Online: PIXLR)')
                                   : $LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'], 

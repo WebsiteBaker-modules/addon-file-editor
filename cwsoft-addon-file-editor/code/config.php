@@ -46,6 +46,9 @@ $max_upload_size = 2;
 // activate experimental support for the online Flash image editor service http://pixlr.com/
 $pixlr_support = false;
 
+// activate support to unzip archive files (*.zip)
+$unzip_archive_support = false;
+
 #########################################################################################################
 # NOTE: DO NOT CHANGE ANYTHING BELOW THIS LINE UNLESS YOU NOW WHAT YOU ARE DOING
 #########################################################################################################

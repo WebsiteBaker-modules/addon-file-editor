@@ -75,6 +75,7 @@ $LANG['ADDON_FILE_EDITOR'][2] = array(
       'TXT_UPLOAD_FILE'             => 'Last opp Fil',
       'TXT_VIEW'                    => 'Se',
       'TXT_EDIT'                    => 'Rediger',
+      'TXT_UNZIP'                   => 'Unzip',
       'TXT_RENAME'                  => 'Omd&oslash;p',
       'TXT_DELETE'                  => 'Slett',
 
@@ -189,4 +190,15 @@ $LANG['ADDON_FILE_EDITOR'][10] = array(
       'TXT_FTP_LOGIN_OK'            => 'Tilkobling til FTP server var vellykket. FTP St&oslash;tte er sl&aring;tt p&aring;.',
       'TXT_FTP_LOGIN_FAILED'        => 'Tilkobling til FTP server feilet. Sjekk FTP instillingene dine. ' .
                                        '<br /><strong>OBS: </strong>Start folderen m&aring; v&amp;aelig;re den mappen som WB er installert i.',
+);
+
+// Text outputs file handler (templates/action_handler_unzip_file.htt)
+$LANG['ADDON_FILE_EDITOR'][11] = array(
+      'TXT_ACTION_UNZIP_ARCHIVE'    => 'Unzip archive file',
+      'TXT_FILE_TO_UNZIP'           => 'File to unzip',
+      'TXT_TARGET_FOLDER'           => 'Target folder',
+      'TXT_SUBMIT_UNZIP'            => 'Unzip',
+      'TXT_UNZIP_WARNING'           => '<strong>Note: </strong>Unzipping an archive may overwrite possible existing files in the target folder and can not be revised.',
+      'TXT_UNZIP_SUCCESS'           => 'Archive sucessfully unzipped.',
+      'TXT_UNZIP_ERROR'             => 'Failed to to unzip given archive file. Please check that the archive is a valid ZIP-archive and the target folder has PHP write permission.',
 );

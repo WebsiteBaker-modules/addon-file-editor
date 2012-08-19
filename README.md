@@ -1,6 +1,6 @@
 # Addon File Editor Admin Tool for CMS WebsiteBaker (2.8.x)
 
-The Addon File Editor (consecutively abbreviated `AFE`) enables you to *view*, *edit*, *delete*, *create*, *upload* or *backup* files of installed Add-ons such as *modules*, *templates* or *languages* from the [WebsiteBaker CMS](http://www.websitebaker2.org) backend. `AFE` allows you to create installation packages of installed Add-ons, ready for installation in WebsiteBaker - handy for distribution or backup purposes.
+The Addon File Editor (consecutively abbreviated `AFE`) enables you to *view*, *edit*, *delete*, *create*, *upload*, *unzip* or *backup* files of installed Add-ons such as *modules*, *templates* or *languages* from the [WebsiteBaker CMS](http://www.websitebaker2.org) backend. `AFE` allows you to create installation packages of installed Add-ons, ready for installation in WebsiteBaker - handy for distribution or backup purposes.
 
 The optional FTP layer implemented in `AFE`, allows you to modify Add-on files normally owned by the *ftp-user*. This might be usefull if your website is hosted on a shared hosting provider using different pemissions for PHP and FTP groups. Another optional feature is the support for the 3rd party online photo editing service [Pixlr](http://pixlr.com), which allows you to modifiy images of Add-ons in a Photoshop&trade; like environment from the WebsiteBaker backend.
 
@@ -52,6 +52,9 @@ If you have Pixlr support enabled via ***code/config.php***, an *edit* icon appe
 
 Your browser requires a [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) in order to use the online image service from [Pixlr](http://pixlr.com). Keep in mind that your image is uploaded to pixlr.com. So please make sure you read, understood and agree to the Pixlr [FAQ](http://pixlr.com/faq/) and [Terms & Service](http://pixlr.com/terms_of_service/) ***before*** using this service.
 
+#### Unzip Archive Files
+If you have unzip archive support enabled via ***code/config.php***, an *unzip* icon appears in the action icons group at the right of a *.zip file. Clicking the *unzip* icon allows you to unzip the archive to the actual folder on your server. This feature allows you to create nested folder structures and/or multiple files from an existing *.zip archive. The *.zip folder structure will be taken over. Any file contained in the target exraction folder which is older than the corresponding file in the archive will be replaced without further notice. 
+
 ## AFE Configuration Settings
 You can modify the default settings of `AFE` via the configuration file ***code/config.php*** located in the `AFE` module folder.
 
@@ -67,7 +70,7 @@ Files with extensions not listed above are *hidden* in the `AFE` file manager by
 
 You can remove Add-ons from the `AFE` file manager if you want. To remove `AFE` and the English language file from the `AFE` file manager, set ***$hidden_addons = array('cwsoft-addon-file-editor', 'en');*** (all lower case).
 
-Per default, the allowed file size for uploads is limited to 2 MB (***$max_upload_size = 2***), Pixlr support is disabled (***$pixlr_support = false***).
+Per default, the allowed file size for uploads is limited to 2 MB (***$max_upload_size = 2***), Pixlr support (***$pixlr_support = false***) and unzip archive support (***$unzip_archive_support = false***) are disabled.
 
 ### FTP Configuration Settings
 `AFE` implements an optional FTP layer, wich is disabled by default. You can activate this feature if required. The `AFE` file manager detects and highlights files which can't be modified by PHP in a red color. If you see Add-ons or Add-on files highlighted in red, enable the FTP layer to modify these files via FTP. The FTP layer can be configured by visiting the URL: *http://yourdomain.com/modules/cwsoft-addon-file-editor/code/ftp_assistant.php*.

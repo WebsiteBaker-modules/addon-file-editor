@@ -377,6 +377,27 @@ function createFileOrFolder($type, $base_path, $file_name)
 	}
 }
 
+function unzipArchive($archive_file) {
+	global $unzip_archive_support;
+	
+	// only proceed if unzip archiv support is enabled
+	if (! $unzip_archive_support) return false;
+	
+	// ensure archive_file is a valid *.zip file and target folder is writeable
+	if (! is_file($archive_file)) return false;
+	if (substr(strtolower($archive_file), -4) != '.zip') return false;   
+	
+	// ensure target folder is writeable
+	$target_folder = dirname($archive_file);
+	if (! is_writeable($target_folder)) return false;
+	
+	// unzip archive file to given target folder
+	require_once (WB_PATH . '/include/pclzip/pclzip.lib.php');
+	$archive = new PclZip($archive_file);
+	$result = $archive->extract(PCLZIP_OPT_PATH, $target_folder);	
+	return $result;
+}
+
 /**
  * OTHER MODULE ROUTINES
  */

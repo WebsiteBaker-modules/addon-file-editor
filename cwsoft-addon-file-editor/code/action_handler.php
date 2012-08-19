@@ -77,10 +77,11 @@ $tpl_files = array(
 	'3' => array('action_handler_delete_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][6]), 
 	'4' => array('action_handler_create_file_folder.htt', $LANG['ADDON_FILE_EDITOR'][7]), 
 	'5' => array('action_handler_upload_file.htt',        $LANG['ADDON_FILE_EDITOR'][8]),
+	'6' => array('action_handler_unzip_archive.htt',      $LANG['ADDON_FILE_EDITOR'][11]),
 );
 
 // load template file depending on action handler
-if ($action > 0 && $action < 6) {
+if ($action > 0 && $action < 7) {
 	$tpl = $twig->loadTemplate($tpl_files[$action][0]);
 }
 
@@ -392,6 +393,39 @@ switch ($action) {
 			$data['afe'] = array_merge($data['afe'], array(
 				'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
 				'CLASS_HIDDEN'   => ($status) ? 'hidden' : '',
+			));
+		}
+
+		// ouput the final template
+		$tpl->display($data);
+		break;
+
+	case 6:
+		#####################################################################################
+		# unzip ZIP file
+		#####################################################################################
+		$actual_file = $_SESSION['addon_file_infos'][$fid]['path'];
+		$strip_path = WB_PATH . $path_sep . $addon_info['type'] . 's' . $path_sep . $addon_info['directory'];
+		$addon_file = str_replace(WB_PATH, '', $actual_file);
+
+		$data['afe'] = array_merge($data['afe'], array(
+			'ADDON_FILE'       => $addon_file,
+			'TARGET_FOLDER'    => dirname($addon_file), 
+			'URL_FORM_SUBMIT'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=6&amp;reload', 
+			'URL_FORM_CANCEL'  => $url_admintools . '&amp;aid=' . $aid . '&amp;fid=' . $fid, 
+			'CLASS_HIDDEN'     => '', 
+		));
+
+		// action unzip archive file to actual folder
+		if (isset($_POST['unzip_archive'])) {
+			$status = unzipArchive($actual_file);
+
+			$status_message = ($status) ? $LANG['ADDON_FILE_EDITOR'][11]['TXT_UNZIP_SUCCESS'] : $LANG['ADDON_FILE_EDITOR'][11]['TXT_UNZIP_ERROR'];
+			$back_link = $url_admintools . '&aid=' . $aid . '&fid=' . $fid . '&reload';
+
+			$data['afe'] = array_merge($data['afe'], array(
+				'STATUS_MESSAGE' => writeStatusMessage($status_message, $back_link, $status), 
+				'CLASS_HIDDEN'   => 'hidden', 
 			));
 		}
 

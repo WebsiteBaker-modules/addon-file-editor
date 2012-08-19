@@ -75,6 +75,7 @@ $LANG['ADDON_FILE_EDITOR'][2] = array(
         'TXT_UPLOAD_FILE'           => 'Uploader Fichier',
         'TXT_VIEW'                  => 'Visualisation',
         'TXT_EDIT'                  => 'Modifier',
+        'TXT_UNZIP'                 => 'Unzip',
         'TXT_RENAME'                => 'Renommer',
         'TXT_DELETE'                => 'Supprimer',
 
@@ -189,4 +190,15 @@ $LANG['ADDON_FILE_EDITOR'][10] = array(
         'TXT_FTP_LOGIN_OK'          => 'La connexion au serveur FTP &agrave; r&eacute;ussie. Le support FTP est activ&eacute;.',
         'TXT_FTP_LOGIN_FAILED'      => 'La connexion au serveur FTP &agrave; &eacute;chou&eacute;e. Veuillez v&eacute;rifier vos r&eacute;glages FTP. ' .
                                        '<br /><strong>Note: </strong>Le dossier de d&eacute;part doit pointer vers votre installation WB.',
+);
+
+// Text outputs file handler (templates/action_handler_unzip_file.htt)
+$LANG['ADDON_FILE_EDITOR'][11] = array(
+        'TXT_ACTION_UNZIP_ARCHIVE'  => 'Unzip archive file',
+        'TXT_FILE_TO_UNZIP'         => 'File to unzip',
+        'TXT_TARGET_FOLDER'         => 'Target folder',
+        'TXT_SUBMIT_UNZIP'          => 'Unzip',
+        'TXT_UNZIP_WARNING'         => '<strong>Note: </strong>Unzipping an archive may overwrite possible existing files in the target folder and can not be revised.',
+        'TXT_UNZIP_SUCCESS'         => 'Archive sucessfully unzipped.',
+        'TXT_UNZIP_ERROR'           => 'Failed to to unzip given archive file. Please check that the archive is a valid ZIP-archive and the target folder has PHP write permission.',
 );

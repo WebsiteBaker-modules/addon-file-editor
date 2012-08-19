@@ -77,6 +77,7 @@ $LANG['ADDON_FILE_EDITOR'][2] = array(
         'TXT_UPLOAD_FILE'           => 'Datei hochladen',
         'TXT_VIEW'                  => 'Anzeigen',
         'TXT_EDIT'                  => 'Bearbeiten',
+        'TXT_UNZIP'                 => 'Entpacken',
         'TXT_RENAME'                => 'Umbenennen',
         'TXT_DELETE'                => 'L&ouml;schen',
 
@@ -195,4 +196,15 @@ $LANG['ADDON_FILE_EDITOR'][10] = array(
         'TXT_FTP_LOGIN_OK'          => 'Verbindungsaufbau zum FTP Server erfolgreich. Die FTP Unterst&uuml;tzung ist aktiviert.',
         'TXT_FTP_LOGIN_FAILED'      => 'Verbindungsaufbau zum FTP Server fehlgeschlagen. Bitte FTP Einstellungen pr&uuml;fen. ' .
                                        '<br /><strong>Hinweis: </strong>Das Startverzeichnis muss auf die WB Installation zeigen.',
+);
+
+// Text outputs file handler (templates/action_handler_unzip_file.htt)
+$LANG['ADDON_FILE_EDITOR'][11] = array(
+        'TXT_ACTION_UNZIP_ARCHIVE'  => 'Archiv Entpacken',
+        'TXT_FILE_TO_UNZIP'         => 'Datei zum Entpacken',
+        'TXT_TARGET_FOLDER'         => 'Zielordner',
+        'TXT_SUBMIT_UNZIP'          => 'Entpacken',
+        'TXT_UNZIP_WARNING'         => '<strong>Hinweis: </strong>Beim Entpacken eines Archivs k&ouml;nnen bereits existierende Dateien im Zielordner &uuml;berschrieben werden. Dies kann nich r&uuml;ckg&auml;ngig gemacht werden.',
+        'TXT_UNZIP_SUCCESS'         => 'Das Archiv wurde erfolgreich entpackt.',
+        'TXT_UNZIP_ERROR'           => 'Fehler beim Entpacken des Archivs. Bitte pr&uuml;fen Sie ob das Archiv eine g&uuml;ltige ZIP-Datei ist und das Zielverzeichnis &uuml;ber PHP Schreibrechte verf&uuml;gt.',
 );
