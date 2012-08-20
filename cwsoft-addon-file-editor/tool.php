@@ -70,6 +70,7 @@ if ($aid == '') {
 		'URL_HELP_FILE'       => $url_help, 
 		'URL_ADMIN_TOOL'      => $url_admintools, 
 		'CLASS_SHOW_FTP_INFO' => 'hidden',
+		'VERSION'             => $afe_version,
 	);
 
 	$LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_NOTICE'] = str_replace('{URL_ASSISTANT}', $url_ftp_assistant, $LANG['ADDON_FILE_EDITOR'][1]['TXT_FTP_NOTICE']);
@@ -150,6 +151,7 @@ if ($aid == '') {
 		'URL_EDIT_ADDON'         => $url_admintools, 'URL_RELOAD' => $url_admintools . '&amp;aid=' . $aid . '&amp;reload', 
 		'URL_CREATE_FILE_FOLDER' => $url_action_handler . '?aid=' . $aid . '&amp;action=4', 
 		'URL_UPLOAD_FILE'        => $url_action_handler . '?aid=' . $aid . '&amp;action=5', 
+		'VERSION'                => $afe_version,
 	);
 
 	// fetch file infos of actual add-on to $_SESSION['addon_file_infos']

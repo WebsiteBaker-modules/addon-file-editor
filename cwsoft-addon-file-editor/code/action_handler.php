@@ -114,6 +114,7 @@ $data['afe'] = array(
 	'ADDON_NAME'         => $addon_info['name'], 
 	'URL_WB_ADMIN_TOOLS' => ADMIN_URL . '/admintools/index.php', 
 	'URL_FILEMANAGER'    => $url_admintools . '&amp;aid=' . $aid, 
+	'VERSION'            => $afe_version, 
 );
 
 /**

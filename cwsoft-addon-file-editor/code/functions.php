@@ -539,6 +539,25 @@ function writeStatusMessage($message, $back_url = '', $success = true, $auto_red
 	}
 }
 
+function getAFEVersion() {
+	// returns the actual installed AFE version (vX.Y.Z)
+	require_once(dirname(__FILE__) . '/../info.php');
+	return 'v' . $module_version;
+}
+
+function getReadmeUrl($afe_version) {
+	// returns the Url to the GitHub README for the installed AFE version
+	$url = 'https://github.com/cwsoft/wb-addon-file-editor/#readme';
+	
+	if (preg_match('#(v\d*\.\d*\.\d*)(.*)#i', $afe_version, $match)) {
+		// only stable versions (vX.Y.Z) are tagged at GitHub
+		if (! $match[2]) {
+			$url = 'https://github.com/cwsoft/wb-addon-file-editor/tree/' . $match[1] . '#readme';
+		}
+	}
+	return $url;
+}
+
 /**
  * PIXLR API ROUTINES 
  * Routines for the online image editor service http://www.pixlr.com
