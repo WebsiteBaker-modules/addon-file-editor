@@ -21,8 +21,8 @@
 $module_directory     = 'cwsoft-addon-file-editor';
 $module_name          = 'cwsoft - Addon File Editor (AFE)';
 $module_function      = 'tool';
-$module_version       = '2.5.0';
-$module_status        = 'STABLE';
+$module_version       = '2.6.0-RC1';
+$module_status        = 'RC1';
 $module_platform      = '2.8.x';
 $module_author        = 'cwsoft (http://cwsoft.de)';
 $module_license       = '<a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public Licencse (GPL) v3.0</a>';
