@@ -43,11 +43,11 @@ $show_all_files = false;
 // maximum allowed file upload size in MB
 $max_upload_size = 2;
 
-// activate experimental support for the online Flash image editor service http://pixlr.com/
-$pixlr_support = false;
+// enable/disable support for the online Flash image editor service http://pixlr.com/
+$pixlr_support = true;
 
-// activate support to unzip archive files (*.zip)
-$unzip_archive_support = false;
+// enable/disable support to unzip archive files (*.zip)
+$unzip_archive_support = true;
 
 #########################################################################################################
 # NOTE: DO NOT CHANGE ANYTHING BELOW THIS LINE UNLESS YOU NOW WHAT YOU ARE DOING
