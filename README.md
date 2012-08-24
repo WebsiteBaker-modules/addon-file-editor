@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 
 ## Installation
 
-1. download [AFE v2.5.0](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-addon-file-editor-v2.5.0.zip) WebsiteBaker installation package
+1. download [cwsoft-addon-file-editor v2.5.0](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-addon-file-editor-v2.5.0.zip) WebsiteBaker installation package
 2. log into your WebsiteBaker backend and go to the `Add-ons/Modules` section
 3. install the downloaded zip archive via the WebsiteBaker installer
 4. go to the `Admin-Tools` section and click the `AFE` tool link
