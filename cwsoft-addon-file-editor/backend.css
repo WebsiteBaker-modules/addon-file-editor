@@ -1,5 +1,5 @@
 /**
- * Admin tool: Addon File Editor
+ * Admin tool: cwsoft-addon-file-editor
  *
  * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed 
  * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
