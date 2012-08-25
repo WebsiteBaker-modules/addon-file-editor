@@ -13,13 +13,13 @@
  * @platform    CMS WebsiteBaker 2.8.x
  * @package     cwsoft-addon-file-editor
  * @author      cwsoft (http://cwsoft.de)
- * @translation Dutch translation Luckyluck, pcwacht
+ * @translation Dutch translation by forum members Luckyluck, pcwacht, hans
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 // Dutch module description
-$module_description = 'Met deze tool kan je bestanden zoals modules, templates en taal bestanden "wijzigen", "wissen", "creëren", "uploaden" of "kopiëren" via de Website Baker website-beheer. For details see <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
+$module_description = 'De cwsoft-addon-file-editor kan je bestanden zoals modules, templates en taal bestanden "wijzigen", "wissen", "creëren", "uploaden" of "kopiëren" via de WebsiteBaker website-beheer. Meer informatie over <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
 global $LANG;
@@ -75,7 +75,7 @@ $LANG['ADDON_FILE_EDITOR'][2] = array(
       'TXT_UPLOAD_FILE'             => 'Upload bestand',
       'TXT_VIEW'                    => 'View',
       'TXT_EDIT'                    => 'Wijzigen',
-      'TXT_UNZIP'                   => 'Unzip',
+      'TXT_UNZIP'                   => 'Uitpakken',
       'TXT_RENAME'                  => 'Hernoem',
       'TXT_DELETE'                  => 'Wis',
 
@@ -194,11 +194,11 @@ $LANG['ADDON_FILE_EDITOR'][10] = array(
 
 // Text outputs file handler (templates/action_handler_unzip_file.htt)
 $LANG['ADDON_FILE_EDITOR'][11] = array(
-      'TXT_ACTION_UNZIP_ARCHIVE'    => 'Unzip archive file',
-      'TXT_FILE_TO_UNZIP'           => 'File to unzip',
-      'TXT_TARGET_FOLDER'           => 'Target folder',
-      'TXT_SUBMIT_UNZIP'            => 'Unzip',
-      'TXT_UNZIP_WARNING'           => '<strong>Note: </strong>Unzipping an archive may overwrite possible existing files in the target folder and can not be revised.',
-      'TXT_UNZIP_SUCCESS'           => 'Archive sucessfully unzipped.',
-      'TXT_UNZIP_ERROR'             => 'Failed to to unzip given archive file. Please check that the archive is a valid ZIP-archive and the target folder has PHP write permission.',
+      'TXT_ACTION_UNZIP_ARCHIVE'    => 'Zip-bestand uitpakken',
+      'TXT_FILE_TO_UNZIP'           => 'Uit te pakken bestand',
+      'TXT_TARGET_FOLDER'           => 'Doelfolder',
+      'TXT_SUBMIT_UNZIP'            => 'Uitpakken',
+      'TXT_UNZIP_WARNING'           => '<strong>Belangrijk: </strong>Het uitpakken van het Zip bestand kan eventuele bestaande bestanden in de doelfolder overschrijven. Dat kan niet ongedaan worden gemaakt.',
+      'TXT_UNZIP_SUCCESS'           => 'Het bestand is uitgepakt.',
+      'TXT_UNZIP_ERROR'             => 'Het uitpakken is niet gelukt. Check of het zipbestand geldig en niet beschadigd is en of de doelfolder schrijfrechten heeft.',
 );
