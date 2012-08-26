@@ -30,7 +30,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 ### Overview Panel
 Once `AFE` is installed, visit the ***Admin-Tools*** section of your WebsiteBaker backend and click on the `AFE` admin tool link. This brings you to the `AFE` overview panel.
 
-![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/afe-overview-panel.png) 
+![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/cwsoft-addon-file-editor-overview-panel.png) 
 
 The `AFE` overview panel lists all installed Add-ons of your WebsiteBaker installation. The Add-ons are grouped into the sections ***Modules***, ***Templates*** and ***Languages***. You can expand/collaps groups to show only the Add-ons you are interested in, providing you have JavaScript enabled in your browser. The toggle status of the groups is stored in a Cookie and will be remembered during the lifetime of this Cookie.
 
@@ -41,22 +41,22 @@ To browse the files and folders of a specific Add-on in the `AFE` file manager, 
 ### File Manager
 The file manager shows the files and folders of the selected Add-on. 
 
-![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/afe-file-manager.png) 
+![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/cwsoft-addon-file-editor-filemanager.png) 
 
-Per default, only files with ***recognized*** file extensions are displayed (text, images, archives). You can add/remove file extension via `AFE` configuration file ***code/config.php***. Details about `AFEs` configuration settings are shown in section [AFE Configuration Settings](https://github.com/cwsoft/wb-addon-file-editor#configuration-settings).
+The name of the Add-On you are currently editing (1) is displayed just above the filemanager. The path to the actual Add-On (2) relative to the WebsiteBaker root folder is shown at the top of the filemanager. Per default, only files with ***recognized*** file extensions are displayed (3) (text, images, archives). You can add/remove file extension via `AFE` configuration file ***code/config.php*** (5). Details about `AFEs` configuration settings are shown in section [AFE Configuration Settings](https://github.com/cwsoft/wb-addon-file-editor#configuration-settings).
 
-To *edit* a text file, or to *view* an image in the browser, just click on the file name. To *rename* or *delete* files, click one the ***action icons*** on the right site of the file manager. You can *create* new files/folders or *upload* a file via the **action links** at the top of the file manager. The *[Reload]* option forces to read in all files and folders again. Use this option if you have installed a new Addon via the WebsiteBaker backend and it doesn´t show up in `AFE`.
+To *edit* a text file, or to *view* an image in the browser, just click on it´s file name. To *rename* or *delete* files, click one the ***action icons*** (4) on the right site of the file manager. You can *create* new files/folders or *upload* a file via the **action links** at the top of the file manager (4). The *[Reload]* option forces to read in all files and folders again. Use this option if you have installed a new Addon via the WebsiteBaker backend and it doesn´t show up in `AFE`.
 
 #### Online Image Editing
-If you click on the *edit* icon at the right of an image file, the image will be transferred to the online image editor service of [Pixlr](http://pixlr.com), allowing you to edit the image in a Photoshop&trade; like environment. Using the Pixlr *save* dialogue will save the modified image as ***image_name.pixlr.jpg*** in the actual Add-on folder. The original image remains untouched on your server. If you are happy with the image changes made, delete the original image and rename the modified image. Keep in mind that your image is uploaded to the pixlr.com server. So please read the Pixlr [FAQ](http://pixlr.com/faq/) and [Terms & Service](http://pixlr.com/terms_of_service/) ***before*** using this service. You can disable this service via the AFE configuration file ***code/config.php***.
+Clicking the *edit* icon shown in the action group (4) for image files transfers the image to the online image editor service of [Pixlr](http://pixlr.com). The online service Pixlr allows you to edit images in a Photoshop&trade; like environment from your browser. Using the *save* dialogue in Pixlr copies the modified image as ***image_name.pixlr.jpg*** to the actual Add-on folder on your webspace. The original image remains untouched on your server. If you are happy with the image changes made, delete the original image and rename the modified image. Keep in mind that your image is uploaded to the pixlr.com server. So please read the Pixlr [FAQ](http://pixlr.com/faq/) and [Terms & Service](http://pixlr.com/terms_of_service/) ***before*** using this service. You can disable this service via the AFE configuration file ***code/config.php***.
 
 Note: Your browser requires a [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) in order to use the online image service from [Pixlr](http://pixlr.com).
 
 #### Unzip Archive Files
-Clicking the *unzip* icon shown in the action icons group for *.zip files allows you to unzip the archive to the actual folder on your server. This allows you to create nested folder structures and/or multiple files from an existing *.zip archive with ease. The *.zip folder structure is taken over. All files contained in the target exraction folder older than the corresponding file in the archive will be replaced without further notice. 
+Clicking the *unzip* icon shown in the action icons group (4) for *.zip files allows you to unzip the archive to the actual folder on your server. This allows you to create nested folder structures and/or multiple files from an existing *.zip archive with ease. The *.zip folder structure is taken over. All files contained in the target exraction folder older than the corresponding file in the archive will be replaced without further notice. 
 
 ## Configuration Settings
-You can modify the default settings of `AFE` via the configuration file ***code/config.php*** located in the `AFE` module folder.
+You can modify the default settings of `AFE` via the configuration file ***code/config.php*** (5) found in the `cwsoft-addon-file-editor` module folder.
 
 You can add/remove file exentison to the recognized file types for *text*, *image*, and *archives*. The default settings are as follows:
 	
@@ -68,7 +68,7 @@ You can add/remove file exentison to the recognized file types for *text*, *imag
 
 Files with extensions not listed above are *hidden* in the `AFE` file manager by default. To change this behaviour, set ***$show_all_files = true;***. 
 
-You can remove Add-ons from the `AFE` file manager if you want. To remove `AFE` and the English language file from the `AFE` file manager, set ***$hidden_addons = array('cwsoft-addon-file-editor', 'en');*** (all lower case).
+You can remove Add-ons from beeing listed in the `AFE` file manager if you want. To remove the `cwsoft-addon-file-editor` and the English language file from the `AFE` file manager, set ***$hidden_addons = array('cwsoft-addon-file-editor', 'en');*** (all lower case).
 
 Per default, the allowed file size for uploads is limited to 2 MB (***$max_upload_size = 2***). Pixlr support (***$pixlr_support = true***) and unzip archive support (***$unzip_archive_support = true***) are enabled per default.
 
