@@ -19,7 +19,7 @@
 */
 
 // German module description
-$module_description = 'The cwsoft-addon-file-editor module allows you to edit text- and image files of installed Add-ons via the backend. For details see <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
+$module_description = 'The cwsoft-addon-file-editor module allows you to edit text- and image files of installed Add-ons via the backend. For details see <a href="https://github.com/cwsoft/wb-cwsoft-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
 global $LANG;

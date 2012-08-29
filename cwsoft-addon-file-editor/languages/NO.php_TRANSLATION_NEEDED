@@ -19,7 +19,7 @@
 */
 
 // Norwegian Bokm&aring;l module description
-$module_description = 'cwsoft-addon-file-editor lar deg redigere tekst og bilde filer i installerte moduler og tillegg via Admin sidene. For details see <a href="https://github.com/cwsoft/wb-addon-file-editor#readme">GitHub</a>.';
+$module_description = 'cwsoft-addon-file-editor lar deg redigere tekst og bilde filer i installerte moduler og tillegg via Admin sidene. For details see <a href="https://github.com/cwsoft/wb-cwsoft-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
 global $LANG;

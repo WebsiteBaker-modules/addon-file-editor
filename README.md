@@ -5,7 +5,7 @@ The `cwsoft-addon-file-editor` (consecutively abbreviated `AFE`) enables you to 
 The optional FTP layer implemented in `AFE`, allows you to modify Add-on files normally owned by the *ftp-user*. This might be usefull if your website is hosted on a shared hosting provider using different pemissions for PHP and FTP groups. Another optional feature is the support for the 3rd party online photo editing service [Pixlr](http://pixlr.com), which allows you to modifiy images of Add-ons in a Photoshop&trade; like environment from the WebsiteBaker backend.
 
 ## Download
-The released stable `cwsoft-addon-file-editor` installation packages for the WebsiteBaker CMS can be found in the [GitHub download area](https://github.com/cwsoft/wb-addon-file-editor/downloads). It is recommended to install/update to the latest available version listed. Older versions are provided for compatibility reasons with older WebsiteBaker versions and may contain bugs or security issues. The development history of `AFE` can be tracked via [GitHub](https://github.com/cwsoft/wb-addon-file-editor).
+The released stable `cwsoft-addon-file-editor` installation packages for the WebsiteBaker CMS can be found in the [GitHub download area](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/downloads). It is recommended to install/update to the latest available version listed. Older versions are provided for compatibility reasons with older WebsiteBaker versions and may contain bugs or security issues. The development history of `AFE` can be tracked via [GitHub](https://github.com/cwsoft/wb-cwsoft-addon-file-editor).
 
 ## License
 `cwsoft-addon-file-editor` is licensed under the [GNU General Public License (GPL) v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 
 ## Installation
 
-1. download [cwsoft-addon-file-editor v2.6.0](https://github.com/downloads/cwsoft/wb-addon-file-editor/cwsoft-addon-file-editor-v2.6.0.zip) WebsiteBaker installation package
+1. download [cwsoft-addon-file-editor v2.6.0](https://github.com/downloads/cwsoft/wb-cwsoft-addon-file-editor/cwsoft-addon-file-editor-v2.6.0.zip) WebsiteBaker installation package
 2. log into your WebsiteBaker backend and go to the `Add-ons/Modules` section
 3. install the downloaded zip archive via the WebsiteBaker installer
 4. go to the `Admin-Tools` section and click the `AFE` tool link
@@ -30,7 +30,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 ### Overview Panel
 Once `AFE` is installed, visit the ***Admin-Tools*** section of your WebsiteBaker backend and click on the `AFE` admin tool link. This brings you to the `AFE` overview panel.
 
-![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/cwsoft-addon-file-editor-overview-panel.png) 
+![](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/raw/master/.screenshots/cwsoft-addon-file-editor-overview-panel.png) 
 
 The `AFE` overview panel lists all installed Add-ons of your WebsiteBaker installation. The Add-ons are grouped into the sections ***Modules***, ***Templates*** and ***Languages***. You can expand/collaps groups to show only the Add-ons you are interested in, providing you have JavaScript enabled in your browser. The toggle status of the groups is stored in a Cookie and will be remembered during the lifetime of this Cookie.
 
@@ -41,9 +41,9 @@ To browse the files and folders of a specific Add-on in the `AFE` file manager, 
 ### File Manager
 The file manager shows the files and folders of the selected Add-on. 
 
-![](https://github.com/cwsoft/wb-addon-file-editor/raw/master/.screenshots/cwsoft-addon-file-editor-filemanager.png) 
+![](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/raw/master/.screenshots/cwsoft-addon-file-editor-filemanager.png) 
 
-The name of the Add-On you are currently editing (1) is displayed just above the filemanager. The path to the actual Add-On (2) relative to the WebsiteBaker root folder is shown at the top of the filemanager. Per default, only files with ***recognized*** file extensions are displayed (3) (text, images, archives). You can add/remove file extension via `AFE` configuration file ***code/config.php*** (5). Details about `AFEs` configuration settings are shown in section [AFE Configuration Settings](https://github.com/cwsoft/wb-addon-file-editor#configuration-settings).
+The name of the Add-On you are currently editing (1) is displayed just above the filemanager. The path to the actual Add-On (2) relative to the WebsiteBaker root folder is shown at the top of the filemanager. Per default, only files with ***recognized*** file extensions are displayed (3) (text, images, archives). You can add/remove file extension via `AFE` configuration file ***code/config.php*** (5). Details about `AFEs` configuration settings are shown in section [AFE Configuration Settings](https://github.com/cwsoft/wb-cwsoft-addon-file-editor#configuration-settings).
 
 To *edit* a text file, or to *view* an image in the browser, just click on it´s file name. To *rename* or *delete* files, click one the ***action icons*** (4) on the right site of the file manager. You can *create* new files/folders or *upload* a file via the **action links** at the top of the file manager (4). The *[Reload]* option forces to read in all files and folders again. Use this option if you have installed a new Addon via the WebsiteBaker backend and it doesn´t show up in `AFE`.
 
@@ -78,7 +78,7 @@ Per default, the allowed file size for uploads is limited to 2 MB (***$max_uploa
 Update *yourdomain.com* to fit to your domain. The URL to the FTP assistant can only be called by users/groups with permission to the WebsiteBaker Admin tools section. The FTP assistant allows you to test the FTP connection to your server, once the required FTP login information where provided. The FTP login information are stored in the `AFE` database and will be removed when you uninstall `AFE`.
 
 ## Known Issues
-You can track the status of known issues or report new issues found in `AFE` via GitHubs [issue tracking service](https://github.com/cwsoft/wb-addon-file-editor/issues). If you run into any issues with `AFE`, please visit this page first and check if this issue is already known.
+You can track the status of known issues or report new issues found in `AFE` via GitHubs [issue tracking service](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/issues). If you run into any issues with `AFE`, please visit this page first and check if this issue is already known.
 
 ***Note:*** 
 The 3rd party package [editarea](http://www.cdolivet.com/editarea/) distributed with WebsiteBaker (/include/editarea) has some bugs when used in Internet Explorer 8/9. Editarea is used by `AFE` and the WebsiteBaker `code` module to highlight and modify code. If you have issues to view/edit Add-on files in `AFE`, please visit the editarea [browser compatibility list](http://www.cdolivet.com/editarea/editarea/docs/compatibility.html) and check if your browser is supported by editarea. If your browser is not supported, please use a supported browser (e.g. Firefox) if you want to have syntax highlighting in WebsiteBaker working - sorry for that.
