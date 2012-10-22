@@ -84,7 +84,7 @@ You can track the status of known issues or report new issues found in `AFE` via
 The 3rd party package [editarea](http://www.cdolivet.com/editarea/) distributed with WebsiteBaker (/include/editarea) has some bugs when used in Internet Explorer 8/9. Editarea is used by `AFE` and the WebsiteBaker `code` module to highlight and modify code. If you have issues to view/edit Add-on files in `AFE`, please visit the editarea [browser compatibility list](http://www.cdolivet.com/editarea/editarea/docs/compatibility.html) and check if your browser is supported by editarea. If your browser is not supported, please use a supported browser (e.g. Firefox) if you want to have syntax highlighting in WebsiteBaker working - sorry for that.
 
 ## Questions
-If you have questions or issues with `AFE`, please visit the [English](http://www.websitebaker2.org/forum/index.php/topic,12122.0.html) or [German](http://www.websitebaker2.org/forum/index.php/topic,12404.0.html) WebsiteBaker forum support threads and ask for feedback.
+If you have questions or issues with `AFE`, please visit the [English](http://www.websitebaker2.org/forum/index.php/topic,24900.0.html) or [German](http://www.websitebaker2.org/forum/index.php/topic,24895.0.html) WebsiteBaker forum support threads and ask for feedback.
 
 ***Always provide the following information with your support request:***
 
