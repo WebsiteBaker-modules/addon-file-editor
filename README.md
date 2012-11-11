@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 
 ## Installation
 
-1. download [cwsoft-addon-file-editor v2.6.0](https://github.com/downloads/cwsoft/wb-cwsoft-addon-file-editor/cwsoft-addon-file-editor-v2.6.0.zip) WebsiteBaker installation package
+1. download [cwsoft-addon-file-editor v2.6.1](https://github.com/downloads/cwsoft/wb-cwsoft-addon-file-editor/cwsoft-addon-file-editor-v2.6.1.zip) WebsiteBaker installation package
 2. log into your WebsiteBaker backend and go to the `Add-ons/Modules` section
 3. install the downloaded zip archive via the WebsiteBaker installer
 4. go to the `Admin-Tools` section and click the `AFE` tool link
@@ -48,7 +48,7 @@ The name of the Add-On you are currently editing (1) is displayed just above the
 To *edit* a text file, or to *view* an image in the browser, just click on it´s file name. To *rename* or *delete* files, click one the ***action icons*** (4) on the right site of the file manager. You can *create* new files/folders or *upload* a file via the **action links** at the top of the file manager (4). The *[Reload]* option forces to read in all files and folders again. Use this option if you have installed a new Addon via the WebsiteBaker backend and it doesn´t show up in `AFE`.
 
 #### Online Image Editing
-Clicking the *edit* icon shown in the action group (4) for image files transfers the image to the online image editor service of [Pixlr](http://pixlr.com). The online service Pixlr allows you to edit images in a Photoshop&trade; like environment from your browser. Using the *save* dialogue in Pixlr copies the modified image as ***image_name.pixlr.jpg*** to the actual Add-on folder on your webspace. The original image remains untouched on your server. If you are happy with the image changes made, delete the original image and rename the modified image. Keep in mind that your image is uploaded to the pixlr.com server. So please read the Pixlr [FAQ](http://pixlr.com/faq/) and [Terms & Service](http://pixlr.com/terms_of_service/) ***before*** using this service. You can disable this service via the AFE configuration file ***code/config.php***.
+Clicking the *edit* icon shown in the action group (4) for image files transfers the image to the online image editor service of [Pixlr](http://pixlr.com). The online service Pixlr allows you to edit images in a Photoshop&trade; like environment from your browser. Using the *save* dialogue in Pixlr copies the modified image as ***image_name.pixlr.png|jpg*** to the actual Add-on folder on your webspace. The original image remains untouched on your server. If you are happy with the image changes made, delete the original image and rename the modified image. Keep in mind that your image is uploaded to the pixlr.com server. So please read the Pixlr [FAQ](http://pixlr.com/faq/) and [Terms & Service](http://pixlr.com/terms_of_service/) ***before*** using this service. You can disable this service via the AFE configuration file ***code/config.php***.
 
 Note: Your browser requires a [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) in order to use the online image service from [Pixlr](http://pixlr.com).
 
