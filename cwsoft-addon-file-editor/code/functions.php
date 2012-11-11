@@ -568,11 +568,27 @@ function createPixlrURL($img_url, $img_file, $url_only = true)
 	global $url_mod_path;
 
 	// languages supported by pixlr.com
-	$pixlr_loc = array('EN' => 'en', 'DE' => 'de', 'ES' => 'es', 'FR', 'fr', 'IT' => 'it', 'PL' => 'pl', 'PT' => 'pt-br', 'RU' => 'ru', 'TR' => 'tr');
+	$pixlr_loc = array(
+		'EN' => 'en',
+		'DE' => 'de',
+		'ES' => 'es',
+		'FR' => 'fr',
+		'IT' => 'it',
+		'PL' => 'pl',
+		'PT' => 'pt-br',
+		'RU' => 'ru',
+		'TR' => 'tr'
+	);
 
 	$file_info = pathinfo($img_file);
 
-	$pixlr_url = 'http://www.pixlr.com/editor/' . '?image=' . $img_url . '&amp;title=' . str_replace($file_info['extension'], '', $file_info['basename']) . 'pixlr.' . $file_info . '&amp;method=GET' . '&amp;loc=' . (key_exists(LANGUAGE, $pixlr_loc) ? $pixlr_loc[LANGUAGE] : 'en') . '&amp;exit=' . WB_URL . '&amp;referrer=' . WB_URL . '&amp;target=' . urlencode($url_mod_path . '/code/get_pixlr_image.php?img_path=' . str_replace(WB_PATH, '', $img_file));
+	# create Pixlr API link
+	$pixlr_url  = 'http://www.pixlr.com/editor/' . '?image=' . $img_url;
+	$pixlr_url .= '&amp;title=' . str_replace($file_info['extension'], '', $file_info['basename']) . 'pixlr.' . $file_info['extension'];
+	$pixlr_url .= '&amp;method=GET' . '&amp;loc=' . (key_exists(LANGUAGE, $pixlr_loc) ? $pixlr_loc[LANGUAGE] : 'en');
+	$pixlr_url .= '&amp;exit=' . WB_URL;
+	$pixlr_url .= '&amp;referrer=' . WB_URL;
+	$pixlr_url .= '&amp;target=' . urlencode($url_mod_path . '/code/get_pixlr_image.php?img_path=' . str_replace(WB_PATH, '', $img_file));
 	
 	if ($url_only == true) return $pixlr_url;
 

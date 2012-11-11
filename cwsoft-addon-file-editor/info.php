@@ -21,7 +21,7 @@
 $module_directory     = 'cwsoft-addon-file-editor';
 $module_name          = 'cwsoft-addon-file-editor';
 $module_function      = 'tool';
-$module_version       = '2.6.0';
+$module_version       = '2.6.1';
 $module_status        = 'STABLE';
 $module_platform      = '2.8.x';
 $module_author        = 'cwsoft (http://cwsoft.de)';
