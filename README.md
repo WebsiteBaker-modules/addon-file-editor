@@ -15,7 +15,7 @@ The released stable `cwsoft-addon-file-editor` installation packages for the Web
 The minimum requirements to get `AFE` running on your WebsiteBaker installation are as follows:
 
 - WebsiteBaker ***v2.8.1*** or higher (recommeded last stable 2.8.x version)
-- PHP ***5.2.2*** or higher (recommended last stable PHP 5.3.x version)
+- PHP ***5.2.2*** or higher (recommended last stable PHP 5.4.x version)
 - Optional: browser with [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) to use the [Pixlr](http://pixlr.com) image online service
 
 ## Installation
