@@ -1,11 +1,12 @@
 # cwsoft-addon-file-editor module for CMS WebsiteBaker 2.8.x
-
 The `cwsoft-addon-file-editor` (consecutively abbreviated `AFE`) enables you to *view*, *edit*, *delete*, *create*, *upload*, *unzip* or *backup* files of installed Add-ons such as *modules*, *templates* or *languages* from the [WebsiteBaker CMS](http://www.websitebaker2.org) backend. `AFE` allows you to create installation packages of installed Add-ons, ready for installation in WebsiteBaker - handy for distribution or backup purposes.
 
 The optional FTP layer implemented in `AFE`, allows you to modify Add-on files normally owned by the *ftp-user*. This might be usefull if your website is hosted on a shared hosting provider using different pemissions for PHP and FTP groups. Another optional feature is the support for the 3rd party online photo editing service [Pixlr](http://pixlr.com), which allows you to modifiy images of Add-ons in a Photoshop&trade; like environment from the WebsiteBaker backend.
 
 ## Download
-The released stable `cwsoft-addon-file-editor` installation packages for the WebsiteBaker CMS can be found in the [GitHub download area](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/downloads). It is recommended to install/update to the latest available version listed. Older versions are provided for compatibility reasons with older WebsiteBaker versions and may contain bugs or security issues. The development history of `AFE` can be tracked via [GitHub](https://github.com/cwsoft/wb-cwsoft-addon-file-editor).
+You can download an archive of the latest development branch of the `cwsoft-addon-file-editor` module using GitHubs [ZIP button](https://github.com/cwsoft/wb-cwsoft-cwsoft-addon-file-editor/archive/master.zip). The archives of previous module releases can be found in GitHubs [Tags section](https://github.com/cwsoft/wb-cwsoft-cwsoft-addon-file-editor/tags). The development history is tracked via [GitHub](https://github.com/cwsoft/wb-cwsoft-cwsoft-addon-file-editor/commits/master).
+
+***Please note: ***The archives downloaded from GitHub are not ready for installation in WebsiteBaker, as GitHub includes the archive subfolder. To create a working WebsiteBaker installation archive, unpack the downloaded archive on your local computer and zip the contents of the folder ***cwsoft-addon-file-editor*** (without the folder itself). Alternatively download an installable archive from the WebsiteBaker [module section](http://addons.websitebaker2.org/pages/en/browse-add-ons.php).
 
 ## License
 `cwsoft-addon-file-editor` is licensed under the [GNU General Public License (GPL) v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
@@ -19,11 +20,11 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 - Optional: browser with [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) to use the [Pixlr](http://pixlr.com) image online service
 
 ## Installation
-
-1. download [cwsoft-addon-file-editor v2.6.1](https://github.com/downloads/cwsoft/wb-cwsoft-addon-file-editor/cwsoft-addon-file-editor-v2.6.1.zip) WebsiteBaker installation package
-2. log into your WebsiteBaker backend and go to the `Add-ons/Modules` section
-3. install the downloaded zip archive via the WebsiteBaker installer
-4. go to the `Admin-Tools` section and click the `AFE` tool link
+1. download latest [module archive](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/archive/master.zip) from GitHub
+2. unpack the archive on your local computer
+3. zip the contents of the folder ***cwsoft-addon-file-editor*** (without the folder itself)
+4. install the newly zipped archive via the WebsiteBaker installer
+6. go to the `Admin-Tools` section and click the `cwsoft-addon-file-editor` tool link
 
 ## Usage
 
