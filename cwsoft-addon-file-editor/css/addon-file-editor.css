@@ -30,6 +30,16 @@
 
 #mod_addon_file_editor img { border: 0; }
 
+#mod_addon_file_editor a {
+color: #036;
+font-weight: normal;
+text-decoration: none;
+}
+
+#mod_addon_file_editor a:hover { 
+color: #369;
+}
+
 #mod_addon_file_editor a.backlink { 
 display: block;
 margin: 1em 0;
@@ -65,7 +75,8 @@ background-color: #F9F9F9;
 border: 1px solid #D7D7D7;
 }
 
-#mod_addon_file_editor input.submit, #mod_addon_file_editor a.submit {
+#mod_addon_file_editor input.submit, 
+#mod_addon_file_editor a.submit {
 margin: 0.5em;
 width: auto;
 min-width: 120px;
@@ -79,10 +90,11 @@ display: block;
 text-decoration: none;
 }
 
-#mod_addon_file_editor a.submit, #mod_addon_file_editor a.submit:hover {
-}
+#mod_addon_file_editor a.submit, 
+#mod_addon_file_editor a.submit:hover {}
 
-#mod_addon_file_editor input.file, #mod_addon_file_editor select.file {
+#mod_addon_file_editor input.file, 
+#mod_addon_file_editor select.file {
 width: 300px;
 }
 
@@ -103,6 +115,27 @@ font-weight: bold;
 margin-left: 0.5em;
 width: 150px;
 float: left;
+}
+
+#mod_addon_file_editor h2 a  {
+font-family: arial,sans-serif;
+font-weight: bold;
+letter-spacing: -0.5px; 
+}
+
+#mod_addon_file_editor h2.head_editform { margin-top: 1em; }
+
+#mod_addon_file_editor h3 {
+margin-top: 0.2em;
+margin-left: 0.5em;
+color: red;
+font-weight: bold;
+}
+
+#mod_addon_file_editor h3.normal {
+color: #000;
+margin-left: 0;
+margin-top: 0.5em;
 }
 
 #mod_addon_file_editor h4.admintools, h4 {
@@ -147,20 +180,6 @@ padding-left: 4em;
 border: 1.5px solid #6B90DA;
 background: #F0F7F9 url(../images/info.png) 0.5em center no-repeat;
 line-height: 1.2em;
-}
-
-#mod_addon_file_editor h2.head_editform { margin-top: 1em; }
-
-#mod_addon_file_editor h3 {
-margin-top: 0.2em;
-margin-left: 0.5em;
-color: red;
-}
-
-#mod_addon_file_editor h3.normal {
-color: #000;
-margin-left: 0;
-margin-top: 0.5em;
 }
 
 #mod_addon_file_editor .highlight {
