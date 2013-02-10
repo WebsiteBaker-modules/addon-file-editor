@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 - Optional: browser with [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) to use the [Pixlr](http://pixlr.com) image online service
 
 ## Installation
-1. download latest [module archive](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/archive/master.zip) from GitHub
+1. download archive from [GitHub](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/archive/master.zip) or [WB repository](http://addons.websitebaker2.org/pages/en/browse-add-ons.php?id=02D8BA1) (steps 2-3 only needed for GitHub archive)
 2. unpack the archive on your local computer
 3. zip the contents of the folder ***cwsoft-addon-file-editor*** (without the folder itself)
 4. install the newly zipped archive via the WebsiteBaker installer
