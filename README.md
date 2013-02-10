@@ -97,8 +97,8 @@ If you have questions or issues with `AFE`, please visit the [English](http://ww
  - information about changes you made to WebsiteBaker (if any)
 
 ## Credits
-Credits goes to the following WebsiteBaker forum users for translating the `AFE` language files into the following languages.
+Credits go to the following WebsiteBaker community members:
 
-- **Dutch (NL.php):** forum members [Luckyluck](http://www.websitebaker2.org/forum/index.php?action=profile;u=6090), [pcwacht](http://www.websitebaker2.org/forum/index.php?action=profile;u=424), [hans](http://www.websitebaker2.org/forum/index.php?action=profile;u=71)
-- **Norwegian (NO.php):** forum member [oeh](http://www.websitebaker2.org/forum/index.php?action=profile;u=752)
-- **French (FR.php):** forum member [quinto](http://www.websitebaker2.org/forum/index.php?action=profile;u=526)
+- [Luckyluck](http://www.websitebaker2.org/forum/index.php?action=profile;u=6090), [pcwacht](http://www.websitebaker2.org/forum/index.php?action=profile;u=424), [hans](http://www.websitebaker2.org/forum/index.php?action=profile;u=71): Dutch translation (NL.php)
+- [oeh](http://www.websitebaker2.org/forum/index.php?action=profile;u=752): Norwegian translation (NO.php)
+- [quinto](http://www.websitebaker2.org/forum/index.php?action=profile;u=526): French translation (FR.php)
