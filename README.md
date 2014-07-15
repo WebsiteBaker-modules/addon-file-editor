@@ -1,12 +1,12 @@
 # cwsoft-addon-file-editor module for CMS WebsiteBaker 2.8.x
-The `cwsoft-addon-file-editor` (consecutively abbreviated `AFE`) enables you to *view*, *edit*, *delete*, *create*, *upload*, *unzip* or *backup* files of installed Add-ons such as *modules*, *templates* or *languages* from the [WebsiteBaker CMS](http://www.websitebaker2.org) backend. `AFE` allows you to create installation packages of installed Add-ons, ready for installation in WebsiteBaker - handy for distribution or backup purposes.
+The `cwsoft-addon-file-editor` (consecutively abbreviated `AFE`) enables you to *view*, *edit*, *delete*, *create*, *upload*, *unzip* or *backup* files of installed Add-ons such as *modules*, *templates* or *languages* from the [WebsiteBaker CMS](http://www.websitebaker.org) backend. `AFE` allows you to create installation packages of installed Add-ons, ready for installation in WebsiteBaker - handy for distribution or backup purposes.
 
 The optional FTP layer implemented in `AFE`, allows you to modify Add-on files normally owned by the *ftp-user*. This might be usefull if your website is hosted on a shared hosting provider using different pemissions for PHP and FTP groups. Another optional feature is the support for the 3rd party online photo editing service [Pixlr](http://pixlr.com), which allows you to modifiy images of Add-ons in a Photoshop&trade; like environment from the WebsiteBaker backend.
 
 ## Download
 You can download an archive of the latest development branch of the `cwsoft-addon-file-editor` module using GitHubs [ZIP button](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/archive/master.zip). The archives of previous module releases can be found in GitHubs [Tags section](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/tags). The development history is tracked via [GitHub](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/commits/master).
 
-***Please note:*** The archives downloaded from GitHub are not ready for installation in WebsiteBaker, as GitHub includes the archive subfolder. To create a working WebsiteBaker installation archive, unpack the downloaded archive on your local computer and zip the contents of the folder ***cwsoft-addon-file-editor*** (without the folder itself). Alternatively download an installable archive from the WebsiteBaker [module section](http://addons.websitebaker2.org/pages/en/browse-add-ons.php).
+***Please note:*** The archives downloaded from GitHub are not ready for installation in WebsiteBaker, as GitHub includes the archive subfolder. To create a working WebsiteBaker installation archive, unpack the downloaded archive on your local computer and zip the contents of the folder ***cwsoft-addon-file-editor*** (without the folder itself). Alternatively download an installable archive from the WebsiteBaker [module section](http://addons.websitebaker.org/pages/en/browse-add-ons.php).
 
 ## License
 `cwsoft-addon-file-editor` is licensed under the [GNU General Public License (GPL) v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
@@ -20,7 +20,7 @@ The minimum requirements to get `AFE` running on your WebsiteBaker installation 
 - Optional: browser with [Flash&trade; plugin](http://get.adobe.com/de/flashplayer/) to use the [Pixlr](http://pixlr.com) image online service
 
 ## Installation
-1. download archive from [GitHub](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/archive/master.zip) or [WB repository](http://addons.websitebaker2.org/pages/en/browse-add-ons.php?id=02D8BA1) (steps 2-3 only needed for GitHub archive)
+1. download archive from [GitHub](https://github.com/cwsoft/wb-cwsoft-addon-file-editor/archive/master.zip) or [WB repository](http://addons.websitebaker.org/pages/en/browse-add-ons.php?id=02D8BA1) (steps 2-3 only needed for GitHub archive)
 2. unpack the archive on your local computer
 3. zip the contents of the folder ***cwsoft-addon-file-editor*** (without the folder itself)
 4. install the newly zipped archive via the WebsiteBaker installer
@@ -85,7 +85,7 @@ You can track the status of known issues or report new issues found in `AFE` via
 The 3rd party package [editarea](http://www.cdolivet.com/editarea/) distributed with WebsiteBaker (/include/editarea) has some bugs when used in Internet Explorer 8/9. Editarea is used by `AFE` and the WebsiteBaker `code` module to highlight and modify code. If you have issues to view/edit Add-on files in `AFE`, please visit the editarea [browser compatibility list](http://www.cdolivet.com/editarea/editarea/docs/compatibility.html) and check if your browser is supported by editarea. If your browser is not supported, please use a supported browser (e.g. Firefox) if you want to have syntax highlighting in WebsiteBaker working - sorry for that.
 
 ## Questions
-If you have questions or issues with `AFE`, please visit the [English](http://www.websitebaker2.org/forum/index.php/topic,24900.0.html) or [German](http://www.websitebaker2.org/forum/index.php/topic,24895.0.html) WebsiteBaker forum support threads and ask for feedback.
+If you have questions or issues with `AFE`, please visit the [English](http://www.websitebaker.org/forum/index.php/topic,24900.0.html) or [German](http://www.websitebaker.org/forum/index.php/topic,24895.0.html) WebsiteBaker forum support threads and ask for feedback.
 
 ***Always provide the following information with your support request:***
 
@@ -99,6 +99,6 @@ If you have questions or issues with `AFE`, please visit the [English](http://ww
 ## Credits
 Credits go to the following WebsiteBaker community members:
 
-- [Luckyluck](http://www.websitebaker2.org/forum/index.php?action=profile;u=6090), [pcwacht](http://www.websitebaker2.org/forum/index.php?action=profile;u=424), [hans](http://www.websitebaker2.org/forum/index.php?action=profile;u=71): Dutch translation (NL.php)
-- [oeh](http://www.websitebaker2.org/forum/index.php?action=profile;u=752): Norwegian translation (NO.php)
-- [quinto](http://www.websitebaker2.org/forum/index.php?action=profile;u=526): French translation (FR.php)
+- [Luckyluck](http://www.websitebaker.org/forum/index.php?action=profile;u=6090), [pcwacht](http://www.websitebaker.org/forum/index.php?action=profile;u=424), [hans](http://www.websitebaker.org/forum/index.php?action=profile;u=71): Dutch translation (NL.php)
+- [oeh](http://www.websitebaker.org/forum/index.php?action=profile;u=752): Norwegian translation (NO.php)
+- [quinto](http://www.websitebaker.org/forum/index.php?action=profile;u=526): French translation (FR.php)
