@@ -512,7 +512,13 @@ function getAddonInfos($addon_id_dir)
 	if (is_numeric($addon_id_dir)) {
 		$sql = "SELECT * FROM `$table` WHERE `addon_id` = '" . (int)$addon_id_dir . "'";
 	} else {
-		$sql = "SELECT * FROM `$table` WHERE `directory` = '" . @mysql_real_escape_string(strip_tags($addon_id_dir)) . "'";
+		if (method_exists($database, 'escapeString')) {
+			// with WB 2.8.3 SP2 the mysql_* routines were replaced by mysqli_ pendants for PHP 5.4/5.5 compatibility
+			$sql = "SELECT * FROM `$table` WHERE `directory` = '" . $database->escapeString(strip_tags($addon_id_dir)) . "'";
+		} else {
+			// legacy: older WB 2.8.x releases still use mysql_ routines
+			$sql = "SELECT * FROM `$table` WHERE `directory` = '" . @mysql_real_escape_string(strip_tags($addon_id_dir)) . "'";
+		}
 	}
 
 	$results = $database->query($sql);
