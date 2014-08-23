@@ -87,7 +87,7 @@ $LANG['ADDON_FILE_EDITOR'][2] = array(
     'TXT_FILE_TYPE_ARCHIVE'         => 'Archive file',
     'TXT_FILE_TYPE_OTHER'           => 'Unknown',
 
-    'DATE_FORMAT'                   => 'm/d/y / h:m',
+    'DATE_FORMAT'                   => 'm/d/y / h:i a',
 );
 
 // General text outputs for the file handler templates

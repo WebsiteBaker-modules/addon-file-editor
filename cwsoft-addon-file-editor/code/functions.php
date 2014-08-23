@@ -291,7 +291,7 @@ function getHumanReadableFileMakeTime($file)
 
 	// extract file change time and convert into human readable format
 	// used @date to suppress PHP warnings (PHP 5.x if no default time zone is set in php.ini)
-	return @date($LANG['ADDON_FILE_EDITOR'][2]['DATE_FORMAT'], filemtime($file));
+	return @date($LANG['ADDON_FILE_EDITOR'][2]['DATE_FORMAT'], filemtime($file) + (int) TIMEZONE);
 }
 
 function getFileExtension($file)

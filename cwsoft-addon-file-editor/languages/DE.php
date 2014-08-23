@@ -89,7 +89,7 @@ $LANG['ADDON_FILE_EDITOR'][2] = array(
         'TXT_FILE_TYPE_ARCHIVE'     => 'Archivdatei',
         'TXT_FILE_TYPE_OTHER'       => 'Unbekannt',
 
-        'DATE_FORMAT'               => 'd.m.y / H:m',
+        'DATE_FORMAT'               => 'd.m.y / H:i',
 );
 
 
