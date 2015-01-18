@@ -19,7 +19,7 @@
 */
 
 // Dutch module description
-$module_description = 'De cwsoft-addon-file-editor kan je bestanden zoals modules, templates en taal bestanden "wijzigen", "wissen", "creëren", "uploaden" of "kopiëren" via de WebsiteBaker website-beheer. Meer informatie over <a href="https://github.com/cwsoft/websitebaker-addon-file-editor-cwsoft-addon-file-editor#readme">GitHub</a>.';
+$module_description = 'De cwsoft-addon-file-editor kan je bestanden zoals modules, templates en taal bestanden "wijzigen", "wissen", "creëren", "uploaden" of "kopiëren" via de WebsiteBaker website-beheer. Meer informatie over <a href="https://github.com/cwsoft/websitebaker-addon-file-editor#readme">GitHub</a>.';
 
 // initialize global $LANG variable as array if needed
 global $LANG;

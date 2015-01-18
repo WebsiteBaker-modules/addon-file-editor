@@ -553,12 +553,12 @@ function getAFEVersion() {
 
 function getReadmeUrl($afe_version) {
 	// returns the Url to the GitHub README for the installed AFE version
-	$url = 'https://github.com/cwsoft/websitebaker-addon-file-editor-cwsoft-addon-file-editor/#readme';
+	$url = 'https://github.com/cwsoft/websitebaker-addon-file-editor/#readme';
 	
 	if (preg_match('#(v\d*\.\d*\.\d*)(.*)#i', $afe_version, $match)) {
 		// only stable versions (vX.Y.Z) are tagged at GitHub
 		if (! $match[2]) {
-			$url = 'https://github.com/cwsoft/websitebaker-addon-file-editor-cwsoft-addon-file-editor/tree/' . $match[1] . '#readme';
+			$url = 'https://github.com/cwsoft/websitebaker-addon-file-editor/tree/' . $match[1] . '#readme';
 		}
 	}
 	return $url;

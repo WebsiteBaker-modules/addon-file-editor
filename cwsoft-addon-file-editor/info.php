@@ -21,11 +21,11 @@
 $module_directory     = 'cwsoft-addon-file-editor';
 $module_name          = 'cwsoft-addon-file-editor';
 $module_function      = 'tool';
-$module_version       = '2.7.4';
+$module_version       = '2.7.5';
 $module_status        = 'STABLE';
 $module_platform      = '2.8.x';
 $module_author        = 'cwsoft (http://cwsoft.de)';
 $module_license       = '<a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public Licencse (GPL) v3.0</a>';
 $module_license_terms = '-';
 $module_requirements  = 'PHP>=5.2.2, WB>=2.8.1';
-$module_description   = 'The cwsoft-addon-file-editor allows you to edit text- and image files of installed Add-ons via the backend. For details see <a href="https://github.com/cwsoft/websitebaker-addon-file-editor-cwsoft-addon-file-editor#readme">GitHub</a>.';
+$module_description   = 'The cwsoft-addon-file-editor allows you to edit text- and image files of installed Add-ons via the backend. For details see <a href="https://github.com/cwsoft/websitebaker-addon-file-editor#readme">GitHub</a>.';
