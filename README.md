@@ -1,7 +1,7 @@
 # cwsoft-addon-file-editor module for CMS WebsiteBaker 2.8.x
-
-<div style="background-color: #f2695f; padding: 0.5em; border: 1px solid #000;">Please note that this repository is no longer actively maintained by myself. As the code is licensed under GNU GPL, feel free to fork this repository and change it to your liking.
-Have fun and don't forget to contribute back to <a href="http://websitebaker.org">WebsiteBaker CMS</a>.</div>
+**PLEASE NOTE: **
+This repository is no longer actively maintained by myself. As the code is licensed under GNU GPL, feel free to fork this repository and change it to your liking.
+Have fun and don't forget to contribute back to [WebsiteBaker CMS](http://websitebaker.org).
 
 The `cwsoft-addon-file-editor` (consecutively abbreviated `AFE`) enables you to *view*, *edit*, *delete*, *create*, *upload*, *unzip* or *backup* files of installed Add-ons such as *modules*, *templates* or *languages* from the [WebsiteBaker CMS](http://www.websitebaker.org) backend. `AFE` allows you to create installation packages of installed Add-ons, ready for installation in WebsiteBaker - handy for distribution or backup purposes.
 
