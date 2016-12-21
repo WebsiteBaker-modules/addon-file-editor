@@ -1,0 +1,158 @@
+{#
+/**
+ * Admin tool: AddonFileEditor
+ *
+ * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed
+ * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
+ * you to perform small modifications on installed Add-ons without downloading the files first.
+ *
+ * This file defines the variables required for WebsiteBaker.
+ *
+ * LICENSE: GNU General Public License 3.0
+ *
+ * @platform        CMS WebsiteBaker 2.8.3
+ * @package         AddonFileEditor
+ * @author          Christian Sommer
+ * @author          Dietmar Wöllbrink
+ * @copyright       Christian Sommer
+ * @license         http://www.gnu.org/licenses/gpl-3.0.html
+ * @platform        WebsiteBaker 2.8.3
+ * @requirements    PHP 5.3.6 and higher
+ * @version         $Id:  $
+ * @filesource      $HeadURL:  $
+ * @lastmodified    $Date:  $
+ * @since           2015-03-02,2016-04-29
+ * @see             http://forum.websitebaker.org/index.php/topic,24895.msg195678.html#msg195678
+ * Readme.md.html
+ */
+#}
+
+<div id="mod_addon_file_editor">
+
+    <div class="help_file" >
+        <a id="help_dialog-box" href="{{ afe.URL_ADMIN_TOOL }}#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
+    </div>
+
+    <h2><a href="{{ afe.URL_ADMIN_TOOL }}">{{ lang.TXT_HEADING }}</a></h2>
+    <p class="afe-important">{{ lang.TXT_DESCRIPTION }}</p>
+
+    {% if afe.SHOW_FTP_INFO %}
+        <div class="info">
+            {{ lang.TXT_FTP_NOTICE }}
+        </div>
+    {% endif %}
+
+    <div class="box" id="modules">
+        <a href="{{ afe.URL_ADMIN_TOOL }}&amp;reload">[ {{ lang.TXT_RELOAD }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#modules">[ {{ lang.TXT_MODULES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#templates">[ {{ lang.TXT_TEMPLATES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#languages">[ {{ lang.TXT_LANGUAGES }} ]</a>
+    </div>
+
+    <table class="afe-table" >
+        <thead>
+            <tr>
+                <th id="trigger_modules" >{{ lang.TXT_LIST_OF_MODULES }}</th>
+                <th >&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody id="toggle_modules">
+            {% for addon in afe.MODULES %}
+            <tr class="{{ addon.CLASS_ODD_EVEN }}{{ addon.CLASS_PERMISSION }}">
+                <td>
+                    <a href="{{ addon.URL_EDIT_ADDON }}">
+                        <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16" />
+                    </a>
+                    &nbsp;<a href="{{ addon.URL_EDIT_ADDON }}" title="{{ addon.TXT_EDIT_ADDON_FILE }}">{{ addon.ADDON_NAME }}</a>
+                </td>
+
+                <td style="text-align: center;">
+                    <a href="{{ addon.URL_ZIP_ADDON }}" target="_blank">
+                        <img src="{{ addon.URL_ICON_FOLDER }}/download_archive.png" title="{{ addon.TXT_ZIP_ADDON_FILES }}" alt="{{ addon.TXT_ZIP_ADDON_FILES }}" width="16" />
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br />
+    <div class="box" id="templates">
+        <a href="{{ afe.URL_ADMIN_TOOL }}&amp;reload">[ {{ lang.TXT_RELOAD }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#modules">[ {{ lang.TXT_MODULES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#templates">[ {{ lang.TXT_TEMPLATES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#languages">[ {{ lang.TXT_LANGUAGES }} ]</a>
+    </div>
+
+    <table class="afe-table" >
+        <thead>
+            <tr>
+                <th id="trigger_templates" >{{ lang.TXT_LIST_OF_TEMPLATES }}</th>
+                <th >&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody id="toggle_templates">
+            {% for addon in afe.TEMPLATES %}
+            <tr class="{{ addon.CLASS_ODD_EVEN }}{{ addon.CLASS_PERMISSION }}">
+                <td>
+                    <a href="{{ addon.URL_EDIT_ADDON }}">
+                        <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16" />
+                    </a>
+                    &nbsp;<a href="{{ addon.URL_EDIT_ADDON }}" title="{{ addon.TXT_EDIT_ADDON_FILE }}">{{ addon.ADDON_NAME }}</a>
+                </td>
+                <td style="text-align: center;">
+                    <a href="{{ addon.URL_ZIP_ADDON }}" target="_blank">
+                        <img src="{{ addon.URL_ICON_FOLDER }}/download_archive.png" title="{{ addon.TXT_ZIP_ADDON_FILES }}" alt="{{ addon.TXT_ZIP_ADDON_FILES }}" width="16" />
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br />
+    <div class="box" id="languages">
+        <a href="{{ afe.URL_ADMIN_TOOL }}&amp;reload">[ {{ lang.TXT_RELOAD }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#modules">[ {{ lang.TXT_MODULES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#templates">[ {{ lang.TXT_TEMPLATES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#languages">[ {{ lang.TXT_LANGUAGES }} ]</a>
+    </div>
+
+    <table class="afe-table" >
+        <thead>
+            <tr>
+                <th id="trigger_languages" >{{ lang.TXT_LIST_OF_LANGUAGES }}</th>
+                <th >&nbsp;</th>
+            </tr>
+        </thead>
+
+        <tbody id="toggle_languages">
+            {% for addon in afe.LANGUAGES %}
+            <tr class="{{ addon.CLASS_ODD_EVEN }}{{ addon.CLASS_PERMISSION }}">
+                <td >
+                    <a href="{{ addon.URL_EDIT_ADDON }}">
+                        <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16" />
+                    </a>
+                    &nbsp;<a href="{{ addon.URL_EDIT_ADDON }}" title="{{ addon.TXT_EDIT_ADDON_FILE }}">{{ addon.ADDON_NAME }}</a>
+                </td>
+
+                <td style="align: center;">
+                    <a href="{{ addon.URL_ZIP_ADDON }}" target="_blank">
+                        <img src="{{ addon.URL_ICON_FOLDER }}/download_archive.png" title="{{ addon.TXT_ZIP_ADDON_FILES }}" alt="{{ addon.TXT_ZIP_ADDON_FILES }}" width="16" />
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="box">
+        <a href="{{ afe.URL_ADMIN_TOOL }}&amp;reload">[ {{ lang.TXT_RELOAD }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#modules">[ {{ lang.TXT_MODULES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#templates">[ {{ lang.TXT_TEMPLATES }} ]</a>&nbsp;&nbsp;
+        <a href="{{ afe.URL_ADMIN_TOOL }}#languages">[ {{ lang.TXT_LANGUAGES }} ]</a>
+    </div>
+
+</div>

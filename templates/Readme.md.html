@@ -1,0 +1,78 @@
+    <section class="mod_addon_file_editor afe-widget" style="margin: 1.225em auto; width: 100%; white-space: normal; overflow: hidden; ">
+      <h2><a id="AddonFileEditor_Addon_for_CMS_WebsiteBaker_0" title="AddonFileEditor_Addon_for_CMS_WebsiteBaker_0"></a> Addon-File-Editor: Addon for CMS WebsiteBaker</h2>
+      <article  class="afe-content" style="padding: 0.925em;">
+        <p>The <code>addon-file-editor</code> (consecutively abbreviated <code>AFE</code> ) enables you to <em>view</em> , <em>edit</em> , <em>delete</em> , <em>create</em> , <em>upload</em> , <em>unzip</em> or <em>backup</em> files of installed Add-ons such as <em>modules</em> , <em>templates</em> or <em>languages</em> from the CMS <a href="http://www.wbce.org">WebsiteBaker</a> backend. <code>AFE</code> allows you to create installation packages of installed Add-ons, ready for installation in WebsiteBaker - handy for distribution or backup purposes.</p>
+        <p>The optional FTP layer implemented in <code>AFE</code> , allows you to modify Add-on files normally owned by the <em>ftp-user</em> . This might be usefull if your website is hosted on a shared hosting provider using different pemissions for PHP and FTP groups. Another optional feature is the support for the 3rd party online photo editing service <a href="http://pixlr.com">Pixlr</a> , which allows you to modifiy images of Add-ons in a Photoshop&trade; like environment from the WebsiteBaker backend.</p>
+        <h2><a id="Download_6" title="Download_6"></a> Download</h2>
+        <p>You can download an archive of the latest development branch of the <code>addon-file-editor</code> module using GitHubs <a href="">ZIP button</a> . The archives of previous module releases can be found in GitHubs <a href="">Tags section</a> . The development history is tracked via <a href="">GitHub</a> .</p>
+        <p><strong><em>Please note:</em></strong> The archives downloaded from GitHub are not ready for installation in <a href="http://WebsiteBaker.org">WebsiteBaker</a> , as SVN includes the archive subfolder. To create a working WebsiteBaker installation archive, unpack the downloaded archive on your local computer and zip the contents of the folder <strong><em>cwsoft-addon-file-editor</em></strong> (without the folder itself).</p>
+        <h2><a id="License_11" title="License_11"></a> License</h2>
+        <p><code>addon-file-editor</code> is licensed under the <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License (GPL) v3.0</a> .</p>
+        <h2><a id="Requirements_14" title="Requirements_14"></a> Requirements</h2>
+        <p>The minimum requirements to get <code>AFE</code> running on your <a href="http://WebsiteBaker.org">WebsiteBaker</a> installation are as follows:</p>
+        <ul>
+            <li><a href="http://WebsiteBaker.org">WebsiteBaker</a></li>
+            <li>PHP <strong><em>5.3.6</em></strong> or higher (recommended last stable PHP 5.4.x version)</li>
+            <li>Optional: browser with <a href="http://get.adobe.com/de/flashplayer/">Flash&trade; plugin</a> to use the <a href="http://pixlr.com">Pixlr</a> image online service</li>
+        </ul>
+        <h2><a id="Installation_22" title="Installation_22"></a> Installation</h2>
+        <ol>
+            <li>download archive from <a href="">Addon reposirity</a></li>
+            <li>unpack the archive on your local computer</li>
+            <li>zip the contents of the folder <strong><em>addon-file-editor</em></strong> (without the folder itself)</li>
+            <li>install the newly zipped archive via the <a href="http://WebsiteBaker.org">WebsiteBaker</a> installer</li>
+            <li>go to the <code>Admin-Tools</code> section and click the <code>addon-file-editor</code> tool link</li>
+        </ol>
+        <h2><a id="Usage_29" title="Usage_29"></a> Usage</h2>
+        <h3><a id="Overview_Panel_31" title="Overview_Panel_31"></a> Overview Panel</h3>
+        <p>Once <code>AFE</code> is installed, visit the <strong><em>Admin-Tools</em></strong> section of your WebsiteBaker backend and click on the <code>AFE</code> admin tool link. This brings you to the <code>AFE</code> overview panel.</p>
+        <p><img src="/modules/AddonFileEditor/docs/addon-file-editor-overview-panel.png" alt=""></p>
+        <p>The <code>AFE</code> overview panel lists all installed Add-ons of your WebsiteBaker installation. The Add-ons are grouped into the sections <strong><em>Modules</em></strong> , <strong><em>Templates</em></strong> and <strong><em>Languages</em></strong> . You can expand/collaps groups to show only the Add-ons you are interested in, providing you have JavaScript enabled in your browser. The toggle status of the groups is stored in a Cookie and will be remembered during the lifetime of this Cookie.</p>
+        <p>When a group is expanded, all installed Add-ons of this group are shown in a list view. A <em>download icon</em> is shown at the right side of each Add-on entry. A click on this icon creates an installation package of this Add-on on the fly. Use this option to create a <strong><em>backup</em></strong> of an Add-on <strong><em>BEFORE</em></strong> you modify it, so you can revert back to the original version in case you mess up something.</p>
+        <p>To browse the files and folders of a specific Add-on in the <code>AFE</code> file manager, click on the Add-on name you are interested in and you will be redirected to the <code>AFE</code> file manager.</p>
+        <h3><a id="File_Manager_42" title="File_Manager_42"></a> File Manager</h3>
+        <p>The file manager shows the files and folders of the selected Add-on.</p>
+        <p><img src="/modules/AddonFileEditor/docs/addon-file-editor-filemanager.png" alt=""></p>
+        <p>The name of the Add-On you are currently editing (1) is displayed just above the filemanager. The path to the actual Add-On (2) relative to the WebsiteBaker root folder is shown at the top of the filemanager. Per default, only files with <strong><em>recognized</em></strong> file extensions are displayed (3) (text, images, archives). You can add/remove file extension via <code>AFE</code> configuration file <strong><em>code/config.php</em></strong> (5). Details about <code>AFEs</code> configuration settings are shown in section <a href="https://github.com/cwsoft/wbce-addon-file-editor#configuration-settings">AFE Configuration Settings</a> .</p>
+        <p>To <em>edit</em> a text file, or to <em>view</em> an image in the browser, just click on it&acute;s file name. To <em>rename</em> or <em>delete</em> files, click one the <strong><em>action icons</em></strong> (4) on the right site of the file manager. You can <em>create</em> new files/folders or <em>upload</em> a file via the <strong>action links</strong> at the top of the file manager (4). The <em>[Reload]</em> option forces to read in all files and folders again. Use this option if you have installed a new Addon via the <a href="http://WebsiteBaker.org">WebsiteBaker</a> backend and it doesn&acute;t show up in <code>AFE</code> .</p>
+        <h4><a id="Online_Image_Editing_51" title="Online_Image_Editing_51"></a> Online Image Editing</h4>
+        <p>Clicking the <em>edit</em> icon shown in the action group (4) for image files transfers the image to the online image editor service of <a href="http://pixlr.com">Pixlr</a> . The online service Pixlr allows you to edit images in a Photoshop&trade; like environment from your browser. Using the <em>save</em> dialogue in Pixlr copies the modified image as <strong><em>image_name.pixlr.png|jpg</em></strong> to the actual Add-on folder on your webspace. The original image remains untouched on your server. If you are happy with the image changes made, delete the original image and rename the modified image. Keep in mind that your image is uploaded to the <a href="http://pixlr.com">pixlr.com</a> server. So please read the Pixlr <a href="http://pixlr.com/faq/">FAQ</a> and <a href="http://pixlr.com/terms_of_service/">Terms &amp; Service</a> <strong><em>before</em></strong> using this service. You can disable this service via the AFE configuration file <strong><em>code/config.php</em></strong> .</p>
+        <p>Note: Your browser requires a <a href="http://get.adobe.com/de/flashplayer/">Flash&trade; plugin</a> in order to use the online image service from <a href="http://pixlr.com">Pixlr</a> .</p>
+        <h4><a id="Unzip_Archive_Files_56" title="Unzip_Archive_Files_56"></a> Unzip Archive Files</h4>
+        <p>Clicking the <em>unzip</em> icon shown in the action icons group (4) for *.zip files allows you to unzip the archive to the actual folder on your server. This allows you to create nested folder structures and/or multiple files from an existing *.zip archive with ease. The *.zip folder structure is taken over. All files contained in the target exraction folder older than the corresponding file in the archive will be replaced without further notice.</p>
+        <h2><a id="Configuration_Settings_59" title="Configuration_Settings_59"></a> Configuration Settings</h2>
+        <p>You can modify the default settings of <code>AFE</code> via the configuration file <strong><em>code/config.php</em></strong> (5) found in the <code>cwsoft-addon-file-editor</code> module folder.</p>
+        <p>You can add/remove file exentison to the recognized file types for <em>text</em> , <em>image</em> , and <em>archives</em> . The default settings are as follows:</p>
+      <pre>
+      <code>
+        $text_extensions = array('txt', 'htm', 'html', 'htt', 'tmpl', 'tpl', 'xml', 'css', 'js', 'php', 'php3', 'php4', 'php5', 'jquery', 'preset' ); $image_extensions = array('bmp', 'gif', 'jpg', 'jpeg', 'png');
+        $archive_extensions = array('zip', 'rar', 'tar', 'gz');
+      </code>
+      </pre>
+
+        <p>Files with extensions not listed above are <em>hidden</em> in the <code>AFE</code> file manager by default. To change this behaviour, set <strong><em>$show_all_files = true;</em></strong> .</p>
+        <p>You can remove Add-ons from beeing listed in the <code>AFE</code> file manager if you want. To remove the <code>cwsoft-addon-file-editor</code> and the English language file from the <code>AFE</code> file manager, set <strong><em>$hidden_addons = array(&lsquo;cwsoft-addon-file-editor&rsquo;, &lsquo;en&rsquo;);</em></strong> (all lower case).</p>
+        <p>Per default, the allowed file size for uploads is limited to 2 MB ( <strong><em>$max_upload_size = 2</em></strong> ). Pixlr support ( <strong><em>$pixlr_support = true</em></strong> ) and unzip archive support ( <strong><em>$unzip_archive_support = true</em></strong> ) are enabled per default.</p>
+        <h3><a id="FTP_Configuration_Settings_76" title="FTP_Configuration_Settings_76"></a> FTP Configuration Settings</h3>
+        <p><code>AFE</code> implements an optional FTP layer, wich is disabled by default. You can activate this feature if required. The <code>AFE</code> file manager detects and highlights files which can&rsquo;t be modified by PHP in a red color. If you see Add-ons or Add-on files highlighted in red, enable the FTP layer to modify these files via FTP. The FTP layer can be configured by visiting the URL: <em><a href="http://yourdomain.com/modules/cwsoft-addon-file-editor/code/ftp_assistant.php">http://yourdomain.com/modules/cwsoft-addon-file-editor/code/ftp_assistant.php</a></em> .</p>
+        <p>Update <em><a href="http://yourdomain.com">yourdomain.com</a></em> to fit to your domain. The URL to the FTP assistant can only be called by users/groups with permission to the WebsiteBaker Admin tools section. The FTP assistant allows you to test the FTP connection to your server, once the required FTP login information where provided. The FTP login information are stored in the <code>AFE</code> database and will be removed when you uninstall <code>AFE</code> .</p>
+        <h2><a id="Known_Issues_81" title="Known_Issues_81"></a> Known Issues</h2>
+        <p>You can track the status of known issues or report new issues found in <code>AFE</code> via GitHubs <a href="">issue tracking service</a> . If you run into any issues with <code>AFE</code> , please visit this page first and check if this issue is already known.</p>
+        <p><strong><em>Note:</em></strong> The 3rd party package <a href="http://www.cdolivet.com/editarea/">editarea</a> distributed with <a href="http://websitebaker.org">WebsiteBaker</a> has some bugs when used in Internet Explorer 8/9. Editarea is used by <code>AFE</code> and the WebsiteBaker <code>code</code> module to highlight and modify code. If you have issues to view/edit Add-on files in <code>AFE</code> , please visit the editarea <a href="http://www.cdolivet.com/editarea/editarea/docs/compatibility.html">browser compatibility list</a> and check if your browser is supported by editarea. If your browser is not supported, please use a supported browser (e.g. Firefox) if you want to have syntax highlighting in WebsiteBaker working - sorry for that.</p>
+        <h2><a id="Security_87" title="Security_87"></a> Security</h2>
+        <p>With great power comes great responsibility. It is recommended to limit access to <code>AFE</code> to those groups and users you really trust. Users with access to WebsiteBaker modules <code>code2</code> , <code>droplets</code> or <code>AFE</code> can add/execute any PHP code they like on your webspace and/or manipulate the WB-Database.</p>
+        <p>Also keep in mind that <code>AFE</code> ships with an optional FTP-Layer. If you use this feature, your FTP-settings are stored as plain text in the WebsiteBaker database. If a hacker gets access to your WebsiteBaker database, he can extract your FTP login data.</p>
+        <p>If in doubt, just install <code>AFE</code> temporary for the time needed and uninstall the tool afterwards via the WebsiteBaker backend.</p>
+        <h2><a id="Questions_94" title="Questions_94"></a> Questions</h2>
+        <p>If you have questions or issues with <code>AFE</code> , please visit the <a href="http://forum.WebsiteBaker.org/index.php">WebsiteBaker-Forum</a> and ask for feedback.</p>
+        <p><strong><em>Always provide the following information with your support request:</em></strong></p>
+        <ul>
+            <li>detailed error description (what happens, what have you tried &hellip;)</li>
+            <li>the <code>AFE</code> version (go to WebsiteBaker section Add-ons / Info / AFE)</li>
+            <li>your PHP version (use phpinfo(); or ask your provider if in doubt)</li>
+            <li>WebsiteBaker version, Service Pack number and build number of your version</li>
+            <li>name of the WebsiteBaker backend theme used (e.g. flat_them, argos_theme &hellip;)</li>
+            <li>information about changes you made to WebsiteBaker (if any)</li>
+        </ul>
+    </article>
+    </section >
