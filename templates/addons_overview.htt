@@ -30,7 +30,7 @@
 <div id="mod_addon_file_editor">
 
     <div class="help_file" >
-        <a id="help_dialog-box" href="{{ afe.URL_ADMIN_TOOL }}#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
+        <a id="help_dialog-box" href="#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
     </div>
 
     <h2><a href="{{ afe.URL_ADMIN_TOOL }}">{{ lang.TXT_HEADING }}</a></h2>
@@ -52,8 +52,9 @@
     <table class="afe-table" >
         <thead>
             <tr>
-                <th id="trigger_modules" >{{ lang.TXT_LIST_OF_MODULES }}</th>
-                <th >&nbsp;</th>
+                <th id="trigger_modules" style="width: 24px;" ></th>
+                <th >&nbsp;{{ lang.TXT_LIST_OF_MODULES }}</th>
+                <th style="width: 24px;">&nbsp;</th>
             </tr>
         </thead>
 
@@ -64,6 +65,8 @@
                     <a href="{{ addon.URL_EDIT_ADDON }}">
                         <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16" />
                     </a>
+                </td>
+                <td>
                     &nbsp;<a href="{{ addon.URL_EDIT_ADDON }}" title="{{ addon.TXT_EDIT_ADDON_FILE }}">{{ addon.ADDON_NAME }}</a>
                 </td>
 
@@ -88,8 +91,9 @@
     <table class="afe-table" >
         <thead>
             <tr>
-                <th id="trigger_templates" >{{ lang.TXT_LIST_OF_TEMPLATES }}</th>
-                <th >&nbsp;</th>
+                <th id="trigger_templates" style="width: 24px;"></th>
+                <th >&nbsp;{{ lang.TXT_LIST_OF_TEMPLATES }}</th>
+                <th style="width: 24px;">&nbsp;</th>
             </tr>
         </thead>
 
@@ -100,6 +104,8 @@
                     <a href="{{ addon.URL_EDIT_ADDON }}">
                         <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16" />
                     </a>
+                </td>
+                <td>
                     &nbsp;<a href="{{ addon.URL_EDIT_ADDON }}" title="{{ addon.TXT_EDIT_ADDON_FILE }}">{{ addon.ADDON_NAME }}</a>
                 </td>
                 <td style="text-align: center;">
@@ -123,8 +129,9 @@
     <table class="afe-table" >
         <thead>
             <tr>
-                <th id="trigger_languages" >{{ lang.TXT_LIST_OF_LANGUAGES }}</th>
-                <th >&nbsp;</th>
+                <th id="trigger_languages" style="width: 24px;"></th>
+                <th >&nbsp;{{ lang.TXT_LIST_OF_LANGUAGES }}</th>
+                <th style="width: 24px;">&nbsp;</th>
             </tr>
         </thead>
 
@@ -135,6 +142,8 @@
                     <a href="{{ addon.URL_EDIT_ADDON }}">
                         <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16" />
                     </a>
+                </td>
+                <td>
                     &nbsp;<a href="{{ addon.URL_EDIT_ADDON }}" title="{{ addon.TXT_EDIT_ADDON_FILE }}">{{ addon.ADDON_NAME }}</a>
                 </td>
 

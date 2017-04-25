@@ -30,14 +30,14 @@
     <h4 class="admintools">
         <a href="{{ afe.URL_WB_ADMIN_TOOLS }}">{{ lang.TXT_HEADING_ADMINTOOLS }}</a> -> {{ afe.NAME_FILE_EDITOR }}
     </h4>
-    
-    <div class="help_file">
-        <a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
+
+    <div class="help_file" >
+        <a id="help_dialog-box" href="#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
     </div>
 
     <h2><a href="{{ afe.URL_FILEMANAGER }}">{{ afe.ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
     <a class="backlink" href="{{ afe.URL_FILEMANAGER }}">{{ lang.TXT_BACK }}</a>
-    
+
     <form class="formbox" action="{{ afe.URL_FORM_SUBMIT }}" method="post">
         <h3>{{ lang.TXT_ACTION }}: {{ lang.TXT_ACTION_UNZIP_ARCHIVE }}</h3>
         <p class="highlight">
@@ -51,7 +51,7 @@
         </div>
         <br style="clear: both;" />
     </form>
-    
+
     <div class="error {{ afe.CLASS_HIDDEN }}">{{ lang.TXT_UNZIP_WARNING }}</div>
 
     {{ afe.STATUS_MESSAGE }}

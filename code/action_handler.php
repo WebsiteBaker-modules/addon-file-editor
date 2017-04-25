@@ -113,6 +113,7 @@ $editor_info = getAddonInfos($module_folder);
 $addon_info  = getAddonInfos($aid);
 $data['afe'] = array(
 'URL_HELP_FILE'      => getReadmeUrl($afe_version),
+'URL_ADMIN_TOOL'      => $url_admintools,
 'STATUS_MESSAGE'     => '',
 'CLASS_HIDDEN'       => '',
 'NAME_FILE_EDITOR'   => $editor_info['name'],

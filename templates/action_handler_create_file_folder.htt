@@ -27,7 +27,7 @@
 #}
 
 <script language="javascript" type="text/javascript">
-    function toogle(file_type) 
+    function toogle(file_type)
     {
         if(file_type == 'file') {
             document.getElementById('file_extensions').disabled = false;
@@ -42,8 +42,8 @@
         <a href="{{ afe.URL_WB_ADMIN_TOOLS }}">{{ lang.TXT_HEADING_ADMINTOOLS }}</a> -> {{ afe.NAME_FILE_EDITOR }}
     </h4>
 
-    <div class="help_file">
-        <a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
+    <div class="help_file" >
+        <a id="help_dialog-box" href="#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
     </div>
 
     <h2><a href="{{ afe.URL_FILEMANAGER }}">{{ afe.ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
@@ -58,7 +58,7 @@
         {{ lang.TXT_FILE }}
         <input type="radio" value="folder" name="file_folder" onclick="javascript: toogle('folder')" />{{ lang.TXT_FOLDER }}
         <br /><br />
-    
+
         <label for="file_folder_name">{{ lang.TXT_FILE_NAME }}:</label>
         <input id="file_folder_name" type="text" value="" name="file_name" class="file" />
         <strong>.</strong>
@@ -67,7 +67,7 @@
         </select>
         {{ lang.TXT_ALLOWED_FILE_CHARS }}
         <br /><br />
-    
+
         <label for="target_folder">{{ lang.TXT_TARGET_FOLDER }}:</label>
         <select id="target_folder" size="1" name="target_folder" class="file">
             {{ afe.SEL_ENTRIES_TARGET_FOLDER }}

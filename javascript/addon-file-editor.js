@@ -1,5 +1,5 @@
 /**
- * Admin tool: cwsoft-addon-file-editor
+ * Admin tool: AddonFileEditor
  *
  * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed
  * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
@@ -10,7 +10,7 @@
  * LICENSE: GNU General Public License 3.0
  *
  * @platform    CMS WebsiteBaker 2.8.x
- * @package     cwsoft-addon-file-editor
+ * @package     AddonFileEditor
  * @author      cwsoft (http://cwsoft.de)
  * @copyright   cwsoft
  * @license     http://www.gnu.org/licenses/gpl-3.0.html
@@ -19,7 +19,6 @@
 // functions for the jQuery framework
 $(document).ready(function() {
 
-console.info('view');
     // only execute on overview page
     if ($('#trigger_modules,#trigger_templates,#trigger_languages').html() === null) return;
 
@@ -34,27 +33,28 @@ console.info('view');
     setViewMode('templates');
     setViewMode('languages');
 
-    $('#trigger_modules, #trigger_templates, #trigger_languages')
-        .toggle(
-            function() {
-                var id = $(this).attr('id').replace(/trigger_/, '');
-                document.cookie = 'AFE_' + id + '=1';
-                setViewMode(id);
-            },
 
-            function() {
-                var id = $(this).attr('id').replace(/trigger_/, '');
-                document.cookie = 'AFE_' + id + '=0';
-                setViewMode(id);
-            }
-        );
+    $('#trigger_modules, #trigger_templates, #trigger_languages').click(function() {
+        var $this = $(this);
+        if($this.hasClass('clicked')) {
+            var id = $this.attr('id').replace(/trigger_/, '');
+            document.cookie = 'AFE_' + id + '=0';
+            setViewMode(id);
+            $this.removeClass('clicked');
+        } else {
+            var id = $this.attr('id').replace(/trigger_/, '');
+            document.cookie = 'AFE_' + id + '=1';
+            setViewMode(id);
+            $this.addClass('clicked');
+        }
+    });
 
 });
 
 function setViewMode(id) {
     // get class (expanded/collapsed)
+    var view    = $('#toggle_' + id)
     var trigger = $('#trigger_' + id);
-    var view = $('#toggle_' + id)
 
     // initialize trigger
     if (trigger.attr('class') === '' && document.cookie.indexOf('AFE_' + id) == -1) {
@@ -74,4 +74,3 @@ function setViewMode(id) {
         view.addClass('hidden');
     }
 }
-

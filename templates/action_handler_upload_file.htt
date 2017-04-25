@@ -31,8 +31,8 @@
         <a href="{{ afe.URL_WB_ADMIN_TOOLS }}">{{ lang.TXT_HEADING_ADMINTOOLS }}</a> -> {{ afe.NAME_FILE_EDITOR }}
     </h4>
 
-    <div class="help_file">
-        <a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
+    <div class="help_file" >
+        <a id="help_dialog-box" href="#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
     </div>
 
     <h2><a href="{{ afe.URL_FILEMANAGER }}">{{ afe.ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
@@ -46,7 +46,7 @@
         <label for="file_upload">{{ lang.TXT_FILE }}:</label>
         <input id="file_upload" name="file_upload" type="file" size="55" value="" class="file"/>
         <br /><br />
-    
+
         <label for="target_folder">{{ lang.TXT_TARGET_FOLDER }}:</label>
         <select id="target_folder" size="1" name="target_folder" class="file">
             {{ afe.SEL_ENTRIES_TARGET_FOLDER }}
@@ -61,5 +61,5 @@
     </form>
 
     {{ afe.STATUS_MESSAGE }}
-    
+
 </div>

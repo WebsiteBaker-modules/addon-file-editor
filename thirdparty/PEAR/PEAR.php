@@ -823,7 +823,7 @@ class PEAR_Error
      * @access public
      *
      */
-    public function PEAR_Error($message = 'unknown error', $code = null,
+    public function __contruct($message = 'unknown error', $code = null,
                         $mode = null, $options = null, $userinfo = null)
     {
         if ($mode === null) {

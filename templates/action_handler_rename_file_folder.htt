@@ -31,13 +31,13 @@
         <a href="{{ afe.URL_WB_ADMIN_TOOLS }}">{{ lang.TXT_HEADING_ADMINTOOLS }}</a> -> {{ afe.NAME_FILE_EDITOR }}
     </h4>
 
-    <div class="help_file">
-        <a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
+    <div class="help_file" >
+        <a id="help_dialog-box" href="#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
     </div>
 
     <h2><a href="{{ afe.URL_FILEMANAGER }}">{{ afe.ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
     <a class="backlink" href="{{ afe.URL_FILEMANAGER }}">{{ lang.TXT_BACK }}</a>
-    
+
     <form class="formbox" action="{{ afe.URL_FORM_SUBMIT }}" method="post">
         <h3>{{ lang.TXT_ACTION }}: {{ lang.TXT_ACTION_RENAME_FILE }}</h3>
         <p class="highlight"><strong>{{ lang.TXT_ACTUAL_FILE }}: </strong>"{{ afe.ADDON_FILE }}"</p>
@@ -49,7 +49,7 @@
         <input type="text" value="{{ afe.FILE_EXT }}" name="file_ext" disabled="disabled" class="readonly {{ afe.CLASS_HIDE }}" style="width:50px;" />
         {{ lang.TXT_ALLOWED_FILE_CHARS }}
         <br /><br />
-    
+
         <input class="submit" type="submit" name="rename_file_folder" value="{{ lang.TXT_SUBMIT_RENAME }}" />
         <a class="submit" href="{{ afe.URL_FORM_CANCEL }}">{{ lang.TXT_SUBMIT_CANCEL }}</a>
         </div>

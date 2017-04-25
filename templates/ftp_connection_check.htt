@@ -31,8 +31,8 @@
         <a href="{{ afe.URL_WB_ADMIN_TOOLS }}">{{ lang.TXT_HEADING_ADMINTOOLS }}</a> -> {{ afe.NAME_FILE_EDITOR }}
     </h4>
 
-    <div class="help_file">
-        <a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
+    <div class="help_file" >
+        <a id="help_dialog-box" href="#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
     </div>
 
     <h2><a href="{{ afe.URL_FILEMANAGER }}">{{ lang.TXT_FTP_HEADING }}</a></h2>
@@ -70,7 +70,7 @@
         <input class="submit" type="submit" name="ftp_save_settings" value="{{ lang.TXT_SAVE }}" />
         <br style="clear: both;" />
     </form>
-    
+
     <br />
     <div class="{{ afe.CLASS_HIDDEN }}">
         <form class="formbox" action="{{ afe.URL_FORM_SUBMIT }}" method="post">
@@ -82,5 +82,5 @@
         </form>
         {{ afe.STATUS_MESSAGE }}
     </div>
-    
+
 </div>

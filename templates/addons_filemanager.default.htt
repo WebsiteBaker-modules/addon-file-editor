@@ -33,7 +33,7 @@
     </div>
 
     <h2><a href="{{ afe.URL_EDIT_ADDON }}">{{ afe.TXT_ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
-    <p>{{ lang.TXT_EDIT_DESCRIPTION }}</p>
+    <p class="afe-important">{{ lang.TXT_EDIT_DESCRIPTION }}</p>
 
     {% if afe.SHOW_FTP_INFO %}
         <div class="info">

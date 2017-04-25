@@ -30,8 +30,8 @@ require_once ('../../../config.php');
 require_once ('../../../framework/class.admin.php');
 
 // include module configuration and function file
-require_once ('config.php');
-require_once ('functions.php');
+require_once ( __DIR__.'/config.php');
+require_once ( __DIR__.'/functions.php');
 
 // load module language file
 $lang = $module_path . '/languages/' . LANGUAGE . '.php';

@@ -38,9 +38,9 @@ if (!class_exists('admin', false)){require WB_PATH.'/framework/class.admin.php';
 if (!class_exists('PclZip', false)){require WB_PATH.'/include/pclzip/pclzip.lib.php';}
 if (!function_exists('page_filename')){require WB_PATH.'/framework/functions.php';}
 // include module configuration and function file
-require_once ('config.php');
-require_once ('functions.php');
-if (!class_exists('HTTP_Download', false)){require $module_path.'/thirdparty/PEAR/Download.php';}
+require_once ( __DIR__.'/config.php');
+require_once ( __DIR__.'/functions.php');
+if (!class_exists('HTTP_Download', false)){require $module_path.'/thirdparty/PEAR/HTTP_Download.php';}
 
 // load module language file
 $lang = $module_path . '/languages/' . LANGUAGE . '.php';

@@ -40,12 +40,12 @@ if ($admin->get_permission('admintools') == false) exit("Cannot access this file
  * Make sanity check of PIXLR parameters
  */
 // check if required GET parameter are defined
-if (!(isset($_GET['img_path']) && isset($_GET['image']) && isset($_GET['type']) && isset($_GET['title']))) 
-	exit("Cannot access this file directly");
+if (!(isset($_GET['img_path']) && isset($_GET['image']) && isset($_GET['type']) && isset($_GET['title'])))
+    exit("Cannot access this file directly");
 
 // ensure specified image exists on the server
-if (!file_exists(WB_PATH . $_GET['img_path'])) 
-	exit("Cannot access this file directly");
+if (!file_exists(WB_PATH . $_GET['img_path']))
+    exit("Cannot access this file directly");
 
 /**
  * Excecute Pixlr API
@@ -68,11 +68,11 @@ $file = file_get_contents($_GET['image']);
 $handle = fopen($save_path, 'w');
 
 if (fwrite($handle, $file) !== false) {
-	fclose($handle);
-	echo '<p style="color: green;">Modified image saved as: "' . str_replace(WB_PATH, '', $save_path) . '".<br />';
-	echo 'Remember to reload the Addon File Editor to update the file list.</p>';
+    fclose($handle);
+    echo '<p style="color: green;">Modified image saved as: "' . str_replace(WB_PATH, '', $save_path) . '".<br />';
+    echo 'Remember to reload the Addon File Editor to update the file list.</p>';
 } else {
-	echo '<p style="color: red;">Unable to fetch and store the modified image from pixlr.com.</p>';
+    echo '<p style="color: red;">Unable to fetch and store the modified image from pixlr.com.</p>';
 }
 
 echo '<p><a href="" onClick="JavaScript:self.close()">close window</a></p>';

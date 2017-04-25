@@ -81,5 +81,5 @@ text-align: right;
 .afe-close { /*transition: transform 0.3s ease-in-out;*/ }
 .afe-close { font-size: 1.225em; background: #215A7A; color: #FFFFFF !important; line-height: 2.025em; position: absolute; right: -12px; text-align: center; top: -10px; width: 2.025em; text-decoration: none; font-weight: bold; -webkit-border-radius: 1.925em; -moz-border-radius: 1.925em; border-radius: 1.925em; -moz-box-shadow: 1px 1px 3px #000000; -webkit-box-shadow: 1px 1px 3px #000000; box-shadow: 1px 1px 3px #000000; }
 .afe-close:hover { background: #FF1100; }
-img { height: auto; max-width: 100%; }
+img { height: auto;}
 p { white-space: normal; }

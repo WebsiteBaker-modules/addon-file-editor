@@ -28,17 +28,16 @@ width: 100%;
 border-collapse: collapse;
 line-height: 1.9525;
 }
-table.filemanager tbody tr td,
-table.afe-table tbody tr td { line-height: 1.9525; font-size: 121%;}
+table.filemanager tbody tr ,
+table.afe-table tbody tr { line-height: 1.9525; }
 
  th#trigger_modules,
  th#trigger_templates,
  th#trigger_languages { width: 97%; }
 
-#mod_addon_file_editor td, {
-font-size:95%;
+#mod_addon_file_editor td {
+font-size:101%;
 color:#666;
-line-height:0.4em;
 text-align:left;
 }
 

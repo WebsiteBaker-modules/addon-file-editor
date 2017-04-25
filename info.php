@@ -27,14 +27,14 @@
 
 // set WebsiteBaker module variables
 $module_directory     = 'AddonFileEditor';
-$module_name          = 'Addon File Editor v3.0.1';
+$module_name          = 'Addon File Editor v3.0.10';
 $module_type          = 'addon';
 $module_function      = 'tool';
-$module_version       = '3.0.1';
-$module_status        = 'dev';
-$module_platform      = '2.8.3 SP7';
+$module_version       = '3.0.10';
+$module_status        = '';
+$module_platform      = '2.10.0';
 $module_author        = 'Christian Sommer, Dietmar Wöllbrink ';
 $module_license       = '<a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public Licencse (GPL) v3.0</a>';
 $module_license_terms = '-';
-$module_requirements  = 'PHP>=5.3.6, WB>=2.8.3';
+$module_requirements  = 'PHP>=5.6.0, WB==2.10.0';
 $module_description   = 'The Addon File Editor allows you to edit text- and image files of installed Add-ons via the backend.';

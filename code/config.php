@@ -34,7 +34,7 @@ if (defined('WB_PATH') == false) {
  * ADJUST THE FOLLOWING SETTINGS ACCORDING YOUR NEEDS
  */
 // add extension of text files you want to be editable (will be displayed with a text icon)
-$text_extensions = array('txt', 'htm', 'html', 'htt', 'tmpl', 'tpl', 'xml', 'css', 'js', 'inc', 'php', 'php3', 'php4', 'php5', 'jquery', 'preset');
+$text_extensions = array('txt', 'htm', 'html', 'htt', 'twig', 'tmpl', 'tpl', 'xml', 'css', 'js', 'inc', 'php', 'php3', 'php4', 'php5', 'jquery', 'preset');
 
 // add extension for image files (will be displayed with a image icon)
 $image_extensions = array('bmp', 'gif', 'jpg', 'jpeg', 'png');
@@ -75,7 +75,6 @@ $url_icon_folder = WB_URL . '/modules/' . $module_folder . '/images';
 $url_admintools = ADMIN_URL . '/admintools/tool.php?tool=' . $module_folder;
 $url_action_handler = WB_URL . '/modules/' . $module_folder . '/code/action_handler.php';
 $url_ftp_assistant = WB_URL . '/modules/' . $module_folder . '/code/ftp_assistant.php';
-
 // create README link for the installed AFE version
 require_once(dirname(__FILE__) . '/functions.php');
 $afe_version = getAFEVersion();

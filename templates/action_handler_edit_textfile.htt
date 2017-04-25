@@ -26,15 +26,15 @@
  */
 #}
 
-{{ afe.REGISTER_EDIT_AREA }} 
+{{ afe.REGISTER_EDIT_AREA }}
 
 <div id="mod_addon_file_editor">
     <h4 class="admintools">
         <a href="{{ afe.URL_WB_ADMIN_TOOLS }}">{{ lang.TXT_HEADING_ADMINTOOLS }}</a> -> {{ afe.NAME_FILE_EDITOR }}
     </h4>
 
-    <div class="help_file">
-        <a href="{{ afe.URL_HELP_FILE }}" target="_blank">[ {{ lang.TXT_HELP }} ]</a>
+    <div class="help_file" >
+        <a id="help_dialog-box" href="#afe-modal-one" target="_self">[ {{ lang.TXT_HELP }} ]</a>
     </div>
 
     <h2><a href="{{ afe.URL_FILEMANAGER }}">{{ afe.ADDON_TYPE }}: {{ afe.ADDON_NAME }}</a></h2>
@@ -48,7 +48,7 @@
 
         <textarea name="code_area_text" id="code_area" cols="120" rows="25" class="code_area">{{ afe.FILE_CONTENT }}</textarea>
         <br style="clear: both;" />
-    
+
         <div class="{{ afe.CLASS_HIDDEN }}">
             <input class="submit" type="submit" name="save_modified_textfile" value="{{ lang.TXT_SUBMIT_SAVE }}" />
             <input class="submit" type="submit" name="save_modified_textfile_back" value="{{ lang.TXT_SUBMIT_SAVE_BACK }}" />
