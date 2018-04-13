@@ -26,8 +26,9 @@
  */
 
 // include WB configuration file (restarts sessions) and WB admin class
-require_once ('../../../config.php');
-require_once ('../../../framework/class.admin.php');
+$configFile = dirname(dirname(dirname(__DIR__))).'/config.php';
+if (is_readable($configFile)){require $configFile;}
+if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
 
 // include module configuration and function file
 require_once ('config.php');
@@ -140,29 +141,31 @@ $strip_path = WB_PATH . $path_sep . $addon_info['type'] . 's' . (($addon_info['t
 // fetch content of specified file (read from file or take over from textarea)
     if ((isset($_POST['save_modified_textfile']) || isset($_POST['save_modified_textfile_back'])) && isset($_POST['code_area_text'])) {
 // take content from save request
-$file_content = $admin->strip_slashes($_POST['code_area_text']);
-} else {
-// open file and save data in variable
-$file_content = file_get_contents($actual_file);
-}
+        $file_content = ($_POST['code_area_text']);
+    } else {
+    // open file and save data in variable
+        $file_content = (file_get_contents($actual_file));
+    }
 
-$data['afe'] = array_merge($data['afe'], array(
-'REGISTER_EDIT_AREA' => myRegisterEditArea($syntax = myGetEditAreaSyntax($actual_file)),
-'ADDON_FILE'         => str_replace($strip_path, '', $actual_file),
-'FILE_CONTENT'       => htmlspecialchars($file_content),
-'URL_FORM_SUBMIT'    => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=1',
-'URL_FORM_CANCEL'    => $url_admintools . '&amp;aid=' . $aid
-));
+    $data['afe'] = array_merge($data['afe'], array(
+        'REGISTER_EDIT_AREA' => myRegisterEditArea($syntax = myGetEditAreaSyntax($actual_file)),
+        'ADDON_FILE'         => str_replace($strip_path, '', $actual_file),
+        'FILE_CONTENT'       => htmlspecialchars($file_content),
+        'URL_FORM_SUBMIT'    => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $fid . '&amp;action=1',
+        'URL_FORM_CANCEL'    => $url_admintools . '&amp;aid=' . $aid
+    ));
 
 // action save modified text file
     if ((isset($_POST['save_modified_textfile']) || isset($_POST['save_modified_textfile_back'])) && isset($_POST['code_area_text'])) {
 
 // save changes to text file
-$status = false;
-    if (is_writeable($actual_file) && $handle = fopen($actual_file, 'wb')) {
-$status = fwrite($handle, $file_content);
-}
+    $status = false;
+    $actual_file = str_replace(["\r\n", "\r"], ["\n", "\n"], $actual_file);
 
+    if (is_writeable($actual_file) && $handle = fopen($actual_file, 'wb')) {
+        $status = fwrite($handle, $file_content);
+    }
+    fclose ($handle); // Done
 // try FTP file upload if fwrite method failed (permissions)
     if (! $status) {
 $ftp_remote_file = str_replace(array(WB_PATH . $path_sep, $path_sep), array('', '/'), $actual_file);

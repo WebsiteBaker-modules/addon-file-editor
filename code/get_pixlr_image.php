@@ -29,12 +29,12 @@
  * Ensure that only users with permissions to Admin-Tools section can access this file
  */
 // include WB configuration file (restarts sessions) and WB admin class
-require_once('../../../config.php');
-require_once('../../../framework/class.admin.php');
-
+$configFile = dirname(dirname(dirname(__DIR__))).'/config.php';
+if (is_readable($configFile)){require $configFile;}
+if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
 // check user permissions for admintools (redirect users with wrong permissions)
 $admin = new admin('Admintools', 'admintools', false, false);
-if ($admin->get_permission('admintools') == false) exit("Cannot access this file directly");
+if ($admin->get_permission('admintools') == false){ exit("Cannot access this file directly");}
 
 /**
  * Make sanity check of PIXLR parameters

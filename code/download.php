@@ -24,17 +24,9 @@
  * @since           2015-03-02,2016-04-29
  * @see             http://forum.websitebaker.org/index.php/topic,24895.msg195678.html#msg195678
  */
-
-// include WB configuration file (restarts sessions) and WB admin class
-//require_once ('../../../config.php');
-//require_once ('../../../framework/class.admin.php');
-//require_once ('../../../framework/functions.php');
-//require_once (WB_PATH . '/include/pclzip/pclzip.lib.php');
-//require ($module_path . '/thirdparty/PEAR/Download.php');
-
-$cnfigFile = dirname(dirname(dirname(__DIR__))).'/config.php';
-if (is_readable($cnfigFile)){require $cnfigFile;}
-if (!class_exists('admin', false)){require WB_PATH.'/framework/class.admin.php';}
+$configFile = dirname(dirname(dirname(__DIR__))).'/config.php';
+if (is_readable($configFile)){require $configFile;}
+if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
 if (!class_exists('PclZip', false)){require WB_PATH.'/include/pclzip/pclzip.lib.php';}
 if (!function_exists('page_filename')){require WB_PATH.'/framework/functions.php';}
 // include module configuration and function file
@@ -50,11 +42,13 @@ require_once (! file_exists($lang) ? $module_path . '/languages/EN.php' : $lang)
  * Ensure that only users with permissions to Admin-Tools section can access this file
  */
 // check user permissions for admintools (redirect users with wrong permissions)
+if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
 $admin = new admin('Admintools', 'admintools', false, false);
 if ($admin->get_permission('admintools') == false) exit("Cannot access this file directly");
 
 ob_start();
 // create new instance this time showing the admin panel (no headers possible anymore)
+if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
 $admin = new admin('Admintools', 'admintools', true, false);
 
 // ensure that user specified addon id is valid (if not redirect user)
@@ -120,6 +114,7 @@ $dl->setContentDisposition(HTTP_DOWNLOAD_ATTACHMENT, $download_file_name);
 $status = $dl->send();
 if ($dl->PEAR->isError($status)) {
 $url_download_file = str_replace(array(WB_PATH, $path_sep), array(WB_URL, '/'), $path_to_download_file);
+if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
 $admin = new admin('Admintools', 'admintools', false, false);
 $admin->print_error(str_replace('{URL}', $url_download_file, $LANG['ADDON_FILE_EDITOR'][9]['ERR_ZIP_DOWNLOAD']), $url_admintools);
 }

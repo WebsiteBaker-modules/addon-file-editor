@@ -26,7 +26,7 @@
  */
 #}
 
-<script language="javascript" type="text/javascript">
+<script language="javascript">
     function toogle(file_type)
     {
         if(file_type == 'file') {

@@ -19,12 +19,12 @@
 /**
  * Requires PEAR
  */
-if (!class_exists('PEAR', false)){require 'PEAR.php';}
+if (!class_exists('PEAR', false)){require __DIR__.'/PEAR.php';}
 
 /**
  * Requires HTTP_Header
  */
-if (!class_exists('Header', false)){require 'HTTP/Header.php';}
+if (!class_exists('Header', false)){require  __DIR__.'/HTTP/Header.php';}
 // }}}
 
 // {{{ constants
@@ -1030,6 +1030,21 @@ class HTTP_Download
      */
     public function sortChunks(&$chunks)
     {
+        $sortFunc = function($a,$b) {
+            if ($a[0] == $b[0]) {
+                if ($a[1] == $b[1]) {
+                    return 0;
+                }
+                return (($a[1] != "*" && $a[1] < $b[1])
+                        || $b[1] == "*") ? -1 : 1;
+             }
+             return ($a[0] < $b[0]) ? -1 : 1;
+         };
+        \usort($chunks,$sortFunc);
+    }
+/*
+    public function sortChunks(&$chunks)
+    {
         $sortFunc = create_function('$a,$b',
             'if ($a[0] == $b[0]) {
                 if ($a[1] == $b[1]) {
@@ -1038,12 +1053,10 @@ class HTTP_Download
                 return (($a[1] != "*" && $a[1] < $b[1])
                         || $b[1] == "*") ? -1 : 1;
              }
-
              return ($a[0] < $b[0]) ? -1 : 1;');
-
         usort($chunks, $sortFunc);
     }
-
+*/
     /**
      * Merges consecutive chunks to avoid overlaps
      *

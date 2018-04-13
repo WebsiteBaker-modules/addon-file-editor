@@ -40,7 +40,7 @@ $LANG['ADDON_FILE_EDITOR'][1] = array(
    'cliquant sur le nom de l&apos;extension. L&apos;ic&ocirc;ne de t&eacute;l&eacute;chargement permet de cr&eacute;er instantan&eacute;ment ' .
    'une sauvegarde installable de votre extension.',
     'TXT_FTP_NOTICE'                => 'Les extensions soulign&eacute;es en rouge ne sont pas modifiables par PHP. Cela peut arriver en cas '.
-   'd&apos;installation de l&apos;extension via FTP. Vous aurez besoin d&apos;<a class="link" target="_blank" href="{URL_ASSISTANT}">' .
+   'd&apos;installation de l&apos;extension via FTP. Vous aurez besoin d&apos;<a class="link" href="{URL_ASSISTANT}">' .
                                        'activer le support FTP </a> afin de modifier les fichiers de ces extensions.',
     'TXT_HEADING'                   => 'Extensions Install&eacute;es (Modules, Th&egrave;mes, Fichiers de Langues)',
     'TXT_HELP'                      => 'Aide',
@@ -106,7 +106,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
     'TXT_ACTION'                    => 'Action',
     'TXT_ACTUAL_FILE'               => 'Fichier en Cours',
     'TXT_SUBMIT_CANCEL'             => 'Annuler',
-);    
+);
 
 // Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(
@@ -168,7 +168,7 @@ $LANG['ADDON_FILE_EDITOR'][8] = array(
     'TXT_UPLOAD_ERROR'              => 'Impossible d&apos;envoyer le fichier. Veuillez v&eacute;rifier les permissions et la taille du fichier.',
 );
 
-// Text outputs for the download handler 
+// Text outputs for the download handler
 $LANG['ADDON_FILE_EDITOR'][9] = array(
     'ERR_TEMP_PERMISSION'           => 'PHP ne poss&egrave;de pas les droits en &eacute;criture sur le dossier (/temp) de WebsiteBaker.',
     'ERR_ZIP_CREATION'              => 'Impossible de cr&eacute;er le fichier d&apos;archive.',

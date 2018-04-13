@@ -26,8 +26,9 @@
  */
 
 // include WB configuration file (restarts sessions) and WB admin class
-require_once ('../../../config.php');
-require_once ('../../../framework/class.admin.php');
+$configFile = dirname(dirname(dirname(__DIR__))).'/config.php';
+if (is_readable($configFile)){require $configFile;}
+if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
 
 // include module configuration and function file
 require_once ( __DIR__.'/config.php');

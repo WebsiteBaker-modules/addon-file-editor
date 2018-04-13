@@ -1248,11 +1248,9 @@ class Twig_Environment
             // rename does not work on Win32 before 5.2.6
             if (@rename($tmpFile, $file) || (@copy($tmpFile, $file) && unlink($tmpFile))) {
                 @chmod($file, 0666 & ~umask());
-
                 return;
             }
         }
-
         throw new RuntimeException(sprintf('Failed to write cache file "%s".', $file));
     }
 }

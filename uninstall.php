@@ -33,8 +33,10 @@ if (defined('WB_PATH') == false) {
     if (is_readable(__DIR__.'/install-struct.sql')) {
         $database->SqlImport(__DIR__.'/install-struct.sql', TABLE_PREFIX, __FILE__ );
     }
+/*
     // remove temporary download folder in /temp if exists
     require_once ('code/config.php');
     require_once ('code/functions.php');
     removeFileOrFolder($temp_zip_path);
+*/
 }

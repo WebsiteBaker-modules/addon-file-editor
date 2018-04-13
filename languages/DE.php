@@ -41,7 +41,7 @@ $LANG['ADDON_FILE_EDITOR'][1] = array(
                                        'eine installierbare Sicherungskopie einer Erweiterung und sendet diese an den Browser.',
         'TXT_FTP_NOTICE'            => 'F&uuml;r rote Addons/Dateien besitzt PHP keine Schreibrechte. Dies ist z.B. der Fall, wenn ' .
                                        'Addons per FTP installiert wurden. Um solche Addons bearbeiten zu k&ouml;nnen, muss die ' .
-                                       '<a class="link" target="_blank" href="{URL_ASSISTANT}">FTP-Unterst&uuml;tzung</a> '.
+                                       '<a class="link" href="{URL_ASSISTANT}">FTP-Unterst&uuml;tzung</a> '.
                                        'des Addon File Editors aktiviert sein.',
         'TXT_HEADING'               => 'Installierte Erweiterungen (Module, Templates, Sprachdateien)',
         'TXT_HELP'                  => 'Hilfe',
@@ -99,7 +99,6 @@ $LANG['ADDON_FILE_EDITOR'][2] = array(
         'DATE_FORMAT'               => 'd.m.y / H:i',
 );
 
-
 // General text outputs for the file handler templates
 $LANG['ADDON_FILE_EDITOR'][3] = array(
         'ERR_WRONG_PARAMETER'       => 'Die &uuml;bergebenen Parameter sind fehlerhaft oder unvollst&auml;ndig.',
@@ -109,7 +108,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
         'TXT_ACTION'                => 'Aktion',
         'TXT_ACTUAL_FILE'           => 'Aktuelle Datei',
         'TXT_SUBMIT_CANCEL'         => 'Abbrechen',
-);    
+);
 
 // Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(

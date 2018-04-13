@@ -1,367 +1,77 @@
-/**
- * Admin tool: addon-file-editor
- *
- * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed
- * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables
- * you to perform small modifications on installed Add-ons without downloading the files first.
- *
- * This file contains the CSS styles used in the backend.
- *
- * LICENSE: GNU General Public License 3.0
- *
- * @platform        CMS WebsiteBaker 2.8.3
- * @package         AddonFileEditor
- * @author          Christian Sommer
- * @author          Dietmar Wöllbrink
- * @copyright       Christian Sommer
- * @license         http://www.gnu.org/licenses/gpl-3.0.html
- * @platform        WebsiteBaker 2.8.3
- * @requirements    PHP 5.3.6 and higher
- * @license     http://www.gnu.org/licenses/gpl-3.0.html
- */
-#mod_addon_file_editor thead,#mod_addon_file_editor thead tr:hover {
-background-color:#DFE1E5;
-}
-.filemanager,
-.afe-table {
-width: 100%;
-border-collapse: collapse;
-line-height: 1.9525;
-}
-table.filemanager tbody tr ,
-table.afe-table tbody tr { line-height: 1.9525; }
-
- th#trigger_modules,
- th#trigger_templates,
- th#trigger_languages { width: 97%; }
-
-#mod_addon_file_editor td {
-font-size:101%;
-color:#666;
-text-align:left;
-}
-
-#mod_addon_file_editor thead td { color:#666; }
-#mod_addon_file_editor th { text-align:left; }
-
- a#help_dialog-box { font-size: 101%; }
-
-#mod_addon_file_editor table.filemanager td {
-font-size: 101%;
-line-height: 1.925;
-}
-
-#mod_addon_file_editor tr.odd { background-color:#eee; }
-#mod_addon_file_editor tr.permission td a { color:red; }
-#mod_addon_file_editor tr.folder td { color: #2A733D; border-top: 1px solid #DDD; font-size: 121%; }
-#mod_addon_file_editor tr:hover { background-color:#FFFFE0; }
-#mod_addon_file_editor tr.file td { color: #407A93; border-top: 1px solid #DDD; padding-left: 1.525em; font-size: 121%; }
-
-#mod_addon_file_editor td.right,#mod_addon_file_editor th.right { text-align:right; }
-#mod_addon_file_editor td.center,#mod_addon_file_editor th.center { text-align:center; }
-#mod_addon_file_editor img { border:0; max-width: 100%; }
-#mod_addon_file_editor a { color:#036; text-decoration:none; }
-#mod_addon_file_editor a:hover { color:#369; }
-
-#mod_addon_file_editor a.backlink {
-display:block;
-margin:1em 0;
-padding-left:20px;
-background:url(../images/back.png) left center no-repeat;
-}
-
-#mod_addon_file_editor p { line-height:1.5em; }
-
-#mod_addon_file_editor div.box {
-font-size: 101%;
-text-align: right;
-margin: 0.5em 0;
-border: 1px solid #AAA;
-padding: 0.6em 0;
-padding-right: 0.925em;
-background-color:#F7F7F7;
-}
-
-#mod_addon_file_editor div.help_file { text-align:right; margin:-1.6em 0 1em 0; padding-right: 3.925em; }
-
-.afe-content {  }
-
-#mod_addon_file_editor form {
-color:#555;
-padding:0.5em;
-background-color:#F9F9F9;
-border:1px solid #D7D7D7;
-}
-
-#mod_addon_file_editor input.submit,#mod_addon_file_editor a.submit {
-margin:0.5em;
-width:auto;
-min-width:120px;
-float:left;
-line-height:1.2em;
-font-size:small;
-color:#000;
-border:1px solid #AAA;
-background-color:#E2E2E2;
-display:block;
-text-decoration:none;
-}
-
-#mod_addon_file_editor a.submit,#mod_addon_file_editor a.submit:hover {
-}
-
-#mod_addon_file_editor input.file,#mod_addon_file_editor select.file { width:300px; }
-
-.afe-content { padding:0.125em; }
-
-#mod_addon_file_editor input.readonly { background-color:#E9E9E9; }
-
-#mod_addon_file_editor a.submit {
-display:block;
-padding:0.1em;
-text-align:center;
-margin-left:1.0em;
-cursor:default;
-}
-
-#mod_addon_file_editor label {
-font-weight:bold;
-margin-left:0.5em;
-width:150px;
-float:left;
-}
-
-#mod_addon_file_editor h2 a {
-font-family:arial,sans-serif;
-font-weight:bold;
-letter-spacing:-0.5px;
-}
-
-#mod_addon_file_editor h2.head_editform {
-margin-top:1em;
-}
-
-#mod_addon_file_editor h3 {
-margin-top:0.2em;
-margin-left:0.5em;
-color:red;
-font-weight:bold;
-}
-
-#mod_addon_file_editor h3.normal {
-color:#000;
-margin-left:0;
-margin-top:0.5em;
-}
-
-#mod_addon_file_editor h4.admintools,h4 {
-margin:0;
-border-bottom:1px solid #DDD;
-padding-bottom:5px;
-}
-
-#mod_addon_file_editor .hidden {
-display:none;
-}
-
-#mod_addon_file_editor .visible {
-display:block;
-}
-
-#mod_addon_file_editor .warning {
-color:red;
-line-height:1.2em;
-}
-
-#mod_addon_file_editor div.error {
-width:90%;
-margin:1em 0em;
-padding:1.0em;
-padding-left:4em;
-border:1.5px solid #FF0000;
-background:#FFF0F0 url(../images/warning.png) 0.5em center no-repeat;
-line-height:1.2em;
-}
-
-#mod_addon_file_editor div.success {
-width:90%;
-margin:1em 0em;
-padding:1.0em;
-padding-left:4em;
-border:1.5px solid #2D9D3B;
-background:#F0F6EA url(../images/success.gif) 0.5em center no-repeat;
-line-height:1.2em;
-}
-
-#mod_addon_file_editor div.info {
-width:90%;
-margin:1em 0em;
-padding:1.0em;
-padding-left:4em;
-border:1.5px solid #6B90DA;
-background:#F0F7F9 url(../images/info.png) 0.5em center no-repeat;
-line-height:1.2em;
-}
-
-#mod_addon_file_editor .highlight {
-margin-left:0.5em;
-color:#444;
-}
-
-#mod_addon_file_editor a.right {
-text-align:right;
-}
-
-#mod_addon_file_editor a.link {
-color:#00D;
-text-decoration:underline;
-}
-
-#mod_addon_file_editor th {
-cursor: pointer;
- font-size: 121%;
-}
-
-#mod_addon_file_editor th.expanded {
-padding-left: 2.225em;
-background: #DFE1E5 url(../images/expand.png) 0.2em center no-repeat;
-cursor: pointer;
-}
-
-#mod_addon_file_editor th.collapsed {
-padding-left: 2.225em;
-background: #DFE1E5 url(../images/collapse.png) 0.2em center no-repeat;
-cursor: pointer;
-}
-
-#mod_addon_file_editor .hidden {
-display:none;
-}
-
-#mod_addon_file_editor .code_area {
-width: 98%;
-}
-
-.afe-btn {
-background:#428bca;
-border:#357ebd solid 1px;
-border-radius:3px;
-color:#fff;
-display:inline-block;
-font-size:1.2525em;
-padding: 0.325em 1.2525em;
-text-decoration:none;
-text-align:center;
-min-width: 5.25em;
-position:relative;
-transition:color .1s ease;
-/* top: 40em;*/
-}
-/*
-.afe-btn {
--moz-user-select:none;
-background-image:none;
-border:1px solid transparent;
-border-radius:0.525em;
-cursor:pointer;
-display:inline-block;
-font-size:1.2525em;
-font-weight:normal;
-margin:0;
-padding:6px 12px;
-text-align:center;
-vertical-align:middle;
-white-space:nowrap;
-}
-*/
-.afe-btn:hover {
-background:#357ebd;
-color: #3C3838
-}
-
-.afe-btn.afe-btn-big {
-font-size: 1.125em;
-padding:15px 20px;
-min-width:100px;
-}
-
-.afe-btn-close {
-color:#aaa;
-font-size:30px;
-text-decoration:none;
-position:absolute;
-right:5px;
-top:0;
-}
-
-.afe-btn-close:hover {
-color:#595656;
-}
+@charset "utf-8";
+@import url('3/w3.css');
+/** * Admin tool: addon-file-editor * * This tool allows you to "edit", "delete", "create", "upload" or "backup" files of installed * Add-ons such as modules, templates and languages via the WebsiteBaker backend. This enables * you to perform small modifications on installed Add-ons without downloading the files first. * * This file contains the CSS styles used in the backend. * * LICENSE: GNU General Public License 3.0 * * @platform        CMS WebsiteBaker 2.8.3 * @package         AddonFileEditor * @author          Christian Sommer * @author          Dietmar Wöllbrink * @copyright       Christian Sommer * @license         http://www.gnu.org/licenses/gpl-3.0.html * @platform        WebsiteBaker 2.8.3 * @requirements    PHP 5.3.6 and higher * @license     http://www.gnu.org/licenses/gpl-3.0.html */
+#mod_addon_file_editor thead,#mod_addon_file_editor thead tr:hover{background-color:#DFE1E5;}
+.filemanager,.afe-table{width:100%;border-collapse:collapse;line-height:1.0525;}
+table.filemanager tbody tr,table.afe-table tbody tr{line-height:1.0525;}
+th#trigger_modules,th#trigger_templates,th#trigger_languages{width:97%;}
+#mod_addon_file_editor td{font-size:101%;color:#666;text-align:left;}
+#mod_addon_file_editor thead td{color:#666;}
+#mod_addon_file_editor th{text-align:left;}
+a#help_dialog-box{font-size:101%;}
+#mod_addon_file_editor table.filemanager td{font-size:101%;line-height:1.025;}
+#mod_addon_file_editor tr.odd{background-color:#eee;}
+#mod_addon_file_editor tr.permission td a{color:red;}
+#mod_addon_file_editor tr.folder td{color:#2A733D;border-top:1px solid #DDD;font-size:101%;}
+#mod_addon_file_editor tr:hover{background-color:#FFFFE0;}
+#mod_addon_file_editor tr.file td{color:#407A93;border-top:1px solid #DDD;padding-left:1.525em;font-size:101%;}
+#mod_addon_file_editor td.right,#mod_addon_file_editor th.right{text-align:right;}
+#mod_addon_file_editor td.center,#mod_addon_file_editor th.center{text-align:center;}
+#mod_addon_file_editor img{border:0;}
+#mod_addon_file_editor a{color:#036;text-decoration:none;}
+#mod_addon_file_editor a:hover{color:#369;}
+#mod_addon_file_editor a.backlink{display:block;margin:1em 0;padding-left:20px;background:url(../images/back.png) left center no-repeat;}
+#mod_addon_file_editor p{line-height:1.5em;}
+#mod_addon_file_editor div.box{font-size:101%;text-align:right;margin:0.5em 0;border:1px solid #AAA;padding:0.6em 0;padding-right:0.925em;background-color:#F7F7F7;}
+#mod_addon_file_editor div.help_file{text-align:right;margin:-1.6em 0 1em 0;padding-right:3.925em;}
+.afe-content{}
+#mod_addon_file_editor form{color:#555;padding:0.5em;background-color:#F9F9F9;border:1px solid #D7D7D7;}
+#mod_addon_file_editor input.submit,#mod_addon_file_editor a.submit{margin:0.5em;width:auto;min-width:120px;float:left;line-height:1.2em;font-size:small;color:#000;border:1px solid #AAA;background-color:#E2E2E2;display:block;text-decoration:none;}
+#mod_addon_file_editor a.submit,#mod_addon_file_editor a.submit:hover{}
+#mod_addon_file_editor input.file,#mod_addon_file_editor select.file{width:300px;}
+.afe-content{padding:0.125em;}
+#mod_addon_file_editor input.readonly{background-color:#E9E9E9;}
+#mod_addon_file_editor a.submit{display:block;padding:0.1em;text-align:center;margin-left:1.0em;cursor:default;}
+#mod_addon_file_editor label{font-weight:bold;margin-left:0.5em;width:150px;float:left;}
+#mod_addon_file_editor h2 a{font-family:arial,sans-serif;font-weight:bold;letter-spacing:-0.5px;}
+#mod_addon_file_editor h2.head_editform{margin-top:1em;}
+#mod_addon_file_editor h3{margin-top:0.2em;margin-left:0.5em;color:red;font-weight:bold;}
+#mod_addon_file_editor h3.normal{color:#000;margin-left:0;margin-top:0.5em;}
+#mod_addon_file_editor h4.admintools,h4{margin:0;border-bottom:1px solid #DDD;padding-bottom:5px;}
+#mod_addon_file_editor .hidden{display:none;}
+#mod_addon_file_editor .visible{display:block;}
+#mod_addon_file_editor .warning{color:red;line-height:1.2em;}
+#mod_addon_file_editor div.error{width:90%;margin:1em 0em;padding:1.0em;padding-left:4em;border:1.5px solid #FF0000;background:#FFF0F0 url(../images/warning.png) 0.5em center no-repeat;line-height:1.2em;}
+#mod_addon_file_editor div.success{width:90%;margin:1em 0em;padding:1.0em;padding-left:4em;border:1.5px solid #2D9D3B;background:#F0F6EA url(../images/success.gif) 0.5em center no-repeat;line-height:1.2em;}
+#mod_addon_file_editor div.info{width:90%;margin:1em 0em;padding:1.0em;padding-left:4em;border:1.5px solid #6B90DA;background:#F0F7F9 url(../images/info.png) 0.5em center no-repeat;line-height:1.2em;}
+#mod_addon_file_editor .highlight{margin-left:0.5em;color:#444;}
+#mod_addon_file_editor a.right{text-align:right;}
+#mod_addon_file_editor a.link{color:#00D;text-decoration:underline;}
+#mod_addon_file_editor th{cursor:pointer;font-size:101%;}
+#mod_addon_file_editor th.expanded{padding-left:2.225em;background:#DFE1E5 url(../images/expand.png) 0.2em center no-repeat;cursor:pointer;}
+#mod_addon_file_editor th.collapsed{padding-left:2.225em;background:#DFE1E5 url(../images/collapse.png) 0.2em center no-repeat;cursor:pointer;}
+#mod_addon_file_editor .hidden{display:none;}
+#mod_addon_file_editor .code_area{width:98%;}
+.afe-btn{background:#428bca;border:#357ebd solid 1px;border-radius:3px;color:#fff;display:inline-block;font-size:1.2525em;padding:0.325em 1.2525em;text-decoration:none;text-align:center;min-width:5.25em;position:relative;transition:color .1s ease;
+/* top: 40em;*/}
+/* .afe-btn { -moz-user-select:none; background-image:none; border:1px solid transparent; border-radius:0.525em; cursor:pointer; display:inline-block; font-size:1.2525em; font-weight:normal; margin:0; padding:6px 12px; text-align:center; vertical-align:middle; white-space:nowrap; } */
+.afe-btn:hover{background:#357ebd;color:#3C3838}
+.afe-btn.afe-btn-big{font-size:1.125em;padding:15px 20px;min-width:100px;}
+.afe-btn-close{color:#aaa;font-size:30px;text-decoration:none;position:absolute;right:5px;top:0;}
+.afe-btn-close:hover{color:#595656;}
 /*ADDED TO STOP SCROLLING TO TOP*/
-#afe-close {
-display:none;
-}
-
-.afe-btn-lg,.afe-btn-group-lg >.btn {
-border-radius:6px;
-font-size:18px;
-line-height:1.33333;
-padding:10px 16px;
-}
-
-.afe-btn-default {
-background-color:#DFDFDF;
-border-color:#ccc;
-color:#3C3838;
-}
-
-.afe-btn-danger {
-background-color:#F71B13;
-border-color:#d43f3a;
-color:#F9F9F9!important;
-}
-
-.afe-btn-success {
-background-color:#73C46C;
-border-color:#2C8B39;
-color:#3C3838;
-}
-
-.afe-btn-blue {
-background-color:#6398E1;
-border-color:#2C8B39;
-color:#3C3838;
-}
-
-.afe-btn:hover {
-background-color:#CDCDCD;
-border:1px solid #3E3E3E;
-color:#3E3B3B;
-}
-
-#custom-modal-template.btn:hover {
-border:1px solid transparent;
-color:#3E3B3B;
-}
-
-.afe-btn-gradient {
-background:#c7dfef;
-background:-moz-linear-gradient(top,rgba(199,223,239,1) 0%,rgba(255,255,255,1) 21%);
-background:-webkit-linear-gradient(top,rgba(199,223,239,1) 0%,rgba(255,255,255,1) 21%);
-background:linear-gradient(to bottom,rgba(199,223,239,1) 0%,rgba(255,255,255,1) 100%);
-filter:progid:DXImageTransform.Microsoft.gradient( startColorstr= '#e3eff7 ',endColorstr= '#ffffff ',GradientType=0 );
-border:#255e83 solid 1px;
-font-family:Verdana,Arial;
-font-weight:normal;
-}
-
-#delete-error-log {
-cursor:pointer;
-}
-
-.afe-info { padding :10px; margin-bottom :0.5em; background :#f8f8f8; color :#666666; font-size :91.7%; }
-.afe-note { border :2px #448844 solid; padding :10px; margin :10px auto; background :#eeffee; color :#004400; }
-.afe-note { color :#666666; font-size :10px; }
-.afe-important { border :2px #888844 solid; padding :10px; margin-bottom :1em; background :#ffffee; color :#444400; }
-.afe-warning { border :2px #884444 solid; padding :10px; margin-bottom :1em; background :#ffeeee; color :#440000; }
-
+#afe-close{display:none;}
+.afe-btn-lg,.afe-btn-group-lg >.btn{border-radius:6px;font-size:18px;line-height:1.33333;padding:10px 16px;}
+.afe-btn-default{background-color:#DFDFDF;border-color:#ccc;color:#3C3838;}
+.afe-btn-danger{background-color:#F71B13;border-color:#d43f3a;color:#F9F9F9!important;}
+.afe-btn-success{background-color:#73C46C;border-color:#2C8B39;color:#3C3838;}
+.afe-btn-blue{background-color:#6398E1;border-color:#2C8B39;color:#3C3838;}
+.afe-btn:hover{background-color:#CDCDCD;border:1px solid #3E3E3E;color:#3E3B3B;}
+#custom-modal-template.btn:hover{border:1px solid transparent;color:#3E3B3B;}
+.afe-btn-gradient{background:#c7dfef;background:-moz-linear-gradient(top,rgba(199,223,239,1) 0%,rgba(255,255,255,1) 21%);background:-webkit-linear-gradient(top,rgba(199,223,239,1) 0%,rgba(255,255,255,1) 21%);background:linear-gradient(to bottom,rgba(199,223,239,1) 0%,rgba(255,255,255,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr= '#e3eff7 ',endColorstr= '#ffffff ',GradientType=0 );border:#255e83 solid 1px;font-family:Verdana,Arial;font-weight:normal;}
+#delete-error-log{cursor:pointer;}
+.afe-info{padding:10px;margin-bottom:0.5em;background:#f8f8f8;color:#666666;font-size:91.7%;}
+.afe-note{border:2px #448844 solid;padding:10px;margin:10px auto;background:#eeffee;color:#004400;}
+.afe-note{color:#666666;font-size:10px;}
+.afe-important{border:2px #888844 solid;padding:10px;margin-bottom:1em;background:#ffffee;color:#444400;}
+.afe-warning{border:2px #884444 solid;padding:10px;margin-bottom:1em;background:#ffeeee;color:#440000;}

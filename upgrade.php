@@ -31,7 +31,7 @@ if (defined('WB_PATH') == false) {
 } else {
     // create tables from sql dump file
     if (is_readable(__DIR__.'/install-struct.sql')) {
-        $database->SqlImport(__DIR__.'/install-struct.sql', TABLE_PREFIX, __FILE__ );
+        $database->SqlImport(__DIR__.'/install-struct.sql', TABLE_PREFIX, 'upgrade' );
     }
 
 }

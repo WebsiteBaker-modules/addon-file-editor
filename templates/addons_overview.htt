@@ -49,7 +49,7 @@
         <a href="{{ afe.URL_ADMIN_TOOL }}#languages">[ {{ lang.TXT_LANGUAGES }} ]</a>
     </div>
 
-    <table class="afe-table" >
+    <table class="afe-table w3-table" >
         <thead>
             <tr>
                 <th id="trigger_modules" style="width: 24px;" ></th>
@@ -71,7 +71,7 @@
                 </td>
 
                 <td style="text-align: center;">
-                    <a href="{{ addon.URL_ZIP_ADDON }}" target="_blank">
+                    <a href="{{ addon.URL_ZIP_ADDON }}" >
                         <img src="{{ addon.URL_ICON_FOLDER }}/download_archive.png" title="{{ addon.TXT_ZIP_ADDON_FILES }}" alt="{{ addon.TXT_ZIP_ADDON_FILES }}" width="16" />
                     </a>
                 </td>
@@ -88,7 +88,7 @@
         <a href="{{ afe.URL_ADMIN_TOOL }}#languages">[ {{ lang.TXT_LANGUAGES }} ]</a>
     </div>
 
-    <table class="afe-table" >
+    <table class="afe-table w3-table" >
         <thead>
             <tr>
                 <th id="trigger_templates" style="width: 24px;"></th>
@@ -109,7 +109,7 @@
                     &nbsp;<a href="{{ addon.URL_EDIT_ADDON }}" title="{{ addon.TXT_EDIT_ADDON_FILE }}">{{ addon.ADDON_NAME }}</a>
                 </td>
                 <td style="text-align: center;">
-                    <a href="{{ addon.URL_ZIP_ADDON }}" target="_blank">
+                    <a href="{{ addon.URL_ZIP_ADDON }}" >
                         <img src="{{ addon.URL_ICON_FOLDER }}/download_archive.png" title="{{ addon.TXT_ZIP_ADDON_FILES }}" alt="{{ addon.TXT_ZIP_ADDON_FILES }}" width="16" />
                     </a>
                 </td>
@@ -126,7 +126,7 @@
         <a href="{{ afe.URL_ADMIN_TOOL }}#languages">[ {{ lang.TXT_LANGUAGES }} ]</a>
     </div>
 
-    <table class="afe-table" >
+    <table class="afe-table w3-table" >
         <thead>
             <tr>
                 <th id="trigger_languages" style="width: 24px;"></th>
@@ -140,7 +140,7 @@
             <tr class="{{ addon.CLASS_ODD_EVEN }}{{ addon.CLASS_PERMISSION }}">
                 <td >
                     <a href="{{ addon.URL_EDIT_ADDON }}">
-                        <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16" />
+                        <img src="{{ addon.URL_ICON_FOLDER }}/folder.gif" title="{{ addon.TXT_EDIT_ADDON_FILE }}" alt="{{ addon.TXT_EDIT_ADDON_FILE }}" width="16"/>
                     </a>
                 </td>
                 <td>
@@ -148,8 +148,8 @@
                 </td>
 
                 <td style="align: center;">
-                    <a href="{{ addon.URL_ZIP_ADDON }}" target="_blank">
-                        <img src="{{ addon.URL_ICON_FOLDER }}/download_archive.png" title="{{ addon.TXT_ZIP_ADDON_FILES }}" alt="{{ addon.TXT_ZIP_ADDON_FILES }}" width="16" />
+                    <a href="{{ addon.URL_ZIP_ADDON }}" >
+                        <img src="{{ addon.URL_ICON_FOLDER }}/download_archive.png" title="{{ addon.TXT_ZIP_ADDON_FILES }}" alt="{{ addon.TXT_ZIP_ADDON_FILES }}" width="16"/>
                     </a>
                 </td>
             </tr>

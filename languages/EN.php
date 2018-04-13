@@ -36,11 +36,11 @@ if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
 
 // Text outputs overview page (templates/addons_overview.htt)
 $LANG['ADDON_FILE_EDITOR'][1] = array(
-    'TXT_DESCRIPTION'               => 'The list below shows all Add-ons, which are readable by PHP. You can edit Add-on files by ' . 
+    'TXT_DESCRIPTION'               => 'The list below shows all Add-ons, which are readable by PHP. You can edit Add-on files by ' .
                                        'clicking on the Add-on name. The download icon allows you to create a installable backup ' .
                                        'of your Add-on on the fly.',
     'TXT_FTP_NOTICE'                => 'Add-ons/files highlighted red are not writeable by PHP. This may be the case, if you install ' .
-                                       'Add-ons by the use of FTP. You need to <a class="link" target="_blank" href="{URL_ASSISTANT}">' .
+                                       'Add-ons by the use of FTP. You need to <a class="link" href="{URL_ASSISTANT}">' .
                                        'enable FTP support </a> in order to edit those Add-on files.',
     'TXT_HEADING'                   => 'Installed Add-ons (Modules, Templates, Language Files)',
     'TXT_HELP'                      => 'Help',
@@ -106,7 +106,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
     'TXT_ACTION'                    => 'Action',
     'TXT_ACTUAL_FILE'               => 'Current File',
     'TXT_SUBMIT_CANCEL'             => 'Cancel',
-);    
+);
 
 // Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(

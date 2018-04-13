@@ -36,11 +36,11 @@ if (! isset($LANG) || (isset($LANG) && ! is_array($LANG))) {
 
 // Text outputs overview page (templates/addons_overview.htt)
 $LANG['ADDON_FILE_EDITOR'][1] = array(
-      'TXT_DESCRIPTION'             => 'Deze lijst toont alle door PHP leesbare Add-ons. Door te klikken op de Add-on naam kan je ' . 
+      'TXT_DESCRIPTION'             => 'Deze lijst toont alle door PHP leesbare Add-ons. Door te klikken op de Add-on naam kan je ' .
                                        'deze wijzigen. Met het download icoon wordt onmiddellijk een installeerbare backup ' .
                                        'van de Add-on gemaakt.',
       'TXT_FTP_NOTICE'              => 'Add-ons/bestanden in rood zijn niet beschrijfbaar door PHP. Dit kan het geval zijn indien je ' .
-                                       'Add-ons installeerd door middel van FTP. Je zal <a class="link" target="_blank" href="{URL_ASSISTANT}">' .
+                                       'Add-ons installeerd door middel van FTP. Je zal <a class="link" href="{URL_ASSISTANT}">' .
                                        'FTP support</a> moeten gebruiken om deze Add-on bestanden te wijzigen.',
       'TXT_HEADING'                 => 'Geïnstalleerde Add-ons (Modules, Templates en Taal bestanden)',
       'TXT_HELP'                    => 'Help',
@@ -106,7 +106,7 @@ $LANG['ADDON_FILE_EDITOR'][3] = array(
       'TXT_ACTION'                  => 'Actie',
       'TXT_ACTUAL_FILE'             => 'Huidig bestand',
       'TXT_SUBMIT_CANCEL'           => 'Annuleer',
-);      
+);
 
 // Text outputs file handler (templates/action_handler_edit_textfile.htt)
 $LANG['ADDON_FILE_EDITOR'][4] = array(

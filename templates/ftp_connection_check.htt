@@ -56,7 +56,7 @@
         <br /><br />
 
         <label for="ftp_password">{{ lang.TXT_FTP_PASSWORD }}:</label>
-        <input id="ftp_password" type="password" value="{{ afe.FTP_PASSWORD }}" name="ftp_password" class="file" />
+        <input id="ftp_password" type="password" value="{{ afe.FTP_PASSWORD }}" name="ftp_password" autocomplete="off" class="file" />
         <br /><br />
 
         <label for="ftp_port">{{ lang.TXT_FTP_PORT }}:</label>

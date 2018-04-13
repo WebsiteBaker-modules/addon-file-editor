@@ -33,7 +33,6 @@ $(document).ready(function() {
     setViewMode('templates');
     setViewMode('languages');
 
-
     $('#trigger_modules, #trigger_templates, #trigger_languages').click(function() {
         var $this = $(this);
         if($this.hasClass('clicked')) {

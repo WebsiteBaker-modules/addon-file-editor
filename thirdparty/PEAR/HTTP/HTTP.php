@@ -406,7 +406,7 @@ class HTTP
             echo '
 <p>Redirecting to: <a href="'.str_replace('"', '%22', $url).'">'
                  .htmlspecialchars($url).'</a>.</p>
-<script type="text/javascript">
+<script>
 //<![CDATA[
 if (location.replace == null) {
     location.replace = location.assign;

@@ -76,7 +76,7 @@ $url_admintools = ADMIN_URL . '/admintools/tool.php?tool=' . $module_folder;
 $url_action_handler = WB_URL . '/modules/' . $module_folder . '/code/action_handler.php';
 $url_ftp_assistant = WB_URL . '/modules/' . $module_folder . '/code/ftp_assistant.php';
 // create README link for the installed AFE version
-require_once(dirname(__FILE__) . '/functions.php');
+require_once(__DIR__.'/functions.php');
 $afe_version = getAFEVersion();
 
 //$url_help    = getReadmeUrl($afe_version);//;''

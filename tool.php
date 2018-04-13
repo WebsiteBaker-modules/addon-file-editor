@@ -31,19 +31,19 @@ if (defined('WB_PATH') == false) {
 }
 
 // include module configuration and function file
-require_once ('code/config.php');
-require_once ('code/functions.php');
+if (!isset($afe_version)){require('code/config.php');}
+if (!function_exists('getAddons')){require('code/functions.php');}
 
 // load module language file
 $lang = $module_path . '/languages/' . LANGUAGE . '.php';
-require_once (! file_exists($lang) ? $module_path . '/languages/EN.php' : $lang);
+require (! file_exists($lang) ? $module_path . '/languages/EN.php' : $lang);
 
 // register Twig shipped with AFE if not already done by the WB core (included since WB 2.8.3 #1688)
 /**
  * Create Twig template object and configure it
  */
 if (!class_exists('Twig_Autoloader')) {
-    require_once ('thirdparty/Twig/Twig/Autoloader.php');
+    require ('thirdparty/Twig/Twig/Autoloader.php');
     Twig_Autoloader::register();
 }
 $loader = new Twig_Loader_Filesystem(dirname(__FILE__) . '/templates');
@@ -67,8 +67,6 @@ if ($aid == '') {
 // fetch addon infos to $_SESSION['addon_list'] (installed; PHP readable; not in $hidden_addons)
     getAddons(isset($_GET['reload']));
 
-// load template file depending on $aid
-$tpl = $twig->loadTemplate('addons_overview.htt');
 
 /**
  * Make AFE language data accessible in template {{ lang.KEY }}
@@ -118,6 +116,8 @@ $data['afe']["{$addon_type}S"][] = array(
 
 $$addon_var++;
 }
+// load template file depending on $aid
+$tpl = $twig->loadTemplate('addons_overview.htt');
 
 // ouput the final template
 $tpl->display($data);
@@ -126,8 +126,6 @@ $tpl->display($data);
 #################################################################################
 # SHOW FILEMANAGER WITH FILES AND FOLDERS OF THE SPECIFIED ADDON
 #################################################################################
-// load template file depending on $aid
-$tpl = $twig->loadTemplate('addons_filemanager.htt');
 
 /**
  * Make AFE language data accessible in template {{ lang.KEY }}
@@ -164,9 +162,11 @@ $data['afe'] = array(
 
 // fetch file infos of actual add-on to $_SESSION['addon_file_infos']
     getAddonFileInfos($_SESSION['addon_list'][$aid]['path'], $aid, isset($_GET['reload']));
+
 // output current addon file infos
     $data['afe']['SHOW_FTP_INFO'] = false;
-    $data['afe']['FILES'] = array();
+    $data['afe']['FILES'] = [];
+    $data['afe']['FOLDER'] = [];
     foreach ($_SESSION['addon_file_infos'] as $index => $file_info)
     {
 // skip the very first entry which contains current addon root folder
@@ -191,6 +191,7 @@ $data['afe'] = array(
 
 // create a link for all textfiles and images
         $icon_edit_url = '-';
+
         switch ($file_info['icon']) {
             case 'textfile':
                 $url = $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index . '&amp;action=1';
@@ -203,7 +204,7 @@ $data['afe'] = array(
                 $url = str_replace(WB_PATH, '', $file_info['path']);
                 $url = WB_URL . str_replace($path_sep, '/', $url);
 // create link to open image in new browser window
-                $file_name = '<a href="' . $url . '" target="_blank" title="' . $LANG['ADDON_FILE_EDITOR'][2]['TXT_VIEW'] . '">' . $file_name . '</a>';
+                $file_name = '<a href="' . $url . '"  title="' . $LANG['ADDON_FILE_EDITOR'][2]['TXT_VIEW'] . '">' . $file_name . '</a>';
 // check if PIXLR Support is enabled
                 if ($pixlr_support == true && (strpos(WB_URL, '/localhost/') == false)) {
 // open image with the online Flash image editor http://pixlr.com/
@@ -211,33 +212,33 @@ $data['afe'] = array(
                 }
                 break;
       }
-
-// replace placeholders with dynamic file information
-$data['afe']['FILES'][] = array(
-'FILE_NAME'        => $file_name,
-'FILE_SIZE'        => ($file_info['size'] == '') ? '&nbsp;' : $file_info['size'],
-'FILE_MAKE_TIME'   => $file_info['maketime'],
-'CLASS_ODD_EVEN'   => ($index % 2 == 0) ? 'odd ' : '',
-'CLASS_FOLDER'     => ($file_info['type'] == 'folder') ? 'folder ' : 'file',
-'CLASS_PERMISSION' => is_writeable($file_info['path']) ? '' : 'permission',
-'URL_ICON_FOLDER'  => $url_icon_folder,
-'FILE_ICON'        => $file_info['icon'],
-'TXT_FILE_TYPE'    => $LANG['ADDON_FILE_EDITOR'][2]['TXT_FILE_TYPE_' . strtoupper($file_info['icon'])],
-'HIDE_EDIT_ICON'   => ($icon_edit_url == '-') ? 'hidden' : '',
-'HIDE_UNZIP_ICON'  => ($unzip_archive_support && substr(strtolower($file_name), -4) == '.zip') ? '' : 'hidden',
-'TARGET_BLANK'     => ($icon_edit_url <> '-' && $file_info['icon'] == 'image') ? ' target="_blank"' : '',
-'URL_EDIT_FILE'    => $icon_edit_url,
-'URL_RENAME_FILE'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index .'&amp;action=2',
-'URL_DELETE_FILE'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index . '&amp;action=3',
-'URL_UNZIP_FILE'   => ($unzip_archive_support) ? $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index .'&amp;action=6' : '',
-'TXT_EDIT'         => ($icon_edit_url <> '-' && $file_info['icon'] == 'image')
-                                  ? ($LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'] . ' (Online: PIXLR)')
-                                  : $LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'],
-);
+    // replace placeholders with dynamic file information
+    $data['afe']['FILES'][] = array(
+    'FILE_NAME'        => $file_name,
+    'FILE_SIZE'        => ($file_info['size'] == '') ? '&nbsp;' : $file_info['size'],
+    'FILE_MAKE_TIME'   => $file_info['maketime'],
+    'CLASS_ODD_EVEN'   => ($index % 2 == 0) ? 'odd ' : '',
+    'CLASS_FOLDER'     => ($file_info['type'] == 'folder') ? 'folder ' : 'file',
+    'CLASS_PERMISSION' => is_writeable($file_info['path']) ? '' : 'permission',
+    'URL_ICON_FOLDER'  => $url_icon_folder,
+    'FILE_ICON'        => $file_info['icon'],
+    'TXT_FILE_TYPE'    => $LANG['ADDON_FILE_EDITOR'][2]['TXT_FILE_TYPE_' . strtoupper($file_info['icon'])],
+    'HIDE_EDIT_ICON'   => ($icon_edit_url == '-') ? 'hidden' : '',
+    'HIDE_UNZIP_ICON'  => ($unzip_archive_support && substr(strtolower($file_name), -4) == '.zip') ? '' : 'hidden',
+    'TARGET_BLANK'     => ($icon_edit_url <> '-' && $file_info['icon'] == 'image') ? ' ' : '',
+    'URL_EDIT_FILE'    => $icon_edit_url,
+    'URL_RENAME_FILE'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index .'&amp;action=2',
+    'URL_DELETE_FILE'  => $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index . '&amp;action=3',
+    'URL_UNZIP_FILE'   => ($unzip_archive_support) ? $url_action_handler . '?aid=' . $aid . '&amp;fid=' . $index .'&amp;action=6' : '',
+    'TXT_EDIT'         => ($icon_edit_url <> '-' && $file_info['icon'] == 'image')
+                                      ? ($LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'] . ' (Online: PIXLR)')
+                                      : $LANG['ADDON_FILE_EDITOR'][2]['TXT_EDIT'],
+    );
 
 $index++;
-}
-
+}  // end foreach
+// load template file depending on $aid
+$tpl = $twig->loadTemplate('addons_filemanager.htt');
 // ouput the final template
 $tpl->display($data);
 

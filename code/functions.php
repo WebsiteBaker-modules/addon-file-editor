@@ -270,6 +270,7 @@ function getAddons($force_reload = false)
                 // skip empty folders
                 $files_in_folder = glob($folder.$path_sep.'*.*', GLOB_ERR|GLOB_NOSORT);
                 if (!is_array($files_in_folder)){ continue;}
+                sort($files_in_folder);
                 // loop over all files contained in actual folder
                 foreach ($files_in_folder as $file) {
                     $file_extension = getFileExtension($file);
@@ -333,23 +334,24 @@ function getFileIconByExtension($file, $extension)
 function removeFileOrFolder($path)
 {
         global $path_sep;
+        $bRetval = false;
         if (is_dir($path) && is_readable($path)) {
-
-                $entries = array();
-                if ($handle = opendir($path)) {
-                        while (false !== ($file = readdir($handle))) $entries[] = $file;
-                        closedir($handle);
+            $entries = [];
+            if ($handle = opendir($path)) {
+                while (false !== ($file = readdir($handle))) $entries[] = $file;
+                closedir($handle);
+            }
+            foreach ($entries as $entry) {
+                if ($entry != '.' && $entry != '..' && $entry!='.svn') {
+                    $bRetval = removeFileOrFolder($path . $path_sep . $entry);
                 }
-
-                foreach ($entries as $entry) {
-                        if ($entry != '.' && $entry != '..' && $entry!='.svn') {
-                                removeFileOrFolder($path . $path_sep . $entry);
-                        }
-                }
-                return @rmdir($path);
+            }
+            $bRetval = @rmdir($path);
         } else {
-                return @unlink($path);
+            if (file_exists($path)){
+            $bRetval = @unlink($path);}
         }
+        return $bRetval;
 }
 
 function renameFileOrFolder($path_old, $new_name)
@@ -483,7 +485,8 @@ function myAdminHandler($addon_id_dir, $section_name, $section_permission = 'sta
 
         // check if the specified addon exists in WB database
         $addon_data = getAddonInfos($addon_id_dir);
-        if (! $addon_data) return new admin($section_name, $section_permission, $auto_header, $auto_auth);
+        if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
+        if (! $addon_data) {return new admin($section_name, $section_permission, $auto_header, $auto_auth);}
 
         // create full path to specified addon
         $addon_path = WB_PATH . $path_sep . $addon_data['type'] . 's' . $path_sep . $addon_data['directory'] . $path_sep;
@@ -492,10 +495,12 @@ function myAdminHandler($addon_id_dir, $section_name, $section_permission = 'sta
         // check if specified addon contains a backend.css or backend.js file to include
         $backend_css = (is_readable($addon_path . 'backend.css')) ? $addon_url . 'backend.css' : '';
         $backend_js = (is_readable($addon_path . 'backend.js')) ? $addon_url . 'backend.js' : '';
-        if ($backend_css == '' && $backend_js == '') return new admin($section_name, $section_permission, $auto_header, $auto_auth);
+        if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
+        if ($backend_css == '' && $backend_js == '') {return new admin($section_name, $section_permission, $auto_header, $auto_auth);}
 
         // store output created by admin class in variable
         ob_start();
+        if(!class_exists('admin')){ include(WB_PATH.'/framework/class.admin.php'); }
         $admin = new admin('Admintools', 'admintools', true, false);
         $output = ob_get_contents();
         ob_end_clean();
@@ -503,14 +508,14 @@ function myAdminHandler($addon_id_dir, $section_name, $section_permission = 'sta
         // include Edit Area framework manually to fix corrupt wb_wrapper_edit_area.php (WB 2.8 to 2.8.1 RC3)
         $edit_area_js = '';
         if (isset($_GET['action']) && $_GET['action'] == 1 && strpos($output, 'edit_area_full.js') === false && file_exists(WB_PATH . '/include/editarea/edit_area_full.js')) {
-                $edit_area_js .= '<script type="text/javascript" src="' . WB_URL . '/include/editarea/edit_area_full.js"></script>' . "\n";
+                $edit_area_js .= '<script src="' . WB_URL . '/include/editarea/edit_area_full.js"></script>' . "\n";
         }
 
         // check if a </head> tag is available
         $inject_start = strpos($output, '</head>');
         if ($inject_start !== false) {
                 $css_link = ($backend_css == '') ? '' : '<link href="' . $backend_css . '" rel="stylesheet" type="text/css" media="screen" />';
-                $js_link = ($backend_js == '') ? '' : '<script type="text/javascript" src="' . $backend_js . '"></script>';
+                $js_link = ($backend_js == '') ? '' : '<script src="' . $backend_js . '"></script>';
                 $output_new = substr($output, 0, $inject_start - 1);
                 $output_new .= "\n" . $css_link . "\n" . $js_link . $edit_area_js;
                 $output_new .= strstr($output, '</head>');
@@ -550,7 +555,7 @@ function writeStatusMessage($message, $back_url = '', $success = true, $auto_red
         // work out back link and javascript timer for sucess messages
         if ($back_url != '') {
                 $back_link = '<a class="backlink" href="' . $back_url . '">' . $TEXT['BACK'] . '</a>';
-                $timer = '<script language="javascript" type="text/javascript">setTimeout("location.href=\'';
+                $timer = '<script language="javascript">setTimeout("location.href=\'';
                 $timer .= $back_url . '\'", ' . (int)$redirect_timer . ');</script>';
         }
 
@@ -635,7 +640,7 @@ function createPixlrURL($img_url, $img_file, $url_only = true)
 
         if ($url_only == true) return $pixlr_url;
 
-        return '<a href="' . $pixlr_url . '" target="_blank" title="edit with pixlr.com">' . basename($img_file) . '</a>';
+        return '<a href="' . $pixlr_url . '" title="edit with pixlr.com">' . basename($img_file) . '</a>';
 }
 
 /**
@@ -657,7 +662,7 @@ function myRegisterEditArea($syntax = 'php')
 
         // return Javascript code
         $result = <<< EOT
-        <script type="text/javascript">
+        <script>
                 editAreaLoader.init({
                         id:                     'code_area',
                         start_highlight:        true,
